@@ -19,7 +19,7 @@ private:
 	int level;		
 	std::istream *input;	// a ptr to the input stream of block
 	double generateUniformRand(double min, double max);	//generate a uniform(min, max) random variable
-	int generateIndex(int *distribution);  //based on the distribution of blocks, generate an index corresponding to one block
+	int generateIndex(double *distribution);  //based on the distribution of blocks, generate an index corresponding to one block
 
 };
 
