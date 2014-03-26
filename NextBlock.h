@@ -9,7 +9,6 @@ class NextBlock
 {
 public:
 	NextBlock(int level);	//ctor
-	~NextBlock();	//dtor
 	int getLevel();	// return level of next block
 	std::string getRandomType();	//return the type of next block, randomly
 	std::string getNonRandomType(std::istream &blockstream);	//when level is 0, next block is determined by a stream
