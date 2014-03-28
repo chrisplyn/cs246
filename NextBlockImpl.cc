@@ -1,4 +1,7 @@
-
+/*
+ * NextBlockImpl.cc
+ *
+ */
 
 #include "NextBlockImpl.h"
 #include <cstdlib>
@@ -22,6 +25,27 @@ int NextBlockImpl::generateIndex(double *distribution){
 	}
 	return -1;
 }
+
+void NextBlockImpl::setBlockDistribution(){
+	if (level == 1){
+		for (int i = 0; i < 7; ++i){
+			distribution[i] = (double)1 / 6;
+		}
+		distribution[4] = distribution[5] = (double)1 / 12;
+	}
+	else if (level == 2){
+		for (int i = 0; i < 7; ++i){
+			distribution[i] = (double)1 / 7;
+		}
+	}
+	else if (level == 3){
+		for (int i = 0; i < 7; ++i){
+			distribution[i] = (double)1 / 9;
+		}
+		distribution[4] = distribution[5] = (double)2 / 9;
+	}
+}
+
 
 string NextBlockImpl::matchType(int index){
 	string type;
