@@ -27,6 +27,7 @@ string NextBlock::getNonRandomType(){
 	return type;
 }
 
+// return true if input block stream is exhausted
 bool NextBlock::noRandomType(){
 	return pImpl->failed;
 }
@@ -34,27 +35,9 @@ bool NextBlock::noRandomType(){
 //when level is 1 or above, generate a random type of block
 string NextBlock::getRandomType(){
 	string type;
-	int index;
-	double distribution[7];
-	if (pImpl->level == 1){
-		for (int i = 0; i < 7; ++i){
-			distribution[i] = (double) 1 / 6;
-		}
-		distribution[4] = distribution[5] = (double) 1 / 12;
-	}
-	else if (pImpl->level == 2){
-		for (int i = 0; i < 7; ++i){
-			distribution[i] = (double) 1 / 7;
-		}
-	}
-	else if (pImpl->level == 3){
-		for (int i = 0; i < 7; ++i){
-			distribution[i] = (double) 1 / 9;
-		}
-		distribution[4] = distribution[5] = (double) 2 / 9;
-	}
-
-	index = pImpl->generateIndex(distribution);
+	int index;	
+	pImpl->setBlockDistribution();
+	index = pImpl->generateIndex(pImpl->distribution);
 	type = pImpl->matchType(index);
 	return type;
 }
