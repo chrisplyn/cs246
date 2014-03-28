@@ -4,22 +4,21 @@
 #include <string>
 #include <iostream>
 
-class Board;
+class NextBlockImpl;
 class NextBlock
 {
 public:
-	NextBlock(int level);	//ctor
+	NextBlock(int level);	//ctor param: level
+	~NextBlock();			//dtor
 	int getLevel();	// return level of next block
 	std::string getRandomType();	//return the type of next block, randomly
-	std::string getNonRandomType(std::istream &blockstream);	//when level is 0, next block is determined by a stream
-	void updateLevel();		
+	std::string getNonRandomType();	//when level is 0, next block is determined by a stream
+	bool noRandomType();
+	void setInputStream(std::istream &);	//set input block stream when level is 0
 
 private:
-	int level;		
-	std::istream *input;	// a ptr to the input stream of block
-	double generateUniformRand(double min, double max);	//generate a uniform(min, max) random variable
-	int generateIndex(double *distribution);  //based on the distribution of blocks, generate an index corresponding to one block
-
+	NextBlockImpl *pImpl; //use bridge pattern, if a new level is introduced, only NextBlock.cc needs
+						  //to be recompiled.
 };
 
 #endif 
