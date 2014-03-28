@@ -1,9 +1,4 @@
-/*
- * NextBlockImpl.cc
- *
- *  Created on: Mar 27, 2014
- *      Author: Yinuo Liu
- */
+
 
 #include "NextBlockImpl.h"
 #include <cstdlib>
