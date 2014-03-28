@@ -5,6 +5,7 @@ using namespace std;
 //ctor
 NextBlock::NextBlock(int level): pImpl(new NextBlockImpl(level)){}
 
+//dtor
 NextBlock::~NextBlock(){
 	delete pImpl;
 }
@@ -27,7 +28,11 @@ string NextBlock::getNonRandomType(){
 	return type;
 }
 
+<<<<<<< HEAD
 // return true if input block stream is exhausted
+=======
+// check whether input block stream is exhausted
+>>>>>>> 808bdc4bc228f11c24082ca3c9d6f803c6c5e304
 bool NextBlock::noRandomType(){
 	return pImpl->failed;
 }
