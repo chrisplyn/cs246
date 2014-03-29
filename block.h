@@ -9,19 +9,23 @@
 
 class Block{
 protected:
-    Cell * cells;
+    Cell *[4] cells;
     std::string type;
 public:
     std::string getType();
-    bool canMoveLeft(Board * board);
-    bool canMoveRight(Board *board);
-    bool canRotateClockwise(Board *board);
-    bool canRotateAnticlockwise(Board *board);
-    void rotateClockwise();
-    void rotateAnticlockwise();
-    void moveLeft();
-    void moveRight();
-    void drop();
+    virtual bool canMoveLeft(Board *board);
+    virtual bool canMoveRight(Board *board);
+    virtual bool canMoveDown(Board *board);
+    virtual bool canRotateClockwise(Board *board);
+    virtual bool canRotateAnticlockwise(Board *board);
+    virtual void rotateClockwise();
+    virtual void rotateAnticlockwise();
+    virtual void moveLeft();
+    virtual void moveRight();
+    virtual void drop();
+    
+    Block(std::string type);
+    virtual ~Block()=0;
 };
 
 
