@@ -9,7 +9,6 @@
 
 class Block{
 protected:
-    Cell *[4] cells;
     std::string type;
 public:
     std::string getType();
