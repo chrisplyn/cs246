@@ -9,7 +9,7 @@
 #include <string>
 
 class OBlock : public Block{
-    Cell * cells[3];
+    Cell * cells[4];
 public:
     bool canMoveLeft(Board * board);
     bool canMoveRight(Board *board);
