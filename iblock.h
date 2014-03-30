@@ -3,7 +3,7 @@
 #define __IBLOCK_H__
 #include "block.h"
 
-class IBlock::public Block{
+class IBlock:public Block{
     Cell *[4] cells;
 public:
     bool canMoveLeft(Board * board);
@@ -17,7 +17,7 @@ public:
     void moveRight();
     void drop();
     
-    IBlock(const Board& board, std::string type);
+    IBlock(const Board& board);
     ~IBlock();
 
 };

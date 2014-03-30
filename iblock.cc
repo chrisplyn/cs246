@@ -3,7 +3,7 @@
 #include "cell"
 using namespace std;
 
-IBlock::IBlock(const Board& board, string type):Block(type){
+IBlock::IBlock(const Board& board):Block(){
     
     Cell ** grid = board.getGrid();
     
@@ -21,21 +21,21 @@ IBlock::IBlock(const Board& board, string type):Block(type){
     cells[2]->setType("I");
     cells[3]->setType("I");
     
-    cells[0].addToNeighbour(grid[1]);
-    cells[0].addToNeighbour(grid[2]);
-    cells[0].addToNeighbour(grid[3]);
+    cells[0]->addToNeighbour(cells[1]);
+    cells[0]->addToNeighbour(cells[2]);
+    cells[0]->addToNeighbour(cells[3]);
     
-    cells[1].addToNeighbour(grid[0]);
-    cells[1].addToNeighbour(grid[2]);
-    cells[1].addToNeighbour(grid[3]);
+    cells[1]->addToNeighbour(cells[0]);
+    cells[1]->addToNeighbour(cells[2]);
+    cells[1]->addToNeighbour(cells[3]);
     
-    cells[2].addToNeighbour(grid[0]);
-    cells[2].addToNeighbour(grid[1]);
-    cells[2].addToNeighbour(grid[3]);
+    cells[2]->addToNeighbour(cells[0]);
+    cells[2]->addToNeighbour(cells[1]);
+    cells[2]->addToNeighbour(cells[3]);
     
-    cells[3].addToNeighbour(grid[0]);
-    cells[3].addToNeighbour(grid[1]);
-    cells[3].addToNeighbour(grid[2]);
+    cells[3]->addToNeighbour(cells[0]);
+    cells[3]->addToNeighbour(cells[1]);
+    cells[3]->addToNeighbour(cells[2]);
     
 }
 
