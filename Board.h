@@ -17,6 +17,7 @@ class Board{
    public:
     Board();
     Board(int Level);
+    Cell ** getGrid();
     int getLevel();
     int getMaxDelete();
     

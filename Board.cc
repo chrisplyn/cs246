@@ -44,6 +44,10 @@ Board::Board(int Level){
     }
 }
 
+Cell ** Board::getGrid(){
+    return grid;
+}
+
 int Board::getLevel(){
     return level;
 }
