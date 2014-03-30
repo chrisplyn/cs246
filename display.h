@@ -3,8 +3,8 @@
  *
  */
 
-#ifndef TEXTDISPLAY_H_
-#define TEXTDISPLAY_H_
+#ifndef __TEXTDISPLAY_H__
+#define __TEXTDISPLAY_H__
 
 #include <string>
 #include <iostream>
@@ -29,4 +29,4 @@ public:
 
 
 
-#endif /* TEXTDISPLAY_H_ */
+#endif
