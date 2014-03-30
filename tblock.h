@@ -1,15 +1,13 @@
 
-
-#ifndef __OBLOCK_H__
-#define __OBLOCK_H__
+#ifndef __TBLOCK_H__
+#define __TBLOCK_H__
 
 #include "block.h"
-#include "cell.h"
 #include "board.h"
-#include <string>
 
-class OBlock : public Block{
+class TBlock:public Block{
     Cell * cells[3];
+    int direction();
 public:
     bool canMoveLeft(Board * board);
     bool canMoveRight(Board *board);
@@ -23,8 +21,8 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    OBlock(Board& board, int level);
-    ~OBlock();
+    TBlock(Board& board, int level);
+    ~TBlock();
     
 };
 

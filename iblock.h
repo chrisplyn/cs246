@@ -5,7 +5,7 @@
 #include "board.h"
 
 class IBlock:public Block{
-    Cell *[4] cells;
+    Cell * cells[3];
     int direction();
 public:
     bool canMoveLeft(Board * board);
