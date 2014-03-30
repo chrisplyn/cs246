@@ -21,6 +21,10 @@ Cell::Cell(string Type,int level){
     yCoordiante = -1;
 }
 
+void Cell::setLT(std::string Type,int level){
+    type = Type;
+    Level = level;
+}
 
 void Cell::toggle(string Type){
     type = Type;

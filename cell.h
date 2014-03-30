@@ -2,7 +2,7 @@
 #define __CELL_H__
 #include <string>
 #include "Score.h"
-#include "display.h"
+#include "Display.h"
 #define NeighbourMax 3
 
 class Cell{
@@ -14,6 +14,7 @@ class Cell{
 public:
     Cell();
     Cell(std::string Type,int level);
+    void setLT(std::string Type,int level);
     void toggle(std::string Type);
     bool isOn();
     std::string getType();
