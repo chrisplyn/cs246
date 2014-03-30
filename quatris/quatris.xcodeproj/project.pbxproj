@@ -20,7 +20,7 @@
 		89DE9EFD18E8BEE800650947 /* tblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EFB18E8BEE800650947 /* tblock.cc */; };
 		89DE9F0018E8BEF800650947 /* zblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EFE18E8BEF800650947 /* zblock.cc */; };
 		89DE9F0318E8BF3300650947 /* lblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0118E8BF3300650947 /* lblock.cc */; };
-		89DE9F0618E8BF5E00650947 /* jblock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0418E8BF5E00650947 /* jblock.cpp */; };
+		89DE9F0618E8BF5E00650947 /* jblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0418E8BF5E00650947 /* jblock.cc */; };
 		89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0718E8BF7E00650947 /* sblock.cc */; };
 		89DE9F0C18E8C1F300650947 /* score.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0A18E8C1F300650947 /* score.cc */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		89DE9EFF18E8BEF800650947 /* zblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zblock.h; path = ../zblock.h; sourceTree = "<group>"; };
 		89DE9F0118E8BF3300650947 /* lblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lblock.cc; path = ../lblock.cc; sourceTree = "<group>"; };
 		89DE9F0218E8BF3300650947 /* lblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lblock.h; path = ../lblock.h; sourceTree = "<group>"; };
-		89DE9F0418E8BF5E00650947 /* jblock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jblock.cpp; path = ../jblock.cpp; sourceTree = "<group>"; };
+		89DE9F0418E8BF5E00650947 /* jblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jblock.cc; path = ../jblock.cc; sourceTree = "<group>"; };
 		89DE9F0518E8BF5E00650947 /* jblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jblock.h; path = ../jblock.h; sourceTree = "<group>"; };
 		89DE9F0718E8BF7E00650947 /* sblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sblock.cc; path = ../sblock.cc; sourceTree = "<group>"; };
 		89DE9F0818E8BF7E00650947 /* sblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sblock.h; path = ../sblock.h; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				89DE9F0718E8BF7E00650947 /* sblock.cc */,
 				89DE9F0818E8BF7E00650947 /* sblock.h */,
-				89DE9F0418E8BF5E00650947 /* jblock.cpp */,
+				89DE9F0418E8BF5E00650947 /* jblock.cc */,
 				89DE9F0518E8BF5E00650947 /* jblock.h */,
 				89DE9F0118E8BF3300650947 /* lblock.cc */,
 				89DE9F0218E8BF3300650947 /* lblock.h */,
@@ -189,7 +189,7 @@
 			files = (
 				89DE9F0018E8BEF800650947 /* zblock.cc in Sources */,
 				89DE9EF318E7B67D00650947 /* cell.cc in Sources */,
-				89DE9F0618E8BF5E00650947 /* jblock.cpp in Sources */,
+				89DE9F0618E8BF5E00650947 /* jblock.cc in Sources */,
 				89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */,
 				89DE9F0318E8BF3300650947 /* lblock.cc in Sources */,
 				89DE9EF418E7B67D00650947 /* iblock.cc in Sources */,
