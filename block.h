@@ -1,4 +1,3 @@
-
 #ifndef __BLOCK_H__
 #define __BLOCK_H__
 
@@ -9,10 +8,7 @@
 
 class Block{
 protected:
-<<<<<<< HEAD
     Cell *cells[4];
-=======
->>>>>>> 4b5b46fdde35fb040b9c1b5a7cc237b2c7b24fd5
     std::string type;
 public:
     std::string getType();
