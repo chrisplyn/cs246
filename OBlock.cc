@@ -47,8 +47,8 @@ bool OBlock::canMoveLeft(Board *board){
     Cell **grid = board->getGrid();
 
     //check 0
-    int xcoordinate = cells[0].getX();
-    int ycoordinate = cells[0].getY();
+    int xcoordinate = cells[0]->getX();
+    int ycoordinate = cells[0]->getY();
     if (xcoordinate==0) { //at the left edge
         return false;
     }
@@ -57,8 +57,8 @@ bool OBlock::canMoveLeft(Board *board){
     }
     
     //check 2
-    xcoordinate = cells[2].getX();
-    ycoordinate = cells[2].getY();
+    xcoordinate = cells[2]->getX();
+    ycoordinate = cells[2]->getY();
     if (grid[xcoordinate-1][ycoordinate].isOn()) {
         return false;
     }
@@ -71,8 +71,8 @@ bool OBlock::canMoveRight(Board *board){
     Cell **grid = board->getGrid();
     
     //check 1
-    int xcoordinate = cells[1].getX();
-    int ycoordinate = cells[1].getY();
+    int xcoordinate = cells[1]->getX();
+    int ycoordinate = cells[1]->getY();
     if (xcoordinate==9) { //at the left edge
         return false;
     }
@@ -81,8 +81,8 @@ bool OBlock::canMoveRight(Board *board){
     }
     
     //check 3
-    xcoordinate = cells[3].getX();
-    ycoordinate = cells[3].getY();
+    xcoordinate = cells[3]->getX();
+    ycoordinate = cells[3]->getY();
     if (grid[xcoordinate+1][ycoordinate].isOn()) {
         return false;
     }
@@ -94,8 +94,8 @@ bool OBlock::canMoveDown(Board *board){
     Cell **grid = board->getGrid();
     
     //check 0
-    int xcoordinate = cells[0].getX();
-    int ycoordinate = cells[0].getY();
+    int xcoordinate = cells[0]->getX();
+    int ycoordinate = cells[0]->getY();
     if (ycoordinate==0) { //at the lower edge
         return false;
     }
@@ -103,18 +103,19 @@ bool OBlock::canMoveDown(Board *board){
         return false; //the lower cell is pre-occupied
     }
     //check 1
-    int xcoordinate = cells[1].getX();
-    int ycoordinate = cells[1].getY();
+    xcoordinate = cells[1]->getX();
+    ycoordinate = cells[1]->getY();
     if (grid[xcoordinate][ycoordinate-1].isOn()) {
         return false; //the lower cell is pre-occupied
     }
+    return true;
 }
 
 bool OBlock::canRotateClockwise(Board *board){
     return true;
 }
 
-bool OBlock::canRotateAntiClockwise(Board *board){
+bool OBlock::canRotateAnticlockwise(Board *board){
     return true;
 }
 
@@ -132,7 +133,7 @@ void swap(int x, int y, Board *board){
 void OBlock::moveLeft(Board *board){
     //int originX = cells[0]->getX();
     //int originY = cells[0]->getY();
-    if (!canMoveLeft()) {
+    if (!canMoveLeft(board)) {
         return;
     }
     Cell **grid = board->getGrid();
@@ -140,30 +141,12 @@ void OBlock::moveLeft(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        
-        Cell *temp[3];
-        temp[0] = cells[i]->getNeighbour(0);
-        temp[1] = cells[i]->getNeighbour(1);
-        temp[2] = cells[i]->getNeighbour(2);
-        
-        cells[i]->deleteFromNeighbour();
-        
-        temp[0]->addToNeighbour(&grid[coorX-1][coorY]);
-        temp[1]->addToNeighbour(&grid[coorX-1][coorY]);
-        temp[2]->addToNeighbour(&grid[coorX-1][coorY]);
-
-        grid[coorX-1][coorY].addToNeighbour(temp[0]);
-        grid[coorX-1][coorY].addToNeighbour(temp[1]);
-        grid[coorX-1][coorY].addToNeighbour(temp[2]);
-        
-        grid[coorX-1][coorY].setLT(cells[i]);
-        cells[i]->reset();
-        cells[i] = &grid[coorX-1][coorY];
+        cells[i]->Swap(&grid[coorX-1][coorY]);
     }
 }
 
 void OBlock::moveRight(Board *board){
-    if (!canMoveLeft()) {
+    if (!canMoveLeft(board)) {
         return;
     }
     Cell **grid = board->getGrid();
@@ -171,28 +154,12 @@ void OBlock::moveRight(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        
-        Cell *temp[3];
-        temp[0] = cells[i]->getNeighbour(0);
-        temp[1] = cells[i]->getNeighbour(1);
-        temp[2] = cells[i]->getNeighbour(2);
-        
-        cells[i]->deleteFromNeighbour();
-        temp[0]->addToNeighbour(&grid[coorX+1][coorY]);
-        temp[1]->addToNeighbour(&grid[coorX+1][coorY]);
-        temp[2]->addToNeighbour(&grid[coorX+1][coorY]);
-        grid[coorX+1][coorY].addToNeighbour(temp[0]);
-        grid[coorX+1][coorY].addToNeighbour(temp[1]);
-        grid[coorX+1][coorY].addToNeighbour(temp[2]);
-        
-        grid[coorX+1][coorY].setLT(cells[i]);
-        cells[i]->reset();
-        cells[i] = &grid[coorX+1][coorY];
+        cells[i]->Swap(&grid[coorX+1][coorY]);
     }
 }
 
 void OBlock::moveDown(Board *board){
-    if (!canMoveLeft()) {
+    if (!canMoveLeft(board)) {
         return;
     }
     Cell **grid = board->getGrid();
@@ -200,23 +167,7 @@ void OBlock::moveDown(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        
-        Cell *temp[3];
-        temp[0] = cells[i]->getNeighbour(0);
-        temp[1] = cells[i]->getNeighbour(1);
-        temp[2] = cells[i]->getNeighbour(2);
-        
-        cells[i]->deleteFromNeighbour();
-        temp[0]->addToNeighbour(&grid[coorX][coorY-1]);
-        temp[1]->addToNeighbour(&grid[coorX][coorY-1]);
-        temp[2]->addToNeighbour(&grid[coorX][coorY-1]);
-        grid[coorX][coorY-1].addToNeighbour(temp[0]);
-        grid[coorX][coorY-1].addToNeighbour(temp[1]);
-        grid[coorX][coorY-1].addToNeighbour(temp[2]);
-        
-        grid[coorX][coorY-1].setLT(cells[i]);
-        cells[i]->reset();
-        cells[i] = &grid[coorX][coorY-1];
+        cells[i]->Swap(&grid[coorX][coorY-1]);
     }
 }
 
@@ -255,8 +206,8 @@ void OBlock::drop(Board *board){
     grid[originX+1][originY] = new Cell();
     grid[originX+1][originY+1] = new Cell();
      */
-    while (canMoveDown()) {
-        MoveDown();
+    while (canMoveDown(board)) {
+        moveDown(board);
     }
     return;
 }

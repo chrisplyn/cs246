@@ -17,11 +17,12 @@ public:
     bool canMoveDown(Board *board);
     bool canRotateClockwise(Board *board);
     bool canRotateAnticlockwise(Board *board);
-    void rotateClockwise();
-    void rotateAnticlockwise();
-    void moveLeft();
-    void moveRight();
-    void drop();
+    void rotateClockwise(Board *board);
+    void rotateAnticlockwise(Board *board);
+    void moveLeft(Board *board);
+    void moveRight(Board *board);
+    void moveDown(Board *board);
+    void drop(Board *board);
     
     OBlock(Board& board, int level);
     ~OBlock();
