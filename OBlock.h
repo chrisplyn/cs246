@@ -6,8 +6,10 @@
 #include "block.h"
 #include "cell.h"
 #include "board.h"
+#include <string>
 
-Class OBlock:public Block{
+Class OBlock : public Block{ 
+    Cell *[4] cells;
 public:
     bool canMoveLeft(Board * board);
     bool canMoveRight(Board *board);
@@ -20,7 +22,7 @@ public:
     void moveRight();
     void drop();
     
-    OBlock(const Board& board);
+    OBlock(const Board& board, std::string type);
     ~OBlock();
     
 };
