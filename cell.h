@@ -14,10 +14,20 @@ class Cell{
 public:
     Cell();
     Cell(std::string Type,int level);
+    void storeTemp(Cell * tmp[3]);
+    void addToNeighbour(Cell *);
+    void addNeighbour(Cell *);
+    void deleteFromNeighbour();
+    void deleteNeighbour(Cell *);
+    
+    void Swap(Cell *c);
+    
+    Cell * getNeighbour(int index);
     void setLT(std::string Type,int level);
     void toggle(std::string Type);
     bool isOn();
     std::string getType();
+    int getLevel();
     void setCoordinates(int x, int y);
     void notifyScore(Score * score);
     void notifyDisplay(Display * dp);

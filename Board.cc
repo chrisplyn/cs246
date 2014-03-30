@@ -18,7 +18,7 @@ Board::Board(){
         grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",0);
+            grid[i][j].setLT("",-1);
         }
     }
 
@@ -36,7 +36,7 @@ Board::Board(int Level){
         grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",Level);
+            grid[i][j].setLT("",-1);
         }
     }
 }
