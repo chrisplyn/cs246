@@ -10,6 +10,7 @@
 
 class OBlock : public Block{
     Cell *[4] cells;
+    int level;
 public:
     bool canMoveLeft(Board * board);
     bool canMoveRight(Board *board);
@@ -22,7 +23,7 @@ public:
     void moveRight();
     void drop();
     
-    OBlock(const Board& board);
+    OBlock(Board& board, int level);
     ~OBlock();
     
 };

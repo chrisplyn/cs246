@@ -16,6 +16,7 @@
 		89A1894118E781340098EF58 /* OBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893A18E781340098EF58 /* OBlock.cc */; };
 		89DE9EF318E7B67D00650947 /* cell.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF018E7B67D00650947 /* cell.cc */; };
 		89DE9EF418E7B67D00650947 /* iblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF218E7B67D00650947 /* iblock.cc */; };
+		89DE9EF718E8992E00650947 /* board.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF618E8992E00650947 /* board.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		89DE9EF018E7B67D00650947 /* cell.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = ../cell.cc; sourceTree = "<group>"; };
 		89DE9EF118E7B67D00650947 /* cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cell.h; path = ../cell.h; sourceTree = "<group>"; };
 		89DE9EF218E7B67D00650947 /* iblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iblock.cc; path = ../iblock.cc; sourceTree = "<group>"; };
+		89DE9EF618E8992E00650947 /* board.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = board.cc; path = ../board.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				89DE9EF118E7B67D00650947 /* cell.h */,
 				89A1893418E781340098EF58 /* block.cc */,
 				89A1893518E781340098EF58 /* block.h */,
+				89DE9EF618E8992E00650947 /* board.cc */,
 				89A1893618E781340098EF58 /* NextBlock.cc */,
 				89A1893718E781340098EF58 /* NextBlock.h */,
 				89A1893818E781340098EF58 /* NextBlockImpl.cc */,
@@ -161,6 +164,7 @@
 				89A1892C18E780FA0098EF58 /* main.cpp in Sources */,
 				89A1893E18E781340098EF58 /* block.cc in Sources */,
 				89A1893F18E781340098EF58 /* NextBlock.cc in Sources */,
+				89DE9EF718E8992E00650947 /* board.cc in Sources */,
 				892BD16118E7B4DF00F885C0 /* display.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,25 +2,27 @@
 #include "cell.h"
 using namespace std;
 
-OBlock::OBlock(const Board& board):Block(){
+OBlock::OBlock(Board& board, int level):Block(){
     
-    Cell ** grid = board.getGrid();
+    Cell **grid = board.getGrid();
     
     //---------
     //| 2 | 3 |
     //---------
     //| 0 | 1 |
     //--------- 
+    this->level = level;
     
     cells[0] = &grid[0][13];
     cells[1] = &grid[1][13];
     cells[2] = &grid[0][14];
     cells[3] = &grid[1][14];
-    //cell should provide function setType
-    cells[0]->setType("O");
-    cells[1]->setType("O");
-    cells[2]->setType("O");
-    cells[3]->setType("O");
+    
+    //cells are set to corresponding type and level
+    cells[0]->setLT("O", level);
+    cells[1]->setLT("O", level);
+    cells[2]->setLT("O", level);
+    cells[3]->setLT("O", level);
     //cell needs to provide addtoneighbour and deletefromneighbour;
     //also notify cell if their coordinates have changed
     cells[0].addToNeighbour(grid[1]);
@@ -125,9 +127,9 @@ void OBlock::rotateAnticlockwise(Board *board){
 }
 
 void OBlock::moveLeft(Board *board){
-    int originX = cells[0].getX();
-    int originY = cells[0].getY();
-    if (!this->canMoveLeft()) {
+    int originX = cells[0]->getX();
+    int originY = cells[0]->getY();
+    if (!canMoveLeft()) {
         return;
     }
     //cell should provide method to update coordinates

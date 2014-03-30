@@ -12,7 +12,7 @@ Cell::Cell(){
 }
 
 Cell::Cell(string Type,int level){
-    type = Tyep;
+    type = Type;
     Level = level;
     for (int i = 0; i< 3; i++){
         Neighbour[i] = NULL;
