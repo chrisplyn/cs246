@@ -11,7 +11,6 @@ OBlock::OBlock(Board& board, int level):Block(){
     //---------
     //| 0 | 1 |
     //--------- 
-    this->level = level;
     
     cells[0] = &grid[0][13];
     cells[1] = &grid[1][13];
