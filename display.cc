@@ -23,15 +23,24 @@ Display::~Display(){
 }
 
 void Display::updateLevel(int level){
-	cout << "Level:" <<	"        " << level << endl;
+    cout.fill(' ');
+    cout.width(7);
+	cout << "Level:";
+    cout << right << level << endl;
 }
 
 void Display::updateScore(int score){
-	cout << "Score:" <<	"        " << score << endl;
+    cout.fill(' ');
+    cout.width(7);
+	cout << "Score:";
+    cout <<	right << score << endl;
 }
 
 void Display::updateHiScore(int Hiscore){
-	cout << "Hi Score:" << "     " << Hiscore << endl;
+    cout.fill(' ');
+    cout.width(4);
+	cout << "Hi Score:";
+    cout << right << Hiscore << endl;
 }
 
 

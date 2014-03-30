@@ -126,6 +126,9 @@ void OBlock::rotateAnticlockwise(Board *board){
     return;
 }
 
+void swap(int x, int y, Board *board){
+    
+}
 void OBlock::moveLeft(Board *board){
     //int originX = cells[0]->getX();
     //int originY = cells[0]->getY();
@@ -144,6 +147,11 @@ void OBlock::moveLeft(Board *board){
         temp[2] = cells[i]->getNeighbour(2);
         
         cells[i]->deleteFromNeighbour();
+        
+        temp[0]->addToNeighbour(&grid[coorX-1][coorY]);
+        temp[1]->addToNeighbour(&grid[coorX-1][coorY]);
+        temp[2]->addToNeighbour(&grid[coorX-1][coorY]);
+
         grid[coorX-1][coorY].addToNeighbour(temp[0]);
         grid[coorX-1][coorY].addToNeighbour(temp[1]);
         grid[coorX-1][coorY].addToNeighbour(temp[2]);
@@ -155,39 +163,61 @@ void OBlock::moveLeft(Board *board){
 }
 
 void OBlock::moveRight(Board *board){
-    int originX = cells[0].getX();
-    int originY = cells[0].getY();
-    if (!this->canMoveRight()) {
+    if (!canMoveLeft()) {
         return;
     }
-    //cell should provide method to update coordinates
-    //and notify their neighbours at the same time
+    Cell **grid = board->getGrid();
+    
     for (int i =0; i<4; ++i) {
-        int x = cells[i].getX();
-        cells[i].setX(x+1);//move every cell to the right
-        cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
+        int coorX = cells[i]->getX();
+        int coorY = cells[i]->getY();
+        
+        Cell *temp[3];
+        temp[0] = cells[i]->getNeighbour(0);
+        temp[1] = cells[i]->getNeighbour(1);
+        temp[2] = cells[i]->getNeighbour(2);
+        
+        cells[i]->deleteFromNeighbour();
+        temp[0]->addToNeighbour(&grid[coorX+1][coorY]);
+        temp[1]->addToNeighbour(&grid[coorX+1][coorY]);
+        temp[2]->addToNeighbour(&grid[coorX+1][coorY]);
+        grid[coorX+1][coorY].addToNeighbour(temp[0]);
+        grid[coorX+1][coorY].addToNeighbour(temp[1]);
+        grid[coorX+1][coorY].addToNeighbour(temp[2]);
+        
+        grid[coorX+1][coorY].setLT(cells[i]);
+        cells[i]->reset();
+        cells[i] = &grid[coorX+1][coorY];
     }
-    Cell ** grid = board->getGrid();
-    grid[originX][originY] = new Cell();
-    grid[originX][originY+1] = new Cell();
 }
 
 void OBlock::moveDown(Board *board){
-    int originX = cells[0].getX();
-    int originY = cells[0].getY();
-    if (!this->canMoveDown()) {
+    if (!canMoveLeft()) {
         return;
     }
-    //cell should provide method to update coordinates
-    //and notify their neighbours at the same time
+    Cell **grid = board->getGrid();
+    
     for (int i =0; i<4; ++i) {
-        int y = cells[i].getY();
-        cells[i].setY(y-1));//move every cell down
-        cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
+        int coorX = cells[i]->getX();
+        int coorY = cells[i]->getY();
+        
+        Cell *temp[3];
+        temp[0] = cells[i]->getNeighbour(0);
+        temp[1] = cells[i]->getNeighbour(1);
+        temp[2] = cells[i]->getNeighbour(2);
+        
+        cells[i]->deleteFromNeighbour();
+        temp[0]->addToNeighbour(&grid[coorX][coorY-1]);
+        temp[1]->addToNeighbour(&grid[coorX][coorY-1]);
+        temp[2]->addToNeighbour(&grid[coorX][coorY-1]);
+        grid[coorX][coorY-1].addToNeighbour(temp[0]);
+        grid[coorX][coorY-1].addToNeighbour(temp[1]);
+        grid[coorX][coorY-1].addToNeighbour(temp[2]);
+        
+        grid[coorX][coorY-1].setLT(cells[i]);
+        cells[i]->reset();
+        cells[i] = &grid[coorX][coorY-1];
     }
-    Cell ** grid = board->getGrid();
-    grid[originX][originY+1] = new Cell();
-    grid[originX+1][originY+1] = new Cell();
 }
 
 void OBlock::drop(Board *board){
