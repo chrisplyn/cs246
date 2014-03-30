@@ -2,7 +2,7 @@
 #define __CELL_H__
 #include <string>
 #include "Score.h"
-#include "Display.h"
+#include "display.h"
 #define NeighbourMax 3
 
 class Cell{
