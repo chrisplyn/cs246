@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892BD16118E7B4DF00F885C0 /* display.cc in Sources */ = {isa = PBXBuildFile; fileRef = 892BD15F18E7B4DF00F885C0 /* display.cc */; };
 		89A1892C18E780FA0098EF58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A1892B18E780FA0098EF58 /* main.cpp */; };
 		89A1892E18E780FA0098EF58 /* quatris.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89A1892D18E780FA0098EF58 /* quatris.1 */; };
 		89A1893E18E781340098EF58 /* block.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893418E781340098EF58 /* block.cc */; };
 		89A1893F18E781340098EF58 /* NextBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893618E781340098EF58 /* NextBlock.cc */; };
 		89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893818E781340098EF58 /* NextBlockImpl.cc */; };
 		89A1894118E781340098EF58 /* OBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893A18E781340098EF58 /* OBlock.cc */; };
-		89A1894218E781340098EF58 /* textdisplay.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893C18E781340098EF58 /* textdisplay.cc */; };
+		89DE9EF318E7B67D00650947 /* cell.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF018E7B67D00650947 /* cell.cc */; };
+		89DE9EF418E7B67D00650947 /* iblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF218E7B67D00650947 /* iblock.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		892BD15F18E7B4DF00F885C0 /* display.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = display.cc; path = ../display.cc; sourceTree = "<group>"; };
+		892BD16018E7B4DF00F885C0 /* display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = display.h; path = ../display.h; sourceTree = "<group>"; };
+		892BD16618E7B5C700F885C0 /* iblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iblock.h; path = ../iblock.h; sourceTree = "<group>"; };
 		89A1892818E780FA0098EF58 /* quatris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = quatris; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A1892B18E780FA0098EF58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		89A1892D18E780FA0098EF58 /* quatris.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = quatris.1; sourceTree = "<group>"; };
@@ -41,8 +46,10 @@
 		89A1893918E781340098EF58 /* NextBlockImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextBlockImpl.h; path = ../NextBlockImpl.h; sourceTree = "<group>"; };
 		89A1893A18E781340098EF58 /* OBlock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OBlock.cc; path = ../OBlock.cc; sourceTree = "<group>"; };
 		89A1893B18E781340098EF58 /* OBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBlock.h; path = ../OBlock.h; sourceTree = "<group>"; };
-		89A1893C18E781340098EF58 /* textdisplay.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = textdisplay.cc; path = ../textdisplay.cc; sourceTree = "<group>"; };
-		89A1893D18E781340098EF58 /* textdisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textdisplay.h; path = ../textdisplay.h; sourceTree = "<group>"; };
+		89DE9EEF18E7B67D00650947 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = board.h; path = ../board.h; sourceTree = "<group>"; };
+		89DE9EF018E7B67D00650947 /* cell.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = ../cell.cc; sourceTree = "<group>"; };
+		89DE9EF118E7B67D00650947 /* cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cell.h; path = ../cell.h; sourceTree = "<group>"; };
+		89DE9EF218E7B67D00650947 /* iblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iblock.cc; path = ../iblock.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,9 @@
 		89A1891F18E780F90098EF58 = {
 			isa = PBXGroup;
 			children = (
+				89DE9EEF18E7B67D00650947 /* board.h */,
+				89DE9EF018E7B67D00650947 /* cell.cc */,
+				89DE9EF118E7B67D00650947 /* cell.h */,
 				89A1893418E781340098EF58 /* block.cc */,
 				89A1893518E781340098EF58 /* block.h */,
 				89A1893618E781340098EF58 /* NextBlock.cc */,
@@ -67,8 +77,10 @@
 				89A1893918E781340098EF58 /* NextBlockImpl.h */,
 				89A1893A18E781340098EF58 /* OBlock.cc */,
 				89A1893B18E781340098EF58 /* OBlock.h */,
-				89A1893C18E781340098EF58 /* textdisplay.cc */,
-				89A1893D18E781340098EF58 /* textdisplay.h */,
+				89DE9EF218E7B67D00650947 /* iblock.cc */,
+				892BD16618E7B5C700F885C0 /* iblock.h */,
+				892BD15F18E7B4DF00F885C0 /* display.cc */,
+				892BD16018E7B4DF00F885C0 /* display.h */,
 				89A1892A18E780FA0098EF58 /* quatris */,
 				89A1892918E780FA0098EF58 /* Products */,
 			);
@@ -142,12 +154,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DE9EF318E7B67D00650947 /* cell.cc in Sources */,
+				89DE9EF418E7B67D00650947 /* iblock.cc in Sources */,
 				89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */,
 				89A1894118E781340098EF58 /* OBlock.cc in Sources */,
 				89A1892C18E780FA0098EF58 /* main.cpp in Sources */,
 				89A1893E18E781340098EF58 /* block.cc in Sources */,
 				89A1893F18E781340098EF58 /* NextBlock.cc in Sources */,
-				89A1894218E781340098EF58 /* textdisplay.cc in Sources */,
+				892BD16118E7B4DF00F885C0 /* display.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +271,7 @@
 				89A1893318E780FA0098EF58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

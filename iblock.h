@@ -1,14 +1,9 @@
 
-
-#ifndef __OBLOCK_H__
-#define __OBLOCK_H__
-
+#ifndef __IBLOCK_H__
+#define __IBLOCK_H__
 #include "block.h"
-#include "cell.h"
-#include "board.h"
-#include <string>
 
-class OBlock : public Block{
+class IBlock::public Block{
     Cell *[4] cells;
 public:
     bool canMoveLeft(Board * board);
@@ -22,9 +17,9 @@ public:
     void moveRight();
     void drop();
     
-    OBlock(const Board& board);
-    ~OBlock();
-    
+    IBlock(const Board& board, std::string type);
+    ~IBlock();
+
 };
 
-#endif
+#endif 

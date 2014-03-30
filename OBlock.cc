@@ -1,8 +1,8 @@
-#include "OBlock.h"
+#include "oblock.h"
 #include "cell.h"
 using namespace std;
 
-OBlock::OBlock(const Board& board, string type):Block(type){
+OBlock::OBlock(const Board& board):Block(){
     
     Cell ** grid = board.getGrid();
     
@@ -12,15 +12,15 @@ OBlock::OBlock(const Board& board, string type):Block(type){
     //| 0 | 1 |
     //--------- 
     
-    cells[0] = grid[0][13];
-    cells[1] = grid[1][13];
-    cells[2] = grid[0][14];
-    cells[3] = grid[1][14];
+    cells[0] = &grid[0][13];
+    cells[1] = &grid[1][13];
+    cells[2] = &grid[0][14];
+    cells[3] = &grid[1][14];
     //cell should provide function setType
-    cells[0].setType("O");
-    cells[1].setType("O");
-    cells[2].setType("O");
-    cells[3].setType("O");
+    cells[0]->setType("O");
+    cells[1]->setType("O");
+    cells[2]->setType("O");
+    cells[3]->setType("O");
     //cell needs to provide addtoneighbour and deletefromneighbour;
     //also notify cell if their coordinates have changed
     cells[0].addToNeighbour(grid[1]);
@@ -132,7 +132,7 @@ void OBlock::moveLeft(Board *board){
     }
     //cell should provide method to update coordinates
     //and notify their neighbours at the same time
-    for (int 1 =0; i<4; ++i) {
+    for (int i =0; i<4; ++i) {
         int x = cells[i].getX();
         cells[i].setX(x-1);//move every cell to the left
         cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
@@ -151,7 +151,7 @@ void OBlock::moveRight(Board *board){
     }
     //cell should provide method to update coordinates
     //and notify their neighbours at the same time
-    for (int 1 =0; i<4; ++i) {
+    for (int i =0; i<4; ++i) {
         int x = cells[i].getX();
         cells[i].setX(x+1);//move every cell to the right
         cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
@@ -169,7 +169,7 @@ void OBlock::moveDown(Board *board){
     }
     //cell should provide method to update coordinates
     //and notify their neighbours at the same time
-    for (int 1 =0; i<4; ++i) {
+    for (int i =0; i<4; ++i) {
         int y = cells[i].getY();
         cells[i].setY(y-1));//move every cell down
         cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
@@ -180,7 +180,7 @@ void OBlock::moveDown(Board *board){
 }
 
 void OBlock::drop(Board *board){
-    
+    /*
     int originX = cells[0].getX();
     int originY = cells[0].getY();//the original base coordinates
     
@@ -213,6 +213,10 @@ void OBlock::drop(Board *board){
     grid[originX][originY+1] = new Cell();
     grid[originX+1][originY] = new Cell();
     grid[originX+1][originY+1] = new Cell();
-    
+     */
+    while (canMoveDown()) {
+        MoveDown();
+    }
+    return;
 }
 

@@ -9,9 +9,9 @@
 class Block{
 protected:
     Cell *cells[4];
-    std::string type;
+    //std::string type;
 public:
-    std::string getType();
+    //std::string getType();
     virtual bool canMoveLeft(Board *board);
     virtual bool canMoveRight(Board *board);
     virtual bool canMoveDown(Board *board);
@@ -23,7 +23,7 @@ public:
     virtual void moveRight();
     virtual void drop();
     
-    Block(std::string type);
+    Block();
     virtual ~Block()=0;
 };
 
