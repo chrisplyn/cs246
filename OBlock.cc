@@ -25,21 +25,21 @@ OBlock::OBlock(Board& board, int level):Block(){
     cells[3]->setLT("O", level);
     //cell needs to provide addtoneighbour and deletefromneighbour;
     //also notify cell if their coordinates have changed
-    cells[0].addToNeighbour(grid[1]);
-    cells[0].addToNeighbour(grid[2]);
-    cells[0].addToNeighbour(grid[3]);
+    cells[0]->addToNeighbour(cells[1]);
+    cells[0]->addToNeighbour(cells[2]);
+    cells[0]->addToNeighbour(cells[3]);
     
-    cells[1].addToNeighbour(grid[0]);
-    cells[1].addToNeighbour(grid[2]);
-    cells[1].addToNeighbour(grid[3]);
+    cells[1]->addToNeighbour(cells[0]);
+    cells[1]->addToNeighbour(cells[2]);
+    cells[1]->addToNeighbour(cells[3]);
     
-    cells[2].addToNeighbour(grid[0]);
-    cells[2].addToNeighbour(grid[1]);
-    cells[2].addToNeighbour(grid[3]);
+    cells[2]->addToNeighbour(cells[0]);
+    cells[2]->addToNeighbour(cells[1]);
+    cells[2]->addToNeighbour(cells[3]);
     
-    cells[3].addToNeighbour(grid[0]);
-    cells[3].addToNeighbour(grid[1]);
-    cells[3].addToNeighbour(grid[2]);
+    cells[3]->addToNeighbour(cells[0]);
+    cells[3]->addToNeighbour(cells[1]);
+    cells[3]->addToNeighbour(cells[2]);
 }
 
 bool OBlock::canMoveLeft(Board *board){
@@ -135,12 +135,13 @@ void OBlock::moveLeft(Board *board){
     //cell should provide method to update coordinates
     //and notify their neighbours at the same time
     for (int i =0; i<4; ++i) {
+        
         int x = cells[i].getX();
         cells[i].setX(x-1);//move every cell to the left
         cells[i].notifyNeighbour();//notify neighbours that the corrdinates have changed
     }
     Cell ** grid = board->getGrid();
-    grid[originX+1][originY] = new Cell();
+    grid[originX+1][originY] = new Cell;
     grid[originX+1][originY+1] = new Cell();
     
 }
