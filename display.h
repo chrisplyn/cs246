@@ -1,10 +1,10 @@
 /*
- * textdisplay.h
+ * display.h
  *
  */
 
-#ifndef __TEXTDISPLAY_H__
-#define __TEXTDISPLAY_H__
+#ifndef __DISPLAY_H__
+#define __DISPLAY_H__
 
 #include <string>
 #include <iostream>
