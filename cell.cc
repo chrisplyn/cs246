@@ -1,6 +1,4 @@
 #include "cell.h"
-#include "display.h"
-#include "score.h"
 using namespace std;
 
 Cell::Cell(){
@@ -24,9 +22,11 @@ Cell::Cell(string Type,int level){
 }
 
 void Cell::addNeighbour(Cell * c){
-    for (int i = 0; i < 3; ++i){
-        if (Neighbour[i] == NULL){
-            Neighbour[i] = c;
+    if (this != NULL){
+        for (int i = 0; i < 3; ++i){
+            if (Neighbour[i] == NULL){
+                Neighbour[i] = c;
+            }
         }
     }
 }
@@ -37,9 +37,11 @@ void Cell::addToNeighbour(Cell * c){
 }
 
 void Cell::deleteNeighbour(Cell * c){
-    for (int i = 0; i < 3; ++i){
-        if (Neighbour[i] == c){
-            Neighbour[i] = NULL;
+    if ((c != NULL) && (this != NULL)){
+        for (int i = 0; i < 3; ++i){
+            if (Neighbour[i] == c){
+                Neighbour[i] = NULL;
+            }
         }
     }
 }
@@ -52,9 +54,11 @@ void Cell::deleteFromNeighbour(){
 }
 
 void Cell::Swap(Cell *c){
+    string t = c->getType();
+    int l = c->getLevel();
     c->setLT(type,Level);
-    Level = c->getLevel();
-    type = c->getType();
+    Level = l;
+    type = t;
     Cell * neighbour;
     for (int i =0; i < 3; ++i){
         neighbour = this->getNeighbour(i);
@@ -68,6 +72,15 @@ void Cell::Swap(Cell *c){
     for (int k =0; k < 3; ++k){
         Neighbour[k] = NULL;
     }
+}
+
+void Cell::reset(){
+    for (int i = 0; i < 3; ++i){
+        Neighbour[i] = NULL;
+    }
+    this->deleteFromNeighbour();
+    type = "";
+    Level = -1;
 }
 
 
@@ -111,7 +124,7 @@ void Cell::notifyScore(Score *score){
 
 
 void Cell::notifyDisplay(Display *dp){
-    dp->notify(xCoordinate,yCoordiante,Level);
+    dp->notify(xCoordinate,yCoordiante,type);
 }
 
 int Cell::getX(){
@@ -121,3 +134,5 @@ int Cell::getX(){
 int Cell::getY(){
     return yCoordiante;
 }
+
+Cell::~Cell(){}

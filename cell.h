@@ -1,11 +1,10 @@
 #ifndef __CELL_H__
 #define __CELL_H__
 #include <string>
-
+#include "score.h"
+#include "display.h"
 #define NeighbourMax 3
 
-class Display;
-class Score;
 class Cell{
     int Level;
     std::string type;
@@ -22,6 +21,8 @@ public:
     void deleteNeighbour(Cell *);
     
     void Swap(Cell *c);
+    
+    void reset();
     
     Cell * getNeighbour(int index);
     void setLT(std::string Type,int level);
