@@ -15,19 +15,26 @@ int main(int argc, const char * argv[])
     string filename;
     int seed = 0; //default seed to 0
     int startLevel;
-    istringstream ss(argv[0]);
     
-    while (ss.fail()) {
-        ss>>commandline;
+    
+    for (int i=1; i<argc ; ++i) {
+        
+
+        commandline = argv[i];
         if (commandline=="text")
         {
             displayMode = "text";
         } else if (commandline=="seed") {
-            ss>>seed;
+            ++i;
+            commandline = argv[i];
+            seed = atoi(commandline.c_str());
         } else if (commandline=="startlevel") {
-            ss>>startLevel;
+            ++i;
+            commandline = argv[i];
+            startLevel = atoi(commandline.c_str());
         } else if (commandline=="scriptfile") {
-            ss>>filename;
+            ++i;
+            filename = argv[i];
         }
     }
     
