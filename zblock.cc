@@ -205,22 +205,20 @@ bool ZBlock::canRotateAnticlockwise(Board *board) {
 
 void ZBlock::moveLeft(Board *board) {
     
+    if (!canMoveLeft(board)) return;
+    Cell **grid = board->getGrid();
+    
     if (direction()==0) {
-        if (!canMoveLeft(board)) return;
-        Cell **grid = board->getGrid();
-        
-        if (direction()==0) {
-            for (int i =0; i<4; ++i) {
-                int coorX = cells[i]->getX();
-                int coorY = cells[i]->getY();
-                cells[i]->Swap(&grid[coorX][coorY-1]);
-            }
-        } else {
-            for (int i =3; i>=0; --i) {
-                int coorX = cells[i]->getX();
-                int coorY = cells[i]->getY();
-                cells[i]->Swap(&grid[coorX][coorY-1]);
-            }
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY-1]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY-1]);
         }
     }
 }
