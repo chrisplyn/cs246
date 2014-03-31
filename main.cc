@@ -1,4 +1,3 @@
-
 #include "board.h"
 #include <cstdlib>
 #include <string>
@@ -26,12 +25,12 @@ int main(int argc, const char * argv[])
         } else if (commandline=="seed") {
             ++i;
             commandline = argv[i];
-			istringstream ss(commandline);
+	    istringstream ss(commandline);
             ss >> seed;
         } else if (commandline=="startlevel") {
             ++i;
             commandline = argv[i];
-			istringstream ss(commandline);
+	    istringstream ss(commandline);
             ss >> startLevel 
         } else if (commandline=="scriptfile") {
             ++i;
@@ -39,7 +38,7 @@ int main(int argc, const char * argv[])
         } else if (commandline=="maxBlock") {
             ++i;
             commandline = argv[i];
-			istringstream ss(commandline);
+	    istringstream ss(commandline);
             ss  >> maxBlockAllowed
         }
     }
