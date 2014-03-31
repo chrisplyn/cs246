@@ -20,6 +20,5 @@ public:
     void drop(Board *board);
     
     SBlock(Board& board, int level);
-    ~SBlock();
 };
 #endif

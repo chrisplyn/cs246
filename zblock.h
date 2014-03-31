@@ -20,6 +20,6 @@ public:
     void drop(Board *board);
     
     ZBlock(Board& board, int level);
-    ~ZBlock();
+    
 };
 #endif

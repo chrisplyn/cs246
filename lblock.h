@@ -2,6 +2,7 @@
 #define __LBLOCK_H__
 
 #include "block.h"
+#include "board.h"
 
 class LBlock:public Block{
     Cell * cells[4];
@@ -20,6 +21,5 @@ public:
     void drop(Board *board);
     
     LBlock(Board& board, int level);
-    ~LBlock();
 };
 #endif

@@ -38,10 +38,10 @@ TBlock::TBlock(Board &board, int level):Block(){
     
     Cell ** grid = board.getGrid();
 
-    cells[0] = &grid[4][0];
-    cells[1] = &grid[4][1];
-    cells[2] = &grid[4][2];
-    cells[3] = &grid[3][1];
+    cells[0] = &grid[3][2];
+    cells[1] = &grid[3][1];
+    cells[2] = &grid[3][0];
+    cells[3] = &grid[4][1];
     
     cells[0]->setLT("T", level);
     cells[1]->setLT("T", level);

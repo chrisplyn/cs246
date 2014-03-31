@@ -20,6 +20,5 @@ public:
     void drop(Board *board);
     
     JBlock(Board& board, int level);
-    ~JBlock();
 };
 #endif
