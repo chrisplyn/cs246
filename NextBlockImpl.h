@@ -1,12 +1,6 @@
-/*
- * NextBlockImpl.h
- *
- *  Created on: Mar 27, 2014
- *      Author: Yinuo Liu
- */
 
-#ifndef NEXTBLOCKIMPL_H_
-#define NEXTBLOCKIMPL_H_
+#ifndef __NEXTBLOCKIMPL_H_
+#define __NEXTBLOCKIMPL_H_
 
 #include <string>
 #include <iostream>
@@ -26,4 +20,4 @@ public:
 };
 
 
-#endif /* NEXTBLOCKIMPL_H_ */
+#endif 

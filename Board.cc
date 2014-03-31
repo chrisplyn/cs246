@@ -11,6 +11,9 @@
 #include "tblock.h"
 #include "sblock.h"
 #include "zblock.h"
+#include "lblock.h"
+#include "sblock.h"
+#include "jblock.h"
 
 using namespace std;
 
@@ -195,7 +198,7 @@ int Board::deleteRows(){
 
 Board::~Board(){
     //delete scoreBoard;
-    delete currentBlock;
+    //delete currentBlock;
     delete p;
     for (int i = 0;i<15;++i){
         delete [] grid[i];

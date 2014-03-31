@@ -6,10 +6,15 @@
 //  Copyright (c) 2014 Elkan. All rights reserved.
 //
 
-#include <iostream>
+#include "board.h"
+
 
 int main(int argc, const char * argv[])
 {
+    
+    for (int i =0; i<argc; ++i) {
+        <#statements#>
+    }
 
     // insert code here...
     std::cout << "Hello, World!\n";

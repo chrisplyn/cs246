@@ -1,7 +1,3 @@
-/*
- * NextBlockImpl.cc
- *
- */
 
 #include "NextBlockImpl.h"
 #include <cstdlib>
