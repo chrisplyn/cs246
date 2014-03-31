@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89A1892718E780FA0098EF58"
-               BuildableName = "quatris"
-               BlueprintName = "quatris"
-               ReferencedContainer = "container:quatris.xcodeproj">
+               BuildableName = "quadris"
+               BlueprintName = "quadris"
+               ReferencedContainer = "container:quadris.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89A1892718E780FA0098EF58"
-            BuildableName = "quatris"
-            BlueprintName = "quatris"
-            ReferencedContainer = "container:quatris.xcodeproj">
+            BuildableName = "quadris"
+            BlueprintName = "quadris"
+            ReferencedContainer = "container:quadris.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89A1892718E780FA0098EF58"
-            BuildableName = "quatris"
-            BlueprintName = "quatris"
-            ReferencedContainer = "container:quatris.xcodeproj">
+            BuildableName = "quadris"
+            BlueprintName = "quadris"
+            ReferencedContainer = "container:quadris.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89A1892718E780FA0098EF58"
-            BuildableName = "quatris"
-            BlueprintName = "quatris"
-            ReferencedContainer = "container:quatris.xcodeproj">
+            BuildableName = "quadris"
+            BlueprintName = "quadris"
+            ReferencedContainer = "container:quadris.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

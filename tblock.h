@@ -22,7 +22,7 @@ public:
     void drop(Board *board);
     
     TBlock(Board& board, int level);
-    ~TBlock();
+    //~TBlock();
     
 };
 

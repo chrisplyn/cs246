@@ -9,14 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../block.cc"
-            timestampString = "417896156.099379"
+            filePath = "../iblock.cc"
+            timestampString = "417991064.083777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6"
-            endingLineNumber = "6"
-            landmarkName = "Block::Block()"
-            landmarkType = "5">
+            startingLineNumber = "154"
+            endingLineNumber = "154">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +23,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../tblock.cc"
-            timestampString = "417973597.472919"
+            filePath = "../iblock.cc"
+            timestampString = "417991064.083777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "TBlock::canMoveLeft(Board *board)"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "IBlock::canRotateAnticlockwise(Board *board)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,12 +39,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../tblock.cc"
-            timestampString = "417912462.995897"
+            filePath = "../sblock.cc"
+            timestampString = "417991163.854185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69">
+            startingLineNumber = "217"
+            endingLineNumber = "217">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -55,27 +53,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../zblock.cc"
-            timestampString = "417973597.472919"
+            filePath = "../sblock.cc"
+            timestampString = "417991539.031034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../zblock.cc"
-            timestampString = "417974902.023705"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "ZBlock::moveDown(Board *board)"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "SBlock::moveLeft(Board *board)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

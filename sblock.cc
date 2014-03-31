@@ -210,6 +210,7 @@ void SBlock::moveLeft(Board *board) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX][coorY-1]);
+        cells[i]=&grid[coorX][coorY-1];
     }
 }
 
@@ -220,6 +221,7 @@ void SBlock::moveRight(Board *board) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX][coorY+1]);
+        cells[i]=&grid[coorX][coorY+1];
     }
 }
 
@@ -231,12 +233,14 @@ void SBlock::moveDown(Board *board) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);
+            cells[i] = &grid[coorX+1][coorY];
         }
     } else {
         for (int i =3; i>=0; --i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);
+            cells[i]=&grid[coorX+1][coorY];
         }
     }
 }
@@ -252,11 +256,17 @@ void SBlock::rotateClockwise(Board *board) {
     if (direction()==0) {
         cells[0]->Swap(&grid[cells[0]->getX()-2][cells[0]->getY()]);
         cells[1]->Swap(&grid[cells[1]->getX()-1][cells[1]->getY()-1]);
-        cells[3]->Swap(&grid[cells[3]->getX()+1][cells[0]->getY()-1]);
+        cells[3]->Swap(&grid[cells[3]->getX()+1][cells[3]->getY()-1]);
+        cells[0] = &grid[cells[0]->getX()-2][cells[0]->getY()];
+        cells[1] = &grid[cells[1]->getX()-1][cells[1]->getY()-1];
+        cells[3] = &grid[cells[3]->getX()+1][cells[3]->getY()-1];
     } else {
-        cells[3]->Swap(&grid[cells[0]->getX()-1][cells[0]->getY()+1]);
-        cells[1]->Swap(&grid[cells[1]->getX()+1][cells[0]->getY()+1]);
+        cells[3]->Swap(&grid[cells[3]->getX()-1][cells[3]->getY()+1]);
+        cells[1]->Swap(&grid[cells[1]->getX()+1][cells[1]->getY()+1]);
         cells[0]->Swap(&grid[cells[0]->getX()+2][cells[0]->getY()]);
+        cells[3] = &grid[cells[3]->getX()-1][cells[3]->getY()+1];
+        cells[1] = &grid[cells[1]->getX()+1][cells[1]->getY()+1];
+        cells[0] = &grid[cells[0]->getX()+2][cells[0]->getY()];
     }
 }
 

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 
+
 using namespace std;
 
 
@@ -49,21 +50,114 @@ int main(int argc, const char * argv[])
     
     // insert code here...
 		
-	Board b;	
-	ifstream f("sequence.txt");
+	Board b;
+	ifstream f("/Users/wangxiangkang/Desktop/cs246/sequence.txt");
+    //string temp;
+    //while (!f.eof()) {
+    //    f>>temp;
+     //   cout<<temp<<endl;
+    //}
 
-	b.setInputStream(f);
+   // cout<<f.is_open()<<endl;
+    b.setInputStream(f);
 	b.makeBlock();
+<<<<<<< HEAD
 	b.makeBlock();
 	//moveCurBlockRight();
 	//b.moveCurBlockDown();
+=======
+    
+	
+   
+	b.moveCurBlockRight();
+	b.moveCurBlockLeft();
+>>>>>>> 7260f5514061bfb951a319b7128dd48ae6bfe800
 	//b.dropCurBlock();
-	//b.rotateClockwise();
-	//b.moveCurBlockRight();
-	//b.moveCurBlockLeft();
+	b.rotateClockwise();
+	b.moveCurBlockRight();
+	b.moveCurBlockDown();
+    b.dropCurBlock();
+    //b.moveCurBlockLeft();
 	b.notifyDisplay();
 	//b.makeBlock();
 	//b.makeBlock();
+    
+    b.makeBlock();
+    b.moveCurBlockRight();
+    b.rotateAntiClockwise();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();b.moveCurBlockRight();b.moveCurBlockRight();
+    b.moveCurBlockRight();b.moveCurBlockRight();b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockLeft();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.moveCurBlockDown();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.moveCurBlockRight();
+    b.moveCurBlockLeft();
+    b.moveCurBlockDown();
+    b.rotateClockwise();
+    b.rotateClockwise();
+    b.rotateClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+
+    b.makeBlock();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockLeft();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.dropCurBlock();
+    //b.moveCurBlockDown();
+    //b.moveCurBlockDown();
+    b.notifyDisplay();
 	cout << b;
 
 }

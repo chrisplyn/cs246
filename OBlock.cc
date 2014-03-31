@@ -137,6 +137,11 @@ void OBlock::moveLeft(Board *board){
     cells[0] -> Swap(&grid[cells[0]->getX()][cells[0]->getY()-1]);
     cells[1] -> Swap(&grid[cells[1]->getX()][cells[1]->getY()-1]);
     cells[3] -> Swap(&grid[cells[3]->getX()][cells[3]->getY()-1]);
+    
+    cells[2] = &grid[cells[2]->getX()][cells[2]->getY()-1];
+    cells[0] = &grid[cells[0]->getX()][cells[0]->getY()-1];
+    cells[1] = &grid[cells[1]->getX()][cells[1]->getY()-1];
+    cells[3] = &grid[cells[3]->getX()][cells[3]->getY()-1];
 }
 
 void OBlock::moveRight(Board *board){
@@ -149,6 +154,10 @@ void OBlock::moveRight(Board *board){
     cells[3] -> Swap(&grid[cells[3]->getX()][cells[3]->getY()+1]);
     cells[2] -> Swap(&grid[cells[2]->getX()][cells[2]->getY()+1]);
     cells[0] -> Swap(&grid[cells[0]->getX()][cells[0]->getY()+1]);
+    cells[1] = &grid[cells[1]->getX()][cells[1]->getY()+1];
+    cells[3] = &grid[cells[3]->getX()][cells[3]->getY()+1];
+    cells[2] = &grid[cells[2]->getX()][cells[2]->getY()+1];
+    cells[0] = &grid[cells[0]->getX()][cells[0]->getY()+1];
     
 }
 
@@ -163,6 +172,7 @@ void OBlock::moveDown(Board *board){
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX+1][coorY]);
+        cells[i] = &grid[coorX+1][coorY];
     }
 }
 

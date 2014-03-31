@@ -21,7 +21,7 @@ public:
     void drop(Board *board);
     
     IBlock(Board& board, int level);
-    ~IBlock();
+    //~IBlock();
 
 };
 

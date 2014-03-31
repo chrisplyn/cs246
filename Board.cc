@@ -135,18 +135,19 @@ Block * Board::setCurrentBlock(string &type){
 	Block *tmp=0;
 	if (type == "O"){
 		tmp = new OBlock(*this, level);
-	}else if (type == "I"){
+	} else if (type == "I"){
 		tmp = new IBlock(*this, level);
-	}
-	else if (type == "T"){
+	} else if (type == "T"){
 		tmp = new TBlock(*this, level);
-	}
-	else if (type == "S"){
+	} else if (type == "S"){
 		tmp = new SBlock(*this, level);
-	}
-	else if (type == "Z"){
+	} else if (type == "Z"){
 		tmp = new ZBlock(*this, level);
-	}
+	} else if (type == "J"){
+        tmp = new JBlock(*this, level);
+    } else if (type == "L"){
+        tmp = new LBlock(*this, level);
+    }
 	return tmp;
 }
 
@@ -257,9 +258,6 @@ ostream &operator<<(std::ostream &out, const Board &b){
 	out << *b.p;
 	return out;
 }
-
-
-
 
 
 
