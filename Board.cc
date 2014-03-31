@@ -59,29 +59,76 @@ void Board::setInputStream(istream &input){
 
 
 void Board::makeBlock(){
-	string newType;
-	if (!nextBlock->noRandomType()){
-		newType = nextBlock->getNonRandomType();
-		//cout << newType << endl;
-		if (newType != ""){
-			currentBlock = setCurrentBlock(newType);
+
+	if (level == 0){
+		if (nextType == ""){
+			if (!nextBlock->noRandomType()){
+				nextType = nextBlock->getNonRandomType();
+				currentBlock = setCurrentBlock(nextType);
+			}
+			nextType = nextBlock->getNonRandomType();
+			if (nextType == ""){
+				cout << "txt exhausted 1" << endl;
+				return; //restart
+			}
 		}
 		else{
-			//need update level here
-			delete nextBlock;
-			nextBlock = new NextBlock(2);
-			newType = nextBlock->getRandomType();
+			currentBlock = setCurrentBlock(nextType);
+			nextType = nextBlock->getNonRandomType();
+			if (nextType == ""){
+				cout << "txt exhausted 2" << endl;
+				return; //restart
+			}
 		}
-	
 	}
 	else{
-		//need update level here
+		if (nextType == ""){
+			nextType = nextBlock->getRandomType();
+			currentBlock = setCurrentBlock(nextType);
+			nextType = nextBlock->getRandomType();
+		}
+		else{
+			currentBlock = setCurrentBlock(nextType);
+			nextType = nextBlock->getRandomType();
+		}
+	}
+
+
+
+	//string curType;
+
+	/*if (level  ){
+		nextType = nextBlock->getNonRandomType();
+
+		if (nextType != ""){
+			currentBlock = setCurrentBlock(nextType);
+		}
+		else{
+			nextType = nextBlock->getRandomType();
+		}
+
+		if (!nextBlock->noRandomType()){
+			nextType = nextBlock->getNonRandomType();
+
+			if (nextType != ""){
+				display nextType;
+			}
+		}
+
+	}
+	else{
+		need update level here
 		delete nextBlock;
 		nextBlock = new NextBlock(2);
-		newType = nextBlock->getRandomType();
-		currentBlock = setCurrentBlock(newType);
-	}
+		curType = nextBlock->getRandomType();
+		currentBlock = setCurrentBlock(curType);
+	}*/
 }
+
+
+
+
+
 
 
 Block * Board::setCurrentBlock(string &type){

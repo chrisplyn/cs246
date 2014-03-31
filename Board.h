@@ -18,6 +18,7 @@ class Board{
     int level;
     NextBlock * nextBlock;
     int MaxDelete;
+	std::string nextType;
 	Block * setCurrentBlock(std::string &);
 
    public:
@@ -28,7 +29,7 @@ class Board{
     int getMaxDelete();
 
 	void setInputStream(std::istream &input);
-	void makeBlock();
+	void makeBlock();//change here
     //Board * getInstance();//not
 
 	void moveCurBlockRight();

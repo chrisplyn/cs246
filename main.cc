@@ -54,8 +54,9 @@ int main(int argc, const char * argv[])
 
 	b.setInputStream(f);
 	b.makeBlock();
+	b.makeBlock();
 	//moveCurBlockRight();
-	b.moveCurBlockDown();
+	//b.moveCurBlockDown();
 	//b.dropCurBlock();
 	//b.rotateClockwise();
 	//b.moveCurBlockRight();
