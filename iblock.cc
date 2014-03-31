@@ -165,7 +165,7 @@ void IBlock::moveRight(Board *board){
 
 void IBlock::moveDown(Board *board){
     
-    if (!canMoveLeft(board)) {
+    if (!canMoveDown(board)) {
         return;
     }
     Cell **grid = board->getGrid();

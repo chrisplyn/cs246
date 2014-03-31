@@ -29,11 +29,16 @@ class Board{
 
 	void setInputStream(std::istream &input);
 	void makeBlock();
-    Board * getInstance();//not
+    //Board * getInstance();//not
+
+	void moveCurBlockRight();
+	void moveCurBlockLeft();
+	void rotateClockwise();
+	void rotateAntiClockwise();
+	void dropCurBlock();
+	
     void notifyScore(int curLevel,int RowsDeleted);
-  
     void deleteRow(int numOfRow);
-    
     bool isRowComplete(int numOfRow);
     
     void notifyDisplay();

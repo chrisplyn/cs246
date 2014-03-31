@@ -57,18 +57,16 @@ void Board::makeBlock(){
 	string newType;
 	if (!nextBlock->noRandomType()){
 		newType = nextBlock->getNonRandomType();
-		cout << newType << endl;
+		//cout << newType << endl;
 		if (newType != ""){
 			currentBlock = setCurrentBlock(newType);
-			currentBlock->moveRight(this); 
-			notifyDisplay();
 		}
 		else{
 			//need update level here
 			delete nextBlock;
 			nextBlock = new NextBlock(2);
 			newType = nextBlock->getRandomType();
-			notifyDisplay();
+			//notifyDisplay();
 		}
 	
 	}
@@ -96,12 +94,30 @@ Block * Board::setCurrentBlock(string &type){
 	return tmp;
 }
 
+void Board::moveCurBlockRight(){
+	currentBlock->moveRight(this);
+}
 
+void Board::moveCurBlockLeft(){
+	currentBlock->moveLeft(this);
+}
 
+void Board::rotateClockwise(){
+	currentBlock->rotateClockwise(this);
+}
+
+void Board::rotateAntiClockwise(){
+	currentBlock->rotateAnticlockwise(this);
+}
+
+void Board::dropCurBlock(){
+	currentBlock->drop(this);
+}
 
 Cell ** Board::getGrid(){
     return grid;
 }
+
 
 int Board::getLevel(){
     return level;

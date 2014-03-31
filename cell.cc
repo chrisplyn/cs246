@@ -126,11 +126,8 @@ void Cell::notifyScore(Score *score){
 void Cell::notifyDisplay(Display *dp){
 
     dp->notify(xCoordinate,yCoordiante,type);
-<<<<<<< HEAD
     //dp->notify(xCoordinate,yCoordiante,Level);
 
-=======
->>>>>>> 70838ef49a5f6b6821696c7016ec83198af67830
 }
 
 int Cell::getX(){
@@ -141,10 +138,8 @@ int Cell::getY(){
     return yCoordiante;
 }
 
-<<<<<<< HEAD
+
 
 Cell::~Cell(){}
 
-=======
-Cell::~Cell(){}
->>>>>>> 70838ef49a5f6b6821696c7016ec83198af67830
+
