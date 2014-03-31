@@ -340,14 +340,18 @@ bool LBlock::canRotateAnticlockwise(Board *board) {
     
     if (direction()==0) {
         if (grid[originX-2][originY].isOn()) return false;
-        if (grid[originX-1][originY].isOn()) return false;
-        if (grid[originX-2][originY].isOn()) return false;
+        if (grid[originX-2][originY+1].isOn()) return false;
+        if (grid[originX-1][originY+1].isOn()) return false;
     } else if (direction()==1) {
-        
+        if (grid[originX+2][originY+2].isOn()) return false;
+        if (grid[originX+1][originY+2].isOn()) return false;
     } else if (direction()==2) {
-        
+        if (grid[originX-1][originY-2].isOn()) return false;
+        if (grid[originX+1][originY-2].isOn()) return false;
     } else {
-        
+        if (grid[originX-1][originY+1].isOn()) return false;
+        if (grid[originX-1][originY-1].isOn()) return false;
+        if (grid[originX-2][originY].isOn()) return false;
     }
     return true;
 }

@@ -27,7 +27,7 @@ class Board{
     int getLevel();
     int getMaxDelete();
 
-	void Board::setInputStream(std::istream &input);
+	void setInputStream(std::istream &input);
 	void makeBlock();
     Board * getInstance();//not
     void notifyScore(int curLevel,int RowsDeleted);
