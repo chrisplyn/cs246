@@ -185,7 +185,7 @@ bool SBlock::canMoveDown(Board *board) {
     return true;
 }
 
-bool ZBlock::canRotateClockwise(Board *board){
+bool SBlock::canRotateClockwise(Board *board){
     Cell **grid = board->getGrid();
     int originX = cells[0]->getX();
     int originY = cells[0]->getY();
