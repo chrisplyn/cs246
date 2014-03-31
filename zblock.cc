@@ -173,3 +173,76 @@ bool ZBlock::canRotateAnticlockwise(Board *board) {
     return canRotateClockwise(board);
 }
 
+void ZBlock::moveLeft(Board *board) {
+    
+    if (direction()==0) {
+        if (!canMoveLeft(board)) return;
+        Cell **grid = board->getGrid();
+        
+        if (direction()==0) {
+            for (int i =0; i<4; ++i) {
+                int coorX = cells[i]->getX();
+                int coorY = cells[i]->getY();
+                cells[i]->Swap(&grid[coorX][coorY-1]);
+            }
+        } else {
+            for (int i =3; i>=0; --i) {
+                int coorX = cells[i]->getX();
+                int coorY = cells[i]->getY();
+                cells[i]->Swap(&grid[coorX][coorY-1]);
+            }
+        }
+    }
+}
+
+void ZBlock::moveRight(Board *board) {
+    if (!canMoveRight(board)) return;
+    Cell **grid = board->getGrid();
+    
+    if (direction()==1) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY+1]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY+1]);
+        }
+    }
+}
+
+void ZBlock::moveDown(Board *board) {
+    if (!canMoveDown(board)) return;
+    Cell **grid = board->getGrid();
+    for (int i =3; i>=0; --i) {
+        int coorX = cells[i]->getX();
+        int coorY = cells[i]->getY();
+        cells[i]->Swap(&grid[coorX+1][coorY]);
+    }
+}
+
+void ZBlock::drop(Board *board) {
+    while (canMoveDown(board)) {
+        moveDown(board);
+    }
+}
+
+void ZBlock::rotateClockwise(Board *board) {
+    Cell **grid = board->getGrid();
+    if (direction()==0) {
+        cells[0]->Swap(&grid[cells[0]->getX()-1][cells[0]->getY()+1]);
+        cells[2]->Swap(&grid[cells[2]->getX()-1][cells[0]->getY()-1]);
+        cells[3]->Swap(&grid[cells[3]->getX()][cells[0]->getY()-2]);
+    } else {
+        cells[3]->Swap(&grid[cells[0]->getX()][cells[0]->getY()+2]);
+        cells[2]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()+1]);
+        cells[0]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()-1]);
+    }
+}
+
+void ZBlock::rotateAnticlockwise(Board *board) {
+    rotateClockwise(board);
+}
