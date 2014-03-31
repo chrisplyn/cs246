@@ -7,6 +7,8 @@
 #include "NextBlock.h"
 #include "block.h"
 #include "oblock.h"
+#include "iblock.h"
+#include "tblock.h"
 
 using namespace std;
 
@@ -55,8 +57,10 @@ void Board::makeBlock(){
 	string newType;
 	if (!nextBlock->noRandomType()){
 		newType = nextBlock->getNonRandomType();
+		cout << newType << endl;
 		if (newType != ""){
 			currentBlock = setCurrentBlock(newType);
+			currentBlock->moveRight(this); 
 			notifyDisplay();
 		}
 		else{
@@ -69,6 +73,7 @@ void Board::makeBlock(){
 	
 	}
 	else{
+		//need update level here
 		delete nextBlock;
 		nextBlock = new NextBlock(2);
 		newType = nextBlock->getRandomType();
@@ -82,9 +87,12 @@ Block * Board::setCurrentBlock(string &type){
 	Block *tmp=0;
 	if (type == "O"){
 		tmp = new OBlock(*this, level);
-	}/*else if (type == "I"){
+	}else if (type == "I"){
 		tmp = new IBlock(*this, level);
-	}	*/
+	}
+	else if (type == "T"){
+		tmp = new TBlock(*this, level);
+	}
 	return tmp;
 }
 

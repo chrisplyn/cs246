@@ -26,6 +26,24 @@ void Display::notify(int r, int c, string type){
 	if (type == "O"){
 		theDisplay[r][c] = 'O';
 	}
+	else if (type == "I"){
+		theDisplay[r][c] = 'I';
+	}
+	else if (type == "L"){
+		theDisplay[r][c] = 'L';
+	}
+	else if (type == "S"){
+		theDisplay[r][c] = 'S';
+	}
+	else if (type == "Z"){
+		theDisplay[r][c] = 'Z';
+	}
+	else if (type == "T"){
+		theDisplay[r][c] = 'T';
+	}
+	else if (type == "J"){
+		theDisplay[r][c] = 'J';
+	}
 }
 
 

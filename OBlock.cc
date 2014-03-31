@@ -144,7 +144,7 @@ void OBlock::moveLeft(Board *board){
 }
 
 void OBlock::moveRight(Board *board){
-    if (!canMoveLeft(board)) {
+    if (!canMoveRight(board)) {
         return;
     }
     Cell **grid = board->getGrid();
