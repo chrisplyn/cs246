@@ -27,31 +27,21 @@ int main(int argc, const char * argv[])
         } else if (commandline=="seed") {
             ++i;
             commandline = argv[i];
-	    istringstream ss(commandline);
+			istringstream ss(commandline);
             ss >> seed;
         } else if (commandline=="startlevel") {
             ++i;
             commandline = argv[i];
-<<<<<<< HEAD
 			istringstream ss(commandline);
 			ss >> startLevel;
-=======
-	    istringstream ss(commandline);
-            ss >> startLevel 
->>>>>>> df33e63074d003c1612bf72f4fe7106995784967
         } else if (commandline=="scriptfile") {
             ++i;
             filename = argv[i];
         } else if (commandline=="maxBlock") {
             ++i;
             commandline = argv[i];
-<<<<<<< HEAD
 			istringstream ss(commandline);
 			ss >> maxBlockAllowed;
-=======
-	    istringstream ss(commandline);
-            ss  >> maxBlockAllowed
->>>>>>> df33e63074d003c1612bf72f4fe7106995784967
         }
     }
     
