@@ -1,14 +1,25 @@
-//
-//  lblock.h
-//  quatris
-//
-//  Created by Elkan on 3/30/2014.
-//  Copyright (c) 2014 Elkan. All rights reserved.
-//
+#ifndef __LBLOCK_H__
+#define __LBLOCK_H__
 
-#ifndef __quatris__lblock__
-#define __quatris__lblock__
+#include "block.h"
+#include "board.h"
 
-#include <iostream>
-
-#endif /* defined(__quatris__lblock__) */
+class LBlock:public Block{
+    Cell * cells[4];
+    int direction();
+public:
+    bool canMoveLeft(Board * board);
+    bool canMoveRight(Board *board);
+    bool canMoveDown(Board *board);
+    bool canRotateClockwise(Board *board);
+    bool canRotateAnticlockwise(Board *board);
+    void rotateClockwise(Board *board);
+    void rotateAnticlockwise(Board *board);
+    void moveLeft(Board *board);
+    void moveRight(Board *board);
+    void moveDown(Board *board);
+    void drop(Board *board);
+    
+    LBlock(Board& board, int level);
+};
+#endif

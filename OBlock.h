@@ -24,7 +24,6 @@ public:
     void drop(Board *board);
     
     OBlock(Board& board, int level);
-    ~OBlock();
     
 };
 

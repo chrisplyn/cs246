@@ -26,7 +26,8 @@ class Board{
     Cell ** getGrid();
     int getLevel();
     int getMaxDelete();
-	void makeBlock(std::istream &input);
+
+	void Board::setInputStream(std::istream &input);
 	void makeBlock();
     Board * getInstance();//not
     void notifyScore(int curLevel,int RowsDeleted);

@@ -7,7 +7,9 @@
 #include <cstdlib>
 using namespace std;
 
-NextBlockImpl::NextBlockImpl(int level):level(level), input(0){}
+NextBlockImpl::NextBlockImpl(int level):level(level), input(0){
+	failed = false;
+}
 
 double NextBlockImpl::generateUniformRand(){
 	return rand() / double(RAND_MAX);
