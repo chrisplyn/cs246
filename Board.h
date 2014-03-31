@@ -36,6 +36,7 @@ class Board{
 	void rotateClockwise();
 	void rotateAntiClockwise();
 	void dropCurBlock();
+	void moveCurBlockDown();
 	
     void notifyScore(int curLevel,int RowsDeleted);
     void deleteRow(int numOfRow);

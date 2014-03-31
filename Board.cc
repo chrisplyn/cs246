@@ -9,6 +9,8 @@
 #include "oblock.h"
 #include "iblock.h"
 #include "tblock.h"
+#include "sblock.h"
+#include "zblock.h"
 
 using namespace std;
 
@@ -91,6 +93,12 @@ Block * Board::setCurrentBlock(string &type){
 	else if (type == "T"){
 		tmp = new TBlock(*this, level);
 	}
+	else if (type == "S"){
+		tmp = new SBlock(*this, level);
+	}
+	else if (type == "Z"){
+		tmp = new ZBlock(*this, level);
+	}
 	return tmp;
 }
 
@@ -112,6 +120,10 @@ void Board::rotateAntiClockwise(){
 
 void Board::dropCurBlock(){
 	currentBlock->drop(this);
+}
+
+void Board::moveCurBlockDown(){
+	currentBlock->moveDown(this);
 }
 
 Cell ** Board::getGrid(){
