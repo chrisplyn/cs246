@@ -129,8 +129,6 @@ void swap(int x, int y, Board *board){
     
 }
 void OBlock::moveLeft(Board *board){
-    //int originX = cells[0]->getX();
-    //int originY = cells[0]->getY();
     if (!canMoveLeft(board)) {
         return;
     }
@@ -149,15 +147,15 @@ void OBlock::moveRight(Board *board){
     }
     Cell **grid = board->getGrid();
     
-    for (int i =0; i<4; ++i) {
-        int coorX = cells[i]->getX();
-        int coorY = cells[i]->getY();
-        cells[i]->Swap(&grid[coorX][coorY+1]);
-    }
+    cells[1] -> Swap(&grid[cells[1]->getX()][cells[1]->getY()+1]);
+    cells[3] -> Swap(&grid[cells[3]->getX()][cells[3]->getY()+1]);
+    cells[2] -> Swap(&grid[cells[2]->getX()][cells[2]->getY()+1]);
+    cells[0] -> Swap(&grid[cells[0]->getX()][cells[0]->getY()+1]);
+
 }
 
 void OBlock::moveDown(Board *board){
-    if (!canMoveLeft(board)) {
+    if (!canMoveDown(board)) {
         return;
     }
     Cell **grid = board->getGrid();
@@ -170,40 +168,6 @@ void OBlock::moveDown(Board *board){
 }
 
 void OBlock::drop(Board *board){
-    /*
-    int originX = cells[0].getX();
-    int originY = cells[0].getY();//the original base coordinates
-    
-    Cell ** grid = board->getGrid();
-    
-    int posX = cells[0];
-    int posY = 0;
-    while (true) {
-        if ((!grid[posX][posY].isOn())&&
-            (!grid[posX+1][posY].isOn())&&
-            (!grid[posX][posY+1].isOn())&&
-            (!grid[posX+1][posY+1].isOn())) { //break when all four cells can be occupied by the
-                                                //new block
-            break;
-        }
-        posY++;
-    }
-    //update coordinate
-    cells[0].setY(posY);
-    cells[1].setY(posY);
-    cells[2].setY(posY+1);
-    cells[3].setY(posY+1);
-    
-    for (int i =0; i<4; ++i) {
-        cells[i].notifyNeighbour();
-    }
-    
-    //change the original cells back to new cells
-    grid[originX][originY] = new Cell();
-    grid[originX][originY+1] = new Cell();
-    grid[originX+1][originY] = new Cell();
-    grid[originX+1][originY+1] = new Cell();
-     */
     while (canMoveDown(board)) {
         moveDown(board);
     }

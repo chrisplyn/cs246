@@ -142,6 +142,7 @@ void IBlock::moveLeft(Board *board){
     if (!canMoveLeft(board)) {
         return;
     }
+    
     Cell **grid = board->getGrid();
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
@@ -155,8 +156,9 @@ void IBlock::moveRight(Board *board){
     if (!canMoveRight(board)) {
         return;
     }
+    
     Cell **grid = board->getGrid();
-    for (int i =0; i<4; ++i) {
+    for (int i =3; i>=0; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX][coorY+1]);
@@ -164,8 +166,12 @@ void IBlock::moveRight(Board *board){
 }
 
 void IBlock::moveDown(Board *board){
+<<<<<<< HEAD
     
     if (!canMoveDown(board)) {
+=======
+    if (!Block::canMoveDown(board)) {
+>>>>>>> e6af8de4743c2a0eb0b2847d7a1797ac92a04519
         return;
     }
     Cell **grid = board->getGrid();
