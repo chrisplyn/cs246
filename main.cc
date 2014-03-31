@@ -15,6 +15,7 @@ int main(int argc, const char * argv[])
     string filename;
     int seed = 0; //default seed to 0
     int startLevel;
+    int maxBlockAllowed = INT_MAX;
     
     
     for (int i=1; i<argc ; ++i) {
@@ -35,6 +36,10 @@ int main(int argc, const char * argv[])
         } else if (commandline=="scriptfile") {
             ++i;
             filename = argv[i];
+        } else if (commandline=="maxBlock") {
+            ++i;
+            commandline = argv[i];
+            maxBlockAllowed = atoi(commandline.c_str());
         }
     }
     
