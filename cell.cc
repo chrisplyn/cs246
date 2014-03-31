@@ -1,4 +1,5 @@
 #include "cell.h"
+#include "display.h"
 using namespace std;
 
 Cell::Cell(){
@@ -130,10 +131,8 @@ void Cell::notifyScore(Score *score){
 
 
 void Cell::notifyDisplay(Display *dp){
-
     dp->notify(xCoordinate,yCoordiante,type);
     //dp->notify(xCoordinate,yCoordiante,Level);
-
 }
 
 int Cell::getX(){

@@ -195,14 +195,14 @@ int Board::deleteRows(){
 }
 
 Board::~Board(){
-    //delete scoreBoard;
-    //delete currentBlock;
+    //delete scoreBoard;  
     delete p;
     for (int i = 0;i<15;++i){
         delete [] grid[i];
     }
     delete [] grid;	
 	delete nextBlock;
+	delete currentBlock;
 }
 
 
