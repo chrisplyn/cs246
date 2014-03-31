@@ -54,11 +54,16 @@ void Cell::deleteFromNeighbour(){
 }
 
 void Cell::Swap(Cell *c){
-    string t = c->getType();
-    int l = c->getLevel();
+    //swap level and type
+    
+    string tempType = c->getType();
+    int tempLevel = c->getLevel();
     c->setLT(type,Level);
-    Level = l;
-    type = t;
+    type = tempType;
+    Level = tempLevel;
+    
+    //swap neighbours
+    
     Cell * neighbour;
     for (int i =0; i < 3; ++i){
         neighbour = this->getNeighbour(i);
@@ -67,13 +72,12 @@ void Cell::Swap(Cell *c){
     this->deleteFromNeighbour();
     for (int j = 0; j < 3; ++j){
         neighbour = this->getNeighbour(j);
-        c->addToNeighbour(neighbour);
+        neighbour->addNeighbour(c);
     }
     for (int k =0; k < 3; ++k){
         Neighbour[k] = NULL;
     }
-    type = "";
-    Level = -1;
+    
 }
 
 void Cell::reset(){
