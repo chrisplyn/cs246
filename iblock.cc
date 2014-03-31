@@ -11,10 +11,10 @@ IBlock::IBlock(Board& board, int level):Block(){
     //| 0 | 1 | 2 | 3 |
     //-----------------
     
-    cells[0] = &grid[0][14];
-    cells[1] = &grid[1][14];
-    cells[2] = &grid[2][14];
-    cells[3] = &grid[3][14];
+    cells[0] = &grid[3][0];
+    cells[1] = &grid[3][1];
+    cells[2] = &grid[3][2];
+    cells[3] = &grid[3][3];
     
     cells[0]->setLT("I", level);
     cells[1]->setLT("I", level);
@@ -52,12 +52,12 @@ IBlock::IBlock(Board& board, int level):Block(){
 //                   | 0 |
 //                   -----
 int IBlock::direction(){
-    int originX = cells[0]->getX();
+    int originX = cells[0]->getX(); //number of row
     int nextX = cells[1]->getX();
     if (originX==nextX) {
-        return 1;
-    } else {
         return 0;
+    } else {
+        return 1;
     }
 }
 
@@ -67,10 +67,10 @@ bool IBlock::canMoveLeft(Board *board){
     //check 0
     int xcoordinate = cells[0]->getX();
     int ycoordinate = cells[0]->getY();
-    if (xcoordinate==0) { //at the left edge
+    if (ycoordinate==0) { //at the left edge
         return false;
     }
-    if (grid[xcoordinate-1][ycoordinate].isOn()) {
+    if (grid[xcoordinate][ycoordinate-1].isOn()) {
         return false; //the left cell is pre-occupied
     }
     return true;
@@ -82,10 +82,10 @@ bool IBlock::canMoveRight(Board *board){
     //check 3
     int xcoordinate = cells[3]->getX();
     int ycoordinate = cells[3]->getY();
-    if (xcoordinate==9) { //at the left edge
+    if (ycoordinate==9) { //at the left edge
         return false;
     }
-    if (grid[xcoordinate+1][ycoordinate].isOn()) {
+    if (grid[xcoordinate][ycoordinate+1].isOn()) {
         return false; //the left cell is pre-occupied
     }
     return true;
@@ -97,20 +97,19 @@ bool IBlock::canMoveDown(Board *board){
     //check 0
     int xcoordinate = cells[0]->getX();
     int ycoordinate = cells[0]->getY();
-    if (ycoordinate==0) { //at the lower edge
+    if (xcoordinate==14) { //at the lower edge
         return false;
     }
     
     for (int i=0; i<4; ++i) {
         xcoordinate = cells[0]->getX();
         ycoordinate = cells[0]->getY();
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false;
         }
     }
     return true;
 }
-
 
 bool IBlock::canRotateClockwise(Board *board){
     Cell **grid = board->getGrid();
@@ -119,14 +118,14 @@ bool IBlock::canRotateClockwise(Board *board){
     
     if (direction()==0) { //horizontal to vertical
         for (int i=1; i<=3; ++i) {
-            if (grid[originX][originY+i].isOn()) {
+            if (grid[originX-i][originY].isOn()) {
                 return false;
             }
         }
         
     } else if (direction()==1) { //vertical to horizontal
         for (int i=1; i<=3; ++i) {
-            if (grid[originX+i][originY].isOn()) {
+            if (grid[originX][originY+i].isOn()) {
                 return false;
             }
         }
@@ -147,7 +146,7 @@ void IBlock::moveLeft(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        cells[i]->Swap(&grid[coorX-1][coorY]);
+        cells[i]->Swap(&grid[coorX][coorY-1]);
     }
 }
 
@@ -160,7 +159,7 @@ void IBlock::moveRight(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        cells[i]->Swap(&grid[coorX+1][coorY]);
+        cells[i]->Swap(&grid[coorX][coorY+1]);
     }
 }
 
@@ -173,7 +172,7 @@ void IBlock::moveDown(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
-        cells[i]->Swap(&grid[coorX][coorY-1]);
+        cells[i]->Swap(&grid[coorX+1][coorY]);
     }
 }
 
@@ -194,7 +193,7 @@ void IBlock::rotateClockwise(Board *board){
     for (int i=1; i<4; ++i) {
         int diffX = cells[i]->getX()-originX;
         int diffY = cells[i]->getY()-originY;
-        cells[i]->Swap(&grid[originX+diffY][originY+diffX]);
+        cells[i]->Swap(&grid[originX-diffY][originY-diffX]);
     }
 }
 

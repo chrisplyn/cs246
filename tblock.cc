@@ -21,15 +21,15 @@ int TBlock::direction(){
     int nextY = cells[1]->getY();
     
     if (originX == nextX-1) {
-        return 0;
+        return 1;
     } else if (originX == nextX+1) {
-        return 2;
+        return 3;
     } else {
         if (originY == nextY+1) {
-            return 1;
+            return 2;
         }
         else {
-            return 3;
+            return 0;
         }
     }
 }
@@ -38,10 +38,10 @@ TBlock::TBlock(Board &board, int level):Block(){
     
     Cell ** grid = board.getGrid();
 
-    cells[0] = &grid[0][13];
-    cells[1] = &grid[1][13];
-    cells[2] = &grid[2][13];
-    cells[3] = &grid[1][14];
+    cells[0] = &grid[4][0];
+    cells[1] = &grid[4][1];
+    cells[2] = &grid[4][2];
+    cells[3] = &grid[3][1];
     
     cells[0]->setLT("T", level);
     cells[1]->setLT("T", level);
@@ -66,32 +66,74 @@ TBlock::TBlock(Board &board, int level):Block(){
     
 }
 
+void TBlock::rotateClockwise(Board *board) {
+    Cell **grid = board->getGrid();
+    
+    if (direction()==0) {
+        cells[0]->Swap(&grid[cells[0]->getX()][cells[0]->getY()+2]);
+        cells[1]->Swap(&grid[cells[1]->getX()-1][cells[1]->getY()+1]);
+        cells[2]->Swap(&grid[cells[2]->getX()-2][cells[2]->getY()]);
+    } else if (direction()==1) {
+        cells[3]->Swap(&grid[cells[3]->getX()][cells[3]->getY()-1]);
+        cells[0]->Swap(&grid[cells[0]->getX()+2][cells[0]->getY()-1]);
+        cells[1]->Swap(&grid[cells[1]->getX()+1][cells[1]->getY()]);
+        cells[2]->Swap(&grid[cells[2]->getX()][cells[2]->getY()+1]);
+    } else if (direction()==2) {
+        cells[2]->Swap(&grid[cells[2]->getX()+1][cells[2]->getY()+1]);
+        cells[3]->Swap(&grid[cells[3]->getX()-1][cells[3]->getY()+1]);
+        cells[0]->Swap(&grid[cells[0]->getX()-1][cells[0]->getY()-1]);
+    } else {
+        cells[0]->Swap(&grid[cells[0]->getX()-1][cells[0]->getY()]);
+        cells[1]->Swap(&grid[cells[1]->getX()][cells[1]->getY()-1]);
+        cells[2]->Swap(&grid[cells[2]->getX()+1][cells[2]->getY()-2]);
+        cells[3]->Swap(&grid[cells[3]->getX()+1][cells[3]->getY()]);
+    }
+}
+
+void TBlock::rotateAnticlockwise(Board *board) {
+    Cell **grid = board->getGrid();
+    if (direction()==0) {
+        cells[3]->Swap(&grid[cells[3]->getX()-1][cells[3]->getY()]);
+        cells[2]->Swap(&grid[cells[2]->getX()-1][cells[2]->getY()+2]);
+        cells[1]->Swap(&grid[cells[1]->getX()][cells[1]->getY()+1]);
+        cells[0]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()]);
+    } else if (direction()==1) {
+        cells[2]->Swap(&grid[cells[2]->getX()+2][cells[2]->getY()]);
+        cells[1]->Swap(&grid[cells[1]->getX()+1][cells[1]->getY()-1]);
+        cells[0]->Swap(&grid[cells[0]->getX()][cells[0]->getY()-2]);
+    } else if (direction()==2) {
+        
+    } else {
+        
+    }
+}
+
 bool TBlock::canMoveLeft(Board *board){
     Cell **grid = board->getGrid();
     if (direction()==0) {
-        //check 2
-        int xcoordinate = cells[2]->getX();
-        int ycoordinate = cells[2]->getY();
-        if (xcoordinate==0) { //at the left edge
+        //check 0
+        int xcoordinate = cells[0]->getX();
+        int ycoordinate = cells[0]->getY();
+        if (ycoordinate==0) { //at the left edge
             return false;
         }
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
     } else if (direction()==1) {
         for (int i=0; i<3; ++i) {
             int xcoordinate = cells[0]->getX();
             int ycoordinate = cells[0]->getY();
-            if (xcoordinate==0) { //at the left edge
+            if (ycoordinate==0) { //at the left edge
                 return false;
             }
-            if (grid[xcoordinate-1][ycoordinate].isOn()) {
+            if (grid[xcoordinate][ycoordinate-1].isOn()) {
                 return false; //the left cell is pre-occupied
             }
         }
@@ -100,38 +142,38 @@ bool TBlock::canMoveLeft(Board *board){
         //check 2
         int xcoordinate = cells[2]->getX();
         int ycoordinate = cells[2]->getY();
-        if (xcoordinate==0) { //at the left edge
+        if (ycoordinate==0) { //at the left edge
             return false;
         }
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
     } else {
         //check 3
         int xcoordinate = cells[3]->getX();
         int ycoordinate = cells[3]->getY();
-        if (xcoordinate==0) { //at the left edge
+        if (ycoordinate==0) { //at the left edge
             return false;
         }
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 2
         xcoordinate = cells[2]->getX();
         ycoordinate = cells[2]->getY();
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 0
         xcoordinate = cells[0]->getX();
         ycoordinate = cells[0]->getY();
-        if (grid[xcoordinate-1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
         
@@ -142,29 +184,29 @@ bool TBlock::canMoveLeft(Board *board){
 bool TBlock::canMoveRight(Board *board){
     Cell **grid = board->getGrid();
     if (direction()==0) {
-        //check 0
-        int xcoordinate = cells[0]->getX();
-        int ycoordinate = cells[0]->getY();
-        if (xcoordinate==9) { //at the right edge
+        //check 2
+        int xcoordinate = cells[2]->getX();
+        int ycoordinate = cells[2]->getY();
+        if (ycoordinate==9) { //at the right edge
             return false;
         }
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
     } else if (direction()==3) {
         for (int i=0; i<3; ++i) {
             int xcoordinate = cells[0]->getX();
             int ycoordinate = cells[0]->getY();
-            if (xcoordinate==9) { //at the right edge
+            if (ycoordinate==9) { //at the right edge
                 return false;
             }
-            if (grid[xcoordinate+1][ycoordinate].isOn()) {
+            if (grid[xcoordinate][ycoordinate+1].isOn()) {
                 return false; //the right cell is pre-occupied
             }
         }
@@ -173,38 +215,38 @@ bool TBlock::canMoveRight(Board *board){
         //check 0
         int xcoordinate = cells[0]->getX();
         int ycoordinate = cells[0]->getY();
-        if (xcoordinate==9) { //at the right edge
+        if (ycoordinate==9) { //at the right edge
             return false;
         }
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the left cell is pre-occupied
         }
     } else {
         //check 3
         int xcoordinate = cells[3]->getX();
         int ycoordinate = cells[3]->getY();
-        if (xcoordinate==9) { //at the right edge
+        if (ycoordinate==9) { //at the right edge
             return false;
         }
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
         //check 2
         xcoordinate = cells[2]->getX();
         ycoordinate = cells[2]->getY();
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
         //check 0
         xcoordinate = cells[0]->getX();
         ycoordinate = cells[0]->getY();
-        if (grid[xcoordinate+1][ycoordinate].isOn()) {
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
             return false; //the right cell is pre-occupied
         }
         
@@ -218,26 +260,26 @@ bool TBlock::canMoveDown(Board *board) {
         //check 0
         int xcoordinate = cells[0]->getX();
         int ycoordinate = cells[0]->getY();
-        if (ycoordinate==0) { //at the lower edge
+        if (xcoordinate==14) { //at the lower edge
             return false;
         }
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the lower cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the lower cell is pre-occupied
         }
     } else if (direction()==0) {
         for (int i=0; i<3; ++i) {
             int xcoordinate = cells[0]->getX();
             int ycoordinate = cells[0]->getY();
-            if (ycoordinate==0) { //at the lower edge
+            if (xcoordinate==14) { //at the lower edge
                 return false;
             }
-            if (grid[xcoordinate][ycoordinate-1].isOn()) {
+            if (grid[xcoordinate+1][ycoordinate].isOn()) {
                 return false; //the lower cell is pre-occupied
             }
         }
@@ -246,38 +288,38 @@ bool TBlock::canMoveDown(Board *board) {
         //check 2
         int xcoordinate = cells[2]->getX();
         int ycoordinate = cells[2]->getY();
-        if (ycoordinate==0) { //at the lower edge
+        if (xcoordinate==14) { //at the lower edge
             return false;
         }
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the lower cell is pre-occupied
         }
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the lower cell is pre-occupied
         }
     } else {
         //check 3
         int xcoordinate = cells[3]->getX();
         int ycoordinate = cells[3]->getY();
-        if (ycoordinate==0) { //at the lower edge
+        if (xcoordinate==14) { //at the lower edge
             return false;
         }
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 2
         xcoordinate = cells[2]->getX();
         ycoordinate = cells[2]->getY();
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the left cell is pre-occupied
         }
         //check 0
         xcoordinate = cells[0]->getX();
         ycoordinate = cells[0]->getY();
-        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+        if (grid[xcoordinate+1][ycoordinate].isOn()) {
             return false; //the left cell is pre-occupied
         }
     }
@@ -290,16 +332,16 @@ bool TBlock::canRotateClockwise(Board *board) {
     int originY = cells[1]->getY();
     
     if (direction()==0) {
-        if (grid[originX][originY+1].isOn()) return false;
-        if (grid[originX][originY+2].isOn()) return false;
-    } else if (direction()==1) {
-        if (grid[originX+2][originY-1].isOn()) return false;
-        if (grid[originX+1][originY-2].isOn()) return false;
-    } else if (direction()==2) {
-        if (grid[originX-1][originY+1].isOn()) return false;
-    } else {
         if (grid[originX-1][originY].isOn()) return false;
-        if (grid[originX+1][originY].isOn()) return false;
+        if (grid[originX-2][originY].isOn()) return false;
+    } else if (direction()==1) {
+        if (grid[originX+1][originY+2].isOn()) return false;
+        if (grid[originX+2][originY+1].isOn()) return false;
+    } else if (direction()==2) {
+        if (grid[originX-1][originY-1].isOn()) return false;
+    } else {
+        if (grid[originX][originY+1].isOn()) return false;
+        if (grid[originX][originY-1].isOn()) return false;
     }
     return true;
 }
@@ -322,5 +364,68 @@ bool TBlock::canRotateAnticlockwise(Board *board) {
         if (grid[originX+1][originY+1].isOn()) return false;
     }
     return true;
+}
+
+void TBlock::moveLeft(Board *board){
+    if (!canMoveLeft(board)) return;
+    Cell **grid = board->getGrid();
+    
+    if (direction()==0 || direction()==1) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX-1][coorY]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX-1][coorY]);
+        }
+    }
+}
+
+void TBlock::moveRight(Board *board) {
+    if (!canMoveRight(board)) return;
+    Cell **grid = board->getGrid();
+    
+    if (direction()==2 || direction()==3) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX+1][coorY]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX+1][coorY]);
+        }
+    }
+}
+
+void TBlock::moveDown(Board *board) {
+    if (!canMoveDown(board)) return;
+    Cell **grid = board->getGrid();
+    
+    if (direction()==0 || direction()==3) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY-1]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY-1]);
+        }
+    }
+}
+
+void TBlock::drop(Board *board) {
+    while (canMoveDown(board)) {
+        moveDown(board);
+    }
 }
 

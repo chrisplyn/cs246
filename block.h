@@ -6,6 +6,7 @@
 #include "cell.h"
 #include "board.h"
 
+
 class Block{
 protected:
     Cell *cells[4];
