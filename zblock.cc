@@ -86,26 +86,56 @@ bool ZBlock::canMoveLeft(Board *board){
         if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
+        //check 0
+        xcoordinate = cells[0]->getX();
+        ycoordinate = cells[0]->getY();
+        if (grid[xcoordinate][ycoordinate-1].isOn()) {
+            return false; //the left cell is pre-occupied
+        }
     }
     return true;
 }
 
 bool ZBlock::canMoveRight(Board *board) {
     Cell **grid = board->getGrid();
-    //check3
-    int xcoordinate = cells[3]->getX();
-    int ycoordinate = cells[3]->getY();
-    if (ycoordinate==9) {
-        return false; // right edge
-    }
-    if (grid[xcoordinate][ycoordinate+1].isOn()) {
-        return false; //the right cell is pre-occupied
-    }
-    //check1
-    xcoordinate = cells[1]->getX();
-    ycoordinate = cells[1]->getY();
-    if (grid[xcoordinate][ycoordinate+1].isOn()) {
-        return false; //the right cell is pre-occupied
+    if (direction()==0) {
+        //check3
+        int xcoordinate = cells[3]->getX();
+        int ycoordinate = cells[3]->getY();
+        if (ycoordinate==9) {
+            return false; // right edge
+        }
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
+            return false; //the right cell is pre-occupied
+        }
+        //check1
+        xcoordinate = cells[1]->getX();
+        ycoordinate = cells[1]->getY();
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
+            return false; //the right cell is pre-occupied
+        }
+    } else {
+        //check 0
+        int xcoordinate = cells[0]->getX();
+        int ycoordinate = cells[0]->getY();
+        if (ycoordinate==9) { //at the right edge
+            return false;
+        }
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
+            return false; //the right cell is pre-occupied
+        }
+        //check 3
+        xcoordinate = cells[3]->getX();
+        ycoordinate = cells[3]->getY();
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
+            return false; //the right cell is pre-occupied
+        }
+        //check 1
+        xcoordinate = cells[1]->getX();
+        ycoordinate = cells[1]->getY();
+        if (grid[xcoordinate][ycoordinate+1].isOn()) {
+            return false; //the right cell is pre-occupied
+        }
     }
     return true;
 }
