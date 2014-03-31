@@ -72,6 +72,7 @@ void Cell::Swap(Cell *c){
     for (int k =0; k < 3; ++k){
         Neighbour[k] = NULL;
     }
+    reset();
 }
 
 void Cell::reset(){
@@ -100,7 +101,7 @@ void Cell::toggle(string Type){
 bool Cell::isOn(){
     if (type == ""){
         return false;
-    }   else {
+    }  else {
         return true;
     }
 }

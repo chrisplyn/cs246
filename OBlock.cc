@@ -158,6 +158,7 @@ void OBlock::moveDown(Board *board){
     if (!canMoveDown(board)) {
         return;
     }
+    
     Cell **grid = board->getGrid();
     
     for (int i =0; i<4; ++i) {
