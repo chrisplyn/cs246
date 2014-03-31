@@ -1,14 +1,25 @@
-//
-//  zblock.h
-//  quatris
-//
-//  Created by Elkan on 3/30/2014.
-//  Copyright (c) 2014 Elkan. All rights reserved.
-//
+#ifndef __ZBLOCK_H__
+#define __ZBLOCK_H__
 
-#ifndef __quatris__zblock__
-#define __quatris__zblock__
+#include "block.h"
 
-#include <iostream>
-
-#endif /* defined(__quatris__zblock__) */
+class ZBlock:public Block{
+    Cell * cells[4];
+    int direction();
+public:
+    bool canMoveLeft(Board * board);
+    bool canMoveRight(Board *board);
+    bool canMoveDown(Board *board);
+    bool canRotateClockwise(Board *board);
+    bool canRotateAnticlockwise(Board *board);
+    void rotateClockwise(Board *board);
+    void rotateAnticlockwise(Board *board);
+    void moveLeft(Board *board);
+    void moveRight(Board *board);
+    void moveDown(Board *board);
+    void drop(Board *board);
+    
+    ZBlock(Board& board, int level);
+    ~ZBlock();
+};
+#endif
