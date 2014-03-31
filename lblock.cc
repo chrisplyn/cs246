@@ -421,7 +421,7 @@ void LBlock::drop(Board *board) {
 
 void LBlock::rotateClockwise(Board *board) {
     if (direction()==0) {
-        <#statements#>
+        //
     } else if (direction()==1) {
         
     } else if (direction()==2) {
@@ -433,7 +433,7 @@ void LBlock::rotateClockwise(Board *board) {
 
 void LBlock::rotateAnticlockwise(Board *board) {
     if (direction()==0) {
-        <#statements#>
+        //
     } else if (direction()==1) {
         
     } else if (direction()==2) {
