@@ -67,6 +67,7 @@ bool IBlock::canMoveLeft(Board *board){
     //check 0
     int xcoordinate = cells[0]->getX();
     int ycoordinate = cells[0]->getY();
+    //cout<<xcoordinate<<" "<<ycoordinate<<endl;
     if (ycoordinate==0) { //at the left edge
         return false;
     }
@@ -93,21 +94,39 @@ bool IBlock::canMoveRight(Board *board){
 
 bool IBlock::canMoveDown(Board *board){
     Cell **grid = board->getGrid();
-    
-    //check 0
-    int xcoordinate = cells[0]->getX();
-    int ycoordinate = cells[0]->getY();
-    if (xcoordinate==14) { //at the lower edge
-        return false;
-    }
-    
-    for (int i=0; i<4; ++i) {
-        xcoordinate = cells[0]->getX();
-        ycoordinate = cells[0]->getY();
+    if (direction()==0) {
+        //check 0
+        int xcoordinate = cells[0]->getX();
+        int ycoordinate = cells[0]->getY();
+        if (xcoordinate==14) { //at the lower edge
+            return false;
+            //cout<<"here"<<endl;
+        }
+        for (int i=0; i<4; ++i) {
+            xcoordinate = cells[i]->getX();
+            ycoordinate = cells[i]->getY();
+            //cout<<xcoordinate<<" "<<ycoordinate<<" "<<grid[xcoordinate+1][ycoordinate].isOn()<<endl;
+            
+            if (grid[xcoordinate+1][ycoordinate].isOn()) {
+                //cout<<xcoordinate<<" "<<ycoordinate<<" "<<grid[xcoordinate+1][ycoordinate].isOn()<<endl;
+                return false;
+            }
+        }
+    } else if (direction()==1) {
+        //check 0
+        int xcoordinate = cells[0]->getX();
+        int ycoordinate = cells[0]->getY();
+        if (xcoordinate==14) { //at the lower edge
+            return false;
+            //cout<<"here"<<endl;
+        }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {
+            //cout<<xcoordinate<<" "<<ycoordinate<<" "<<grid[xcoordinate+1][ycoordinate].isOn()<<endl;
             return false;
         }
+
     }
+    
     return true;
 }
 
@@ -140,6 +159,7 @@ bool IBlock::canRotateAnticlockwise(Board *board){
 void IBlock::moveLeft(Board *board){
     
     if (!canMoveLeft(board)) {
+    
         return;
     }
     
@@ -148,6 +168,7 @@ void IBlock::moveLeft(Board *board){
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX][coorY-1]);
+        cells[i]=&grid[coorX][coorY-1];
     }
 }
 
@@ -161,6 +182,7 @@ void IBlock::moveRight(Board *board){
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
         cells[i]->Swap(&grid[coorX][coorY+1]);
+        cells[i]=&grid[coorX][coorY+1];
     }
 }
 
@@ -173,7 +195,10 @@ void IBlock::moveDown(Board *board){
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
         int coorY = cells[i]->getY();
+        //cout<<coorX<<" "<<coorY<< endl;
         cells[i]->Swap(&grid[coorX+1][coorY]);
+        cells[i]=&grid[coorX+1][coorY];
+        //cout<<cells[i]->getX()<<cells[i]->getY()<<endl;
     }
 }
 
@@ -195,6 +220,7 @@ void IBlock::rotateClockwise(Board *board){
         int diffX = cells[i]->getX()-originX;
         int diffY = cells[i]->getY()-originY;
         cells[i]->Swap(&grid[originX-diffY][originY-diffX]);
+        cells[i]=&grid[originX-diffY][originY-diffX];
     }
 }
 

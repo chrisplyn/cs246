@@ -26,6 +26,7 @@ public:
 	virtual void drop(Board *) = 0;
     
     Block();
+    virtual ~Block();
 };
 
 

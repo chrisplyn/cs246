@@ -42,7 +42,7 @@
 		892BD15F18E7B4DF00F885C0 /* display.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = display.cc; path = ../display.cc; sourceTree = "<group>"; };
 		892BD16018E7B4DF00F885C0 /* display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = display.h; path = ../display.h; sourceTree = "<group>"; };
 		892BD16618E7B5C700F885C0 /* iblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iblock.h; path = ../iblock.h; sourceTree = "<group>"; };
-		89A1892818E780FA0098EF58 /* quatris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = quatris; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A1892818E780FA0098EF58 /* quadris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = quadris; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A1892D18E780FA0098EF58 /* quatris.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = quatris.1; sourceTree = "<group>"; };
 		89A1893418E781340098EF58 /* block.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = block.cc; path = ../block.cc; sourceTree = "<group>"; };
 		89A1893518E781340098EF58 /* block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = block.h; path = ../block.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		89A1892918E780FA0098EF58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				89A1892818E780FA0098EF58 /* quatris */,
+				89A1892818E780FA0098EF58 /* quadris */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		89A1892718E780FA0098EF58 /* quatris */ = {
+		89A1892718E780FA0098EF58 /* quadris */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89A1893118E780FA0098EF58 /* Build configuration list for PBXNativeTarget "quatris" */;
+			buildConfigurationList = 89A1893118E780FA0098EF58 /* Build configuration list for PBXNativeTarget "quadris" */;
 			buildPhases = (
 				89A1892418E780FA0098EF58 /* Sources */,
 				89A1892518E780FA0098EF58 /* Frameworks */,
@@ -151,9 +151,9 @@
 			);
 			dependencies = (
 			);
-			name = quatris;
+			name = quadris;
 			productName = quatris;
-			productReference = 89A1892818E780FA0098EF58 /* quatris */;
+			productReference = 89A1892818E780FA0098EF58 /* quadris */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +165,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Elkan;
 			};
-			buildConfigurationList = 89A1892318E780F90098EF58 /* Build configuration list for PBXProject "quatris" */;
+			buildConfigurationList = 89A1892318E780F90098EF58 /* Build configuration list for PBXProject "quadris" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -177,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				89A1892718E780FA0098EF58 /* quatris */,
+				89A1892718E780FA0098EF58 /* quadris */,
 			);
 		};
 /* End PBXProject section */
@@ -281,21 +281,21 @@
 		89A1893218E780FA0098EF58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = quadris;
 			};
 			name = Debug;
 		};
 		89A1893318E780FA0098EF58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = quadris;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		89A1892318E780F90098EF58 /* Build configuration list for PBXProject "quatris" */ = {
+		89A1892318E780F90098EF58 /* Build configuration list for PBXProject "quadris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89A1892F18E780FA0098EF58 /* Debug */,
@@ -304,7 +304,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89A1893118E780FA0098EF58 /* Build configuration list for PBXNativeTarget "quatris" */ = {
+		89A1893118E780FA0098EF58 /* Build configuration list for PBXNativeTarget "quadris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89A1893218E780FA0098EF58 /* Debug */,
