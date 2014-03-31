@@ -376,6 +376,69 @@ void LBlock::moveLeft(Board *board) {
 }
 
 void LBlock::moveRight(Board *board){
+    if (!canMoveRight(board)) return;
+    Cell **grid = board->getGrid();
     
+    if (direction()==2 || direction()==3) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY+1]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY+1]);
+        }
+    }
 }
 
+void LBlock::moveDown(Board *board ) {
+    if (!canMoveDown(board)) return;
+    Cell **grid = board->getGrid();
+    
+    if (direction()==0 || direction()==3) {
+        for (int i =0; i<4; ++i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX+1][coorY]);
+        }
+    } else {
+        for (int i =3; i>=0; --i) {
+            int coorX = cells[i]->getX();
+            int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX+1][coorY]);
+        }
+    }
+}
+
+void LBlock::drop(Board *board) {
+    while (canMoveDown(board)) {
+        moveDown(board);
+    }
+}
+
+void LBlock::rotateClockwise(Board *board) {
+    if (direction()==0) {
+        <#statements#>
+    } else if (direction()==1) {
+        
+    } else if (direction()==2) {
+        
+    } else {
+        
+    }
+}
+
+void LBlock::rotateAnticlockwise(Board *board) {
+    if (direction()==0) {
+        <#statements#>
+    } else if (direction()==1) {
+        
+    } else if (direction()==2) {
+        
+    } else {
+        
+    }
+}
