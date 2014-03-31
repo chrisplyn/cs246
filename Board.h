@@ -38,7 +38,7 @@ class Board{
     void notifyDisplay();
     int deleteRows();
     void changeBlock();
-	friend std::ostream &operator<<(std::ostream &out, const Board &b);
+	//friend std::ostream &operator<<(std::ostream &out, const Board &b);
 
     ~Board();//not
 };

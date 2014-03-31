@@ -106,12 +106,12 @@ void Cell::setCoordinates(int x, int y){
 }
 
 void Cell::notifyScore(Score *score){
-    score->updateScoreBoard(Level);
+    //score->updateScoreBoard(Level);
 }
 
 
 void Cell::notifyDisplay(Display *dp){
-    dp->notify(xCoordinate,yCoordiante,Level);
+    //dp->notify(xCoordinate,yCoordiante,Level);
 }
 
 int Cell::getX(){
@@ -121,3 +121,5 @@ int Cell::getX(){
 int Cell::getY(){
     return yCoordiante;
 }
+
+Cell::~Cell(){}

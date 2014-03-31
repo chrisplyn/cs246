@@ -13,19 +13,18 @@ protected:
     //std::string type;
 public:
     //std::string getType();
-    virtual bool canMoveLeft(Board *board);
-    virtual bool canMoveRight(Board *board);
-    virtual bool canMoveDown(Board *board);
-    virtual bool canRotateClockwise(Board *board);
-    virtual bool canRotateAnticlockwise(Board *board);
-    virtual void rotateClockwise();
-    virtual void rotateAnticlockwise();
-    virtual void moveLeft();
-    virtual void moveRight();
-    virtual void drop();
+    virtual bool canMoveLeft(Board *)=0;
+    virtual bool canMoveRight(Board *)=0;
+    virtual bool canMoveDown(Board *)=0;
+    virtual bool canRotateClockwise(Board *)=0;
+    virtual bool canRotateAnticlockwise(Board *)=0;
+	virtual void rotateClockwise(Board *) = 0;
+	virtual void rotateAnticlockwise(Board *) = 0;
+	virtual void moveLeft(Board *) = 0;
+	virtual void moveRight(Board *) = 0;
+	virtual void drop(Board *) = 0;
     
     Block();
-    virtual ~Block()=0;
 };
 
 
