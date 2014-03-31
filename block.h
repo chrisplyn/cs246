@@ -22,6 +22,7 @@ public:
 	virtual void rotateAnticlockwise(Board *) = 0;
 	virtual void moveLeft(Board *) = 0;
 	virtual void moveRight(Board *) = 0;
+    virtual void moveDown(Board *) =0;
 	virtual void drop(Board *) = 0;
     
     Block();
