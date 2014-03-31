@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-#include "Board.h"
-#include <fstream>
-#include <iostream>
-using namespace std;
-
-int main(){
-	
-	Board b;	
-	ifstream f("sequence.txt");
-
-
-	b.setInputStream(f);
-	b.makeBlock();
-	//moveCurBlockRight();
-	b.moveCurBlockDown();
-	b.moveCurBlockDown();
-	b.moveCurBlockRight();
-	//b.dropCurBlock();
-	//b.rotateClockwise();
-	//b.moveCurBlockRight();
-	//b.moveCurBlockLeft();
-	b.notifyDisplay();
-	//b.makeBlock();
-	//b.makeBlock();
-	cout << b;
-	cin.get();
-}
-=======
 
 #include "board.h"
 #include "cell.h"
@@ -49,7 +20,6 @@ int main(int argc, const char * argv[])
     
     for (int i=1; i<argc ; ++i) {
         
-
         commandline = argv[i];
         if (commandline=="text")
         {
@@ -75,8 +45,25 @@ int main(int argc, const char * argv[])
     srand(seed);
     
     // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+		
+	Board b;	
+	ifstream f("sequence.txt");
+
+	b.setInputStream(f);
+	b.makeBlock();
+	//moveCurBlockRight();
+	b.moveCurBlockDown();
+	b.moveCurBlockDown();
+	b.moveCurBlockRight();
+	//b.dropCurBlock();
+	//b.rotateClockwise();
+	//b.moveCurBlockRight();
+	//b.moveCurBlockLeft();
+	b.notifyDisplay();
+	//b.makeBlock();
+	//b.makeBlock();
+	cout << b;
+	cin.get();	
+
 }
 
->>>>>>> 1d4ac80dd1b14f9dee1b5b7669386a01afa2e135
