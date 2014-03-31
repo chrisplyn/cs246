@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
-            landmarkName = "TBlock::rotateClockwise(Board *board)"
+            landmarkName = "TBlock::canMoveLeft(Board *board)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
