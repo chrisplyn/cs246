@@ -1,6 +1,7 @@
 
 #include "board.h"
 #include "cell.h"
+#include <cstdlib>
 #include <string>
 #include <sstream>
 
@@ -12,7 +13,7 @@ int main(int argc, const char * argv[])
     string commandline;
     string displayMode;
     string filename;
-    int seed;
+    int seed = 0; //default seed to 0
     int startLevel;
     istringstream ss(argv[0]);
     
@@ -29,7 +30,9 @@ int main(int argc, const char * argv[])
             ss>>filename;
         }
     }
-
+    
+    srand(seed);
+    
     // insert code here...
     std::cout << "Hello, World!\n";
     return 0;
