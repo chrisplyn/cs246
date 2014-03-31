@@ -93,42 +93,7 @@ void Board::makeBlock(){
 		}
 	}
 
-
-
-	//string curType;
-
-	/*if (level  ){
-		nextType = nextBlock->getNonRandomType();
-
-		if (nextType != ""){
-			currentBlock = setCurrentBlock(nextType);
-		}
-		else{
-			nextType = nextBlock->getRandomType();
-		}
-
-		if (!nextBlock->noRandomType()){
-			nextType = nextBlock->getNonRandomType();
-
-			if (nextType != ""){
-				display nextType;
-			}
-		}
-
-	}
-	else{
-		need update level here
-		delete nextBlock;
-		nextBlock = new NextBlock(2);
-		curType = nextBlock->getRandomType();
-		currentBlock = setCurrentBlock(curType);
-	}*/
 }
-
-
-
-
-
 
 
 Block * Board::setCurrentBlock(string &type){
