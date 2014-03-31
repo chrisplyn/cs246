@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		892BD16118E7B4DF00F885C0 /* display.cc in Sources */ = {isa = PBXBuildFile; fileRef = 892BD15F18E7B4DF00F885C0 /* display.cc */; };
-		89A1892C18E780FA0098EF58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A1892B18E780FA0098EF58 /* main.cpp */; };
 		89A1892E18E780FA0098EF58 /* quatris.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89A1892D18E780FA0098EF58 /* quatris.1 */; };
 		89A1893E18E781340098EF58 /* block.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893418E781340098EF58 /* block.cc */; };
 		89A1893F18E781340098EF58 /* NextBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893618E781340098EF58 /* NextBlock.cc */; };
@@ -23,6 +22,7 @@
 		89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0718E8BF7E00650947 /* sblock.cc */; };
 		89DE9F0C18E8C1F300650947 /* score.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0A18E8C1F300650947 /* score.cc */; };
 		89DE9F0F18E9C45100650947 /* oblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0E18E9C45100650947 /* oblock.cc */; };
+		89DE9F1118E9CB9B00650947 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F1018E9CB9B00650947 /* main.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +43,6 @@
 		892BD16018E7B4DF00F885C0 /* display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = display.h; path = ../display.h; sourceTree = "<group>"; };
 		892BD16618E7B5C700F885C0 /* iblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iblock.h; path = ../iblock.h; sourceTree = "<group>"; };
 		89A1892818E780FA0098EF58 /* quatris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = quatris; sourceTree = BUILT_PRODUCTS_DIR; };
-		89A1892B18E780FA0098EF58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		89A1892D18E780FA0098EF58 /* quatris.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = quatris.1; sourceTree = "<group>"; };
 		89A1893418E781340098EF58 /* block.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = block.cc; path = ../block.cc; sourceTree = "<group>"; };
 		89A1893518E781340098EF58 /* block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = block.h; path = ../block.h; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		89DE9F0B18E8C1F300650947 /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = score.h; path = ../score.h; sourceTree = "<group>"; };
 		89DE9F0D18E9C43C00650947 /* oblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oblock.h; path = ../oblock.h; sourceTree = "<group>"; };
 		89DE9F0E18E9C45100650947 /* oblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = oblock.cc; path = ../oblock.cc; sourceTree = "<group>"; };
+		89DE9F1018E9CB9B00650947 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cc; path = ../main.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 		89A1891F18E780F90098EF58 = {
 			isa = PBXGroup;
 			children = (
+				89DE9F1018E9CB9B00650947 /* main.cc */,
 				89DE9F0E18E9C45100650947 /* oblock.cc */,
 				89DE9F0D18E9C43C00650947 /* oblock.h */,
 				89DE9F0718E8BF7E00650947 /* sblock.cc */,
@@ -130,7 +131,6 @@
 		89A1892A18E780FA0098EF58 /* quatris */ = {
 			isa = PBXGroup;
 			children = (
-				89A1892B18E780FA0098EF58 /* main.cpp */,
 				89A1892D18E780FA0098EF58 /* quatris.1 */,
 			);
 			path = quatris;
@@ -195,8 +195,8 @@
 				89DE9F0318E8BF3300650947 /* lblock.cc in Sources */,
 				89DE9EF418E7B67D00650947 /* iblock.cc in Sources */,
 				89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */,
-				89A1892C18E780FA0098EF58 /* main.cpp in Sources */,
 				89A1893E18E781340098EF58 /* block.cc in Sources */,
+				89DE9F1118E9CB9B00650947 /* main.cc in Sources */,
 				89A1893F18E781340098EF58 /* NextBlock.cc in Sources */,
 				89DE9F0C18E8C1F300650947 /* score.cc in Sources */,
 				89DE9EF718E8992E00650947 /* board.cc in Sources */,
