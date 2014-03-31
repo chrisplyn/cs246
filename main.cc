@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <string>
 #include <sstream>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -32,7 +34,7 @@ int main(int argc, const char * argv[])
             ++i;
             commandline = argv[i];
 			istringstream ss(commandline);
-            ss >> startLevel 
+			ss >> startLevel;
         } else if (commandline=="scriptfile") {
             ++i;
             filename = argv[i];
@@ -40,7 +42,7 @@ int main(int argc, const char * argv[])
             ++i;
             commandline = argv[i];
 			istringstream ss(commandline);
-            ss  >> maxBlockAllowed
+			ss >> maxBlockAllowed;
         }
     }
     

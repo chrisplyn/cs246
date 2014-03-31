@@ -71,7 +71,6 @@ void Board::makeBlock(){
 			delete nextBlock;
 			nextBlock = new NextBlock(2);
 			newType = nextBlock->getRandomType();
-			//notifyDisplay();
 		}
 	
 	}
@@ -81,7 +80,6 @@ void Board::makeBlock(){
 		nextBlock = new NextBlock(2);
 		newType = nextBlock->getRandomType();
 		currentBlock = setCurrentBlock(newType);
-		notifyDisplay();
 	}
 }
 
@@ -180,7 +178,7 @@ bool Board::isRowComplete(int numOfRow){
 void Board::notifyDisplay(){
     for (int i = 0; i < 15; ++i){
         for (int j = 0; j < 10;++j){
-            p->notify(i, j, grid[i][j].getType());//wrong with display
+            p->notify(i, j, grid[i][j].getType());
         }
     }
 }
