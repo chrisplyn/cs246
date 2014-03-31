@@ -13,7 +13,6 @@
 		89A1893E18E781340098EF58 /* block.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893418E781340098EF58 /* block.cc */; };
 		89A1893F18E781340098EF58 /* NextBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893618E781340098EF58 /* NextBlock.cc */; };
 		89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893818E781340098EF58 /* NextBlockImpl.cc */; };
-		89A1894118E781340098EF58 /* OBlock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89A1893A18E781340098EF58 /* OBlock.cc */; };
 		89DE9EF318E7B67D00650947 /* cell.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF018E7B67D00650947 /* cell.cc */; };
 		89DE9EF418E7B67D00650947 /* iblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF218E7B67D00650947 /* iblock.cc */; };
 		89DE9EF718E8992E00650947 /* board.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9EF618E8992E00650947 /* board.cc */; };
@@ -23,6 +22,7 @@
 		89DE9F0618E8BF5E00650947 /* jblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0418E8BF5E00650947 /* jblock.cc */; };
 		89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0718E8BF7E00650947 /* sblock.cc */; };
 		89DE9F0C18E8C1F300650947 /* score.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0A18E8C1F300650947 /* score.cc */; };
+		89DE9F0F18E9C45100650947 /* oblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0E18E9C45100650947 /* oblock.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,8 +51,6 @@
 		89A1893718E781340098EF58 /* NextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextBlock.h; path = ../NextBlock.h; sourceTree = "<group>"; };
 		89A1893818E781340098EF58 /* NextBlockImpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NextBlockImpl.cc; path = ../NextBlockImpl.cc; sourceTree = "<group>"; };
 		89A1893918E781340098EF58 /* NextBlockImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextBlockImpl.h; path = ../NextBlockImpl.h; sourceTree = "<group>"; };
-		89A1893A18E781340098EF58 /* OBlock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OBlock.cc; path = ../OBlock.cc; sourceTree = "<group>"; };
-		89A1893B18E781340098EF58 /* OBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBlock.h; path = ../OBlock.h; sourceTree = "<group>"; };
 		89DE9EEF18E7B67D00650947 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = board.h; path = ../board.h; sourceTree = "<group>"; };
 		89DE9EF018E7B67D00650947 /* cell.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = ../cell.cc; sourceTree = "<group>"; };
 		89DE9EF118E7B67D00650947 /* cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cell.h; path = ../cell.h; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		89DE9F0818E8BF7E00650947 /* sblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sblock.h; path = ../sblock.h; sourceTree = "<group>"; };
 		89DE9F0A18E8C1F300650947 /* score.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = score.cc; path = ../score.cc; sourceTree = "<group>"; };
 		89DE9F0B18E8C1F300650947 /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = score.h; path = ../score.h; sourceTree = "<group>"; };
+		89DE9F0D18E9C43C00650947 /* oblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oblock.h; path = ../oblock.h; sourceTree = "<group>"; };
+		89DE9F0E18E9C45100650947 /* oblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = oblock.cc; path = ../oblock.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,8 @@
 		89A1891F18E780F90098EF58 = {
 			isa = PBXGroup;
 			children = (
+				89DE9F0E18E9C45100650947 /* oblock.cc */,
+				89DE9F0D18E9C43C00650947 /* oblock.h */,
 				89DE9F0718E8BF7E00650947 /* sblock.cc */,
 				89DE9F0818E8BF7E00650947 /* sblock.h */,
 				89DE9F0418E8BF5E00650947 /* jblock.cc */,
@@ -108,8 +110,6 @@
 				89A1893718E781340098EF58 /* NextBlock.h */,
 				89A1893818E781340098EF58 /* NextBlockImpl.cc */,
 				89A1893918E781340098EF58 /* NextBlockImpl.h */,
-				89A1893A18E781340098EF58 /* OBlock.cc */,
-				89A1893B18E781340098EF58 /* OBlock.h */,
 				89DE9EF218E7B67D00650947 /* iblock.cc */,
 				892BD16618E7B5C700F885C0 /* iblock.h */,
 				892BD15F18E7B4DF00F885C0 /* display.cc */,
@@ -191,10 +191,10 @@
 				89DE9EF318E7B67D00650947 /* cell.cc in Sources */,
 				89DE9F0618E8BF5E00650947 /* jblock.cc in Sources */,
 				89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */,
+				89DE9F0F18E9C45100650947 /* oblock.cc in Sources */,
 				89DE9F0318E8BF3300650947 /* lblock.cc in Sources */,
 				89DE9EF418E7B67D00650947 /* iblock.cc in Sources */,
 				89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */,
-				89A1894118E781340098EF58 /* OBlock.cc in Sources */,
 				89A1892C18E780FA0098EF58 /* main.cpp in Sources */,
 				89A1893E18E781340098EF58 /* block.cc in Sources */,
 				89A1893F18E781340098EF58 /* NextBlock.cc in Sources */,

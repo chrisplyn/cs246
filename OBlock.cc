@@ -10,7 +10,7 @@ OBlock::OBlock(Board& board, int level):Block(){
     //| 2 | 3 |
     //---------
     //| 0 | 1 |
-    //--------- 
+    //---------
     
     cells[0] = &grid[4][0];
     cells[1] = &grid[4][1];
@@ -43,7 +43,7 @@ OBlock::OBlock(Board& board, int level):Block(){
 bool OBlock::canMoveLeft(Board *board){
     
     Cell **grid = board->getGrid();
-
+    
     //check 0
     int xcoordinate = cells[0]->getX();
     int ycoordinate = cells[0]->getY();
@@ -151,7 +151,7 @@ void OBlock::moveRight(Board *board){
     cells[3] -> Swap(&grid[cells[3]->getX()][cells[3]->getY()+1]);
     cells[2] -> Swap(&grid[cells[2]->getX()][cells[2]->getY()+1]);
     cells[0] -> Swap(&grid[cells[0]->getX()][cells[0]->getY()+1]);
-
+    
 }
 
 void OBlock::moveDown(Board *board){
@@ -174,4 +174,3 @@ void OBlock::drop(Board *board){
     }
     return;
 }
-
