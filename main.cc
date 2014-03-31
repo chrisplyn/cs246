@@ -1,6 +1,5 @@
 
 #include "board.h"
-#include "cell.h"
 #include <cstdlib>
 #include <string>
 #include <sstream>
@@ -27,18 +26,21 @@ int main(int argc, const char * argv[])
         } else if (commandline=="seed") {
             ++i;
             commandline = argv[i];
-            seed = atoi(commandline.c_str());
+			istringstream ss(commandline);
+            ss >> seed;
         } else if (commandline=="startlevel") {
             ++i;
             commandline = argv[i];
-            startLevel = atoi(commandline.c_str());
+			istringstream ss(commandline);
+            ss >> startLevel 
         } else if (commandline=="scriptfile") {
             ++i;
             filename = argv[i];
         } else if (commandline=="maxBlock") {
             ++i;
             commandline = argv[i];
-            maxBlockAllowed = atoi(commandline.c_str());
+			istringstream ss(commandline);
+            ss  >> maxBlockAllowed
         }
     }
     
@@ -63,7 +65,6 @@ int main(int argc, const char * argv[])
 	//b.makeBlock();
 	//b.makeBlock();
 	cout << b;
-	cin.get();	
 
 }
 
