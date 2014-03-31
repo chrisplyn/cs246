@@ -1,4 +1,6 @@
 #include "cell.h"
+#include "display.h"
+#include "score.h"
 using namespace std;
 
 Cell::Cell(){

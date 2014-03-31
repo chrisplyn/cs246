@@ -1,10 +1,11 @@
 #ifndef __CELL_H__
 #define __CELL_H__
 #include <string>
-#include "score.h"
-#include "display.h"
+
 #define NeighbourMax 3
 
+class Display;
+class Score;
 class Cell{
     int Level;
     std::string type;

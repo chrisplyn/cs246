@@ -1,6 +1,6 @@
 
 #include "iblock.h"
-#include "cell"
+#include "cell.h"
 using namespace std;
 
 IBlock::IBlock(Board& board, int level):Block(){

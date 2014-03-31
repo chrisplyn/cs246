@@ -22,6 +22,13 @@ Display::~Display(){
 	delete [] theDisplay;
 }
 
+void Display::notify(int r, int c, string type){
+	if (type == "O"){
+		theDisplay[r][c] = 'O';
+	}
+}
+
+
 void Display::updateLevel(int level){
     cout.fill(' ');
     cout.width(7);

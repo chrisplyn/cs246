@@ -18,7 +18,7 @@ class Display{
 public:
 	Display(int row, int col);
 	~Display();
-	void notify(int r, int c, std::string &type);
+	void notify(int r, int c, std::string type);
 	void updateLevel(int);
 	void updateScore(int);
 	void updateHiScore(int);
