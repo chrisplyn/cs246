@@ -1,6 +1,6 @@
 
-#ifndef NEXTBLOCKIMPL_H_
-#define NEXTBLOCKIMPL_H_
+#ifndef __NEXTBLOCKIMPL_H_
+#define __NEXTBLOCKIMPL_H_
 
 #include <string>
 #include <iostream>
