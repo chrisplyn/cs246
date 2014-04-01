@@ -30,7 +30,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
+	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -97,19 +97,14 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
-		cout << command << "123" << endl;
-        
-        
-        
+	
+                 
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
 			tn.remove(subCommand1);
-		}
-        
+		}      
 		command = tn.find(command);
-		cout << command << "here" << endl;
-        
 		for (int i = 0; i < numRepeat; ++i) {
             
 			if (command == "left"){
