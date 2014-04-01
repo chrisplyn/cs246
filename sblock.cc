@@ -52,6 +52,10 @@ SBlock::SBlock(Board &board, int level){
 }
 
 bool SBlock::canMoveLeft(Board *board){
+<<<<<<< HEAD
+=======
+    //std::cout<<"here"<<std::endl;
+>>>>>>> FETCH_HEAD
     Cell **grid = board->getGrid();
     if (direction()==0) {
         //check0
@@ -190,11 +194,12 @@ bool SBlock::canRotateClockwise(Board *board){
     int originX = cells[0]->getX();
     int originY = cells[0]->getY();
     if (direction()==0) {
-        if (grid[originX-1][originY+1].isOn()) return false;
-        if (grid[originX+1][originY].isOn()) return false;
+        if (grid[originX-2][originY].isOn()) return false;
+        if (grid[originX-1][originY].isOn()) return false;
     } else {
+        if (originY==8) return false;
         if (grid[originX+2][originY].isOn()) return false;
-        if (grid[originX+2][originY+1].isOn()) return false;
+        if (grid[originX+1][originY+2].isOn()) return false;
     }
     return true;
 }
@@ -204,7 +209,9 @@ bool SBlock::canRotateAnticlockwise(Board *board) {
 }
 
 void SBlock::moveLeft(Board *board) {
-    if (!canMoveLeft(board)) return;
+    
+    if (!canMoveLeft(board)) {return;}
+    
     Cell **grid = board->getGrid();
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();
@@ -252,6 +259,7 @@ void SBlock::drop(Board *board) {
 }
 
 void SBlock::rotateClockwise(Board *board) {
+    if (!canRotateClockwise(board)) return;
     Cell **grid = board->getGrid();
     if (direction()==0) {
         cells[0]->Swap(&grid[cells[0]->getX()-2][cells[0]->getY()]);

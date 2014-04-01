@@ -316,11 +316,11 @@ bool JBlock::canRotateClockwise(Board *board) {
     Cell **grid = board->getGrid();
     int originX = cells[0]->getX();
     int originY = cells[0]->getY();
-    
     if (direction()==0) {
         if (grid[originX-1][originY+1].isOn()) return false;
         if (grid[originX-1][originY].isOn()) return false;
     } else if (direction()==1) {
+        if (originY==9) return false;
         if (grid[originX+1][originY].isOn()) return false;
         if (grid[originX+1][originY+1].isOn()) return false;
         if (grid[originX+2][originY+1].isOn()) return false;
@@ -329,6 +329,7 @@ bool JBlock::canRotateClockwise(Board *board) {
         if (grid[originX][originY-1].isOn()) return false;
         if (grid[originX][originY-2].isOn()) return false;
     } else {
+        if (originY==8) return false;
         if (grid[originX-1][originY].isOn()) return false;
         if (grid[originX][originY+2].isOn()) return false;
     }
@@ -344,6 +345,7 @@ bool JBlock::canRotateAnticlockwise(Board *board) {
         if (grid[originX][originY+1].isOn()) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
     } else if (direction()==1) {
+        if (originY==9) return false;
         if (grid[originX+2][originY].isOn()) return false;
         if (grid[originX+2][originY+1].isOn()) return false;
     } else if (direction()==2) {
@@ -351,6 +353,7 @@ bool JBlock::canRotateAnticlockwise(Board *board) {
         if (grid[originX-2][originY-2].isOn()) return false;
         if (grid[originX-2][originY-1].isOn()) return false;
     } else {
+        if (originY==8) return false;
         if (grid[originX][originY+2].isOn()) return false;
         if (grid[originX-1][originY].isOn()) return false;
         if (grid[originX-1][originY+2].isOn()) return false;
@@ -362,7 +365,7 @@ void JBlock::moveLeft(Board *board) {
     if (!canMoveLeft(board)) return;
     Cell **grid = board->getGrid();
     
-    if (direction()==0 || direction()==1) {
+    if (direction()==0 || direction()==3) {
         for (int i =0; i<4; ++i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
@@ -403,7 +406,12 @@ void JBlock::moveRight(Board *board){
 void JBlock::moveDown(Board *board ) {
     if (!canMoveDown(board)) return;
     Cell **grid = board->getGrid();
+<<<<<<< HEAD
     if (direction()==2 || direction()==3) {
+=======
+    
+        if (direction()==2 || direction()==3) {
+>>>>>>> FETCH_HEAD
         for (int i =0; i<4; ++i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
@@ -412,6 +420,10 @@ void JBlock::moveDown(Board *board ) {
         }
     } else {
         for (int i = 3; i>=0; --i) {
+<<<<<<< HEAD
+=======
+           
+>>>>>>> FETCH_HEAD
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);
@@ -427,6 +439,7 @@ void JBlock::drop(Board *board) {
 }
 
 void JBlock::rotateClockwise(Board *board) {
+    if (!canRotateClockwise(board)) return;
     Cell **grid = board->getGrid();
     
     if (direction()==0) {
@@ -474,6 +487,7 @@ void JBlock::rotateClockwise(Board *board) {
 }
 
 void JBlock::rotateAnticlockwise(Board *board) {
+    if (!canRotateAnticlockwise(board)) return;
     Cell **grid = board->getGrid();
     
     if (direction()==0) {

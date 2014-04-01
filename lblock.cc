@@ -425,6 +425,7 @@ void LBlock::drop(Board *board) {
 }
 
 void LBlock::rotateClockwise(Board *board) {
+    if (!canRotateClockwise(board)) return;
     Cell **grid = board->getGrid();
     
     if (direction()==0) {
@@ -472,6 +473,7 @@ void LBlock::rotateClockwise(Board *board) {
 }
 
 void LBlock::rotateAnticlockwise(Board *board) {
+    if (!canRotateAnticlockwise(board)) return;
     Cell **grid = board->getGrid();
     
     if (direction()==0) {

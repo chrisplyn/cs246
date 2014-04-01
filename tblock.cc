@@ -67,36 +67,44 @@ TBlock::TBlock(Board &board, int level):Block(){
 }
 
 void TBlock::rotateClockwise(Board *board) {
+    if (!canRotateClockwise(board)) return;
     Cell **grid = board->getGrid();
     
     if (direction()==0) {
         cells[0]->Swap(&grid[cells[0]->getX()-2][cells[0]->getY()]);
         cells[1]->Swap(&grid[cells[1]->getX()-1][cells[1]->getY()-1]);
         cells[2]->Swap(&grid[cells[2]->getX()][cells[2]->getY()-2]);
+        
         cells[0] = &grid[cells[0]->getX()-2][cells[0]->getY()];
         cells[1] = &grid[cells[1]->getX()-1][cells[1]->getY()-1];
         cells[2] = &grid[cells[2]->getX()][cells[2]->getY()-2];
+        
     } else if (direction()==1) {
         cells[3]->Swap(&grid[cells[3]->getX()+1][cells[3]->getY()]);
         cells[0]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()+2]);
         cells[1]->Swap(&grid[cells[1]->getX()][cells[1]->getY()+1]);
         cells[2]->Swap(&grid[cells[2]->getX()-1][cells[2]->getY()]);
+        
         cells[3] = &grid[cells[3]->getX()+1][cells[3]->getY()];
         cells[0] = &grid[cells[0]->getX()+1][cells[0]->getY()+2];
         cells[1] = &grid[cells[1]->getX()][cells[1]->getY()+1];
         cells[2] = &grid[cells[2]->getX()-1][cells[2]->getY()];
+        
     } else if (direction()==2) {
         cells[2]->Swap(&grid[cells[2]->getX()-1][cells[2]->getY()+1]);
         cells[3]->Swap(&grid[cells[3]->getX()-1][cells[3]->getY()-1]);
         cells[0]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()-1]);
+        
         cells[2] = &grid[cells[2]->getX()-1][cells[2]->getY()+1];
         cells[3] = &grid[cells[3]->getX()-1][cells[3]->getY()-1];
         cells[0] = &grid[cells[0]->getX()+1][cells[0]->getY()-1];
+        
     } else {
         cells[0]->Swap(&grid[cells[0]->getX()][cells[0]->getY()-1]);
         cells[1]->Swap(&grid[cells[1]->getX()+1][cells[1]->getY()]);
         cells[2]->Swap(&grid[cells[2]->getX()+2][cells[2]->getY()+1]);
         cells[3]->Swap(&grid[cells[3]->getX()][cells[3]->getY()+1]);
+        
         cells[0] = &grid[cells[0]->getX()][cells[0]->getY()-1];
         cells[1] = &grid[cells[1]->getX()+1][cells[1]->getY()];
         cells[2] = &grid[cells[2]->getX()+2][cells[2]->getY()+1];
@@ -106,6 +114,7 @@ void TBlock::rotateClockwise(Board *board) {
 }
 
 void TBlock::rotateAnticlockwise(Board *board) {
+    if (!canRotateAnticlockwise(board)) return;
     Cell **grid = board->getGrid();
     if (direction()==0) {
         cells[3]->Swap(&grid[cells[3]->getX()][cells[3]->getY()-1]);
@@ -430,7 +439,11 @@ void TBlock::moveLeft(Board *board){
             cells[i] = &grid[coorX][coorY-1];
         }
     } else {
+<<<<<<< HEAD
         for (int i = 3; i>=0; --i) {
+=======
+            for (int i = 3; i>=0; --i) {
+>>>>>>> FETCH_HEAD
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY-1]);

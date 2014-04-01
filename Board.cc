@@ -1,6 +1,11 @@
 #include "board.h"
 #include <string>
 #include <climits>
+<<<<<<< HEAD
+=======
+#include <iomanip>
+#include <cstdlib>
+>>>>>>> FETCH_HEAD
 #include <iostream>
 #include "score.h"
 #include "cell.h"
@@ -19,9 +24,18 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 Board::Board(int Level,int maxdelete){
     MaxDelete = maxdelete;
     level = Level;
+=======
+
+Board *Board::instance = 0;
+
+Board::Board(int level){
+    this->level = level;
+    MaxDelete = INT_MAX;
+>>>>>>> FETCH_HEAD
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
     p = new Display(15,10);
@@ -41,20 +55,45 @@ void Board::setInputStream(istream &input){
 }
 
 
-void Board::makeBlock(){
+Board *Board::getInstance(int level){
+    if (!instance){
+        instance = new Board(level);
+        atexit(cleanup);
+    }
+    return instance;
+}
 
+void Board::initialization(std::istream &input){
+    nextBlock->setInputStream(input);
+    this->makeBlock();
+    this->notifyDisplay();
+    this->displayall();
+}
+
+
+void Board::cleanup(){
+    delete instance;
+}
+
+
+void Board::makeBlock(){
 	if (level == 0){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
+
+                if(currentBlock !=0 ) delete currentBlock;  //delete previous block
 				currentBlock = setCurrentBlock(nextType);
 			}
+			else{return;}
+
 			nextType = nextBlock->getNonRandomType();
 			if (nextType == ""){
 				return; //restart
 			}
 		}
 		else{
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);	
 			nextType = nextBlock->getNonRandomType();		
 			if (nextType == ""){
@@ -65,10 +104,13 @@ void Board::makeBlock(){
 	else{
 		if (nextType == ""){
 			nextType = nextBlock->getRandomType();
+
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);
 			nextType = nextBlock->getRandomType();
 		}
 		else{
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);
 			nextType = nextBlock->getRandomType();
 		}
@@ -203,11 +245,6 @@ Board::~Board(){
 }
 
 
-ostream &operator<<(std::ostream &out, const Board &b){
-	out << *b.p;
-	return out;
-}
-
 void Board::displayall(){
     cout << "Level:";
     cout << setw(7) << level << endl;
@@ -248,17 +285,16 @@ void Board::restart(int d_level){
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
+<<<<<<< HEAD
     level = d_level;
+=======
+	level = d_level;
+>>>>>>> FETCH_HEAD
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
     nextType = "";
 }
 
-//void Board::setLevel(int n_level){
-//    level = n_level;
-//    delete nextBlock;
-//    nextBlock = new NextBlock(n_level);
-//}
 
 void Board::levelUp(){
 	if (level <= 2){
@@ -352,4 +388,47 @@ void Board::deleteextra(){
 
 
 
+
+bool Board::isGameOver(){
+    
+    if(nextBlock->noRandomType()) return true;
+
+    for (int i=0; i<3; ++i) {
+        for (int j=0; j<10; ++j) {
+            if (grid[i][j].isOn()) {
+                return true;
+            }
+        }
+    }
+    if (nextType == "O") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][0].isOn()||grid[3][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "I") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[3][3].isOn()) {
+            return true;
+        }
+    } else if (nextType == "L") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "J") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][0].isOn()) {
+            return true;
+        }
+    } else if (nextType == "T") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[4][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "S") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][1].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "Z") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[4][1].isOn()||grid[4][2].isOn()) {
+            return true;
+        }
+    }
+    return false;
+}
 
