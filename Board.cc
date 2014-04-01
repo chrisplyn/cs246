@@ -1,6 +1,7 @@
 #include "board.h"
 #include <string>
 #include <climits>
+#include <iomanip>
 #include <iostream>
 #include "score.h"
 #include "cell.h"
@@ -210,26 +211,32 @@ ostream &operator<<(std::ostream &out, const Board &b){
 }
 
 void Board::displayall(){
-    cout.fill(' ');
-    cout.width(7);
 	cout << "Level:";
-    cout << right << level << endl;
-    cout.fill(' ');
-    cout.width(7);
+    cout << setw(7) << level << endl;
 	cout << "Score:";
-    cout <<	right << scoreBoard->getCur() << endl;
-    cout.fill(' ');
-    cout.width(4);
+    cout <<	setw(7) << scoreBoard->getCur() << endl;
+
 	cout << "Hi Score:";
-    cout << right << scoreBoard->gethS() << endl;
+    cout << setw(4) << scoreBoard->gethS() << endl;
     cout << "----------" <<endl;
     cout << *p;
     cout << "----------" <<endl;
     cout << "Next:" << endl;
+    
     if (nextType == "O"){
-        cout << "OO\nOO" << endl;
-    }   else if (nextType == "L"){
-        cout << "  L\nLLL" << endl;
+        cout << "OO"<< endl << "OO" << endl;
+    } else if (nextType == "I") {
+        cout << "IIII" << endl;
+    } else if (nextType == "L"){
+        cout << "  L" << endl << "LLL" << endl;
+    } else if (nextType == "J") {
+        cout << "J  " << endl << "JJJ" <<endl;
+    } else if (nextType == "S") {
+        cout << " SS" << endl<<"SS "<<endl;
+    } else if (nextType == "Z") {
+        cout << "ZZ " << endl << " ZZ" <<endl;
+    } else if (nextType == "T") {
+        cout << "TTT" << endl << " T " << endl;
     }
 }
 
