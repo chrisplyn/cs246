@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "sequence.txt";
+	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -101,13 +101,7 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
-<<<<<<< HEAD
-		//cout << command << "123" << endl;
-        
-=======
-	
-                 
->>>>>>> a86e09421c1c07deba3e4d74741e727e80345e41
+
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
