@@ -13,8 +13,11 @@ int repeat(string& command){
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
+       // cout<<"here"<<endl;
+        //cout<<command[0];
         numRepeat.push_back(command[0]);
-        command.substr(1);
+        command = command.substr(1);
+        //cout<<command<<endl;
     }
 	if (numRepeat == "") return 1;
     istringstream ss(numRepeat);
@@ -86,6 +89,7 @@ int main(int argc, const char * argv[])
 	if (startLevel == 0){
 		board.setInputStream(f);
 	}
+    
 	board.makeBlock();
 	board.notifyDisplay();
 	board.displayall();
@@ -97,9 +101,7 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
-		cout << command << "123" << endl;
-        
-        
+		//cout << command << "123" << endl;
         
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
