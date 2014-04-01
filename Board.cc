@@ -284,15 +284,8 @@ void Board::restart(int d_level){
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
-<<<<<<< HEAD
     currentBlock = 0;   //set currentBlock to null
-=======
-<<<<<<< HEAD
     level = d_level;
-=======
->>>>>>> 42f5ede06bd2be49c6144c471ad27a04a977950b
-	level = d_level;
->>>>>>> FETCH_HEAD
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
     nextType = "";
