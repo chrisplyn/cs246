@@ -1,13 +1,17 @@
 #include "board.h"
 #include <string>
 #include <climits>
+<<<<<<< HEAD
+=======
 #include <iomanip>
 #include <cstdlib>
+>>>>>>> FETCH_HEAD
 #include <iostream>
 #include "score.h"
 #include "cell.h"
 #include "display.h"
 #include "NextBlock.h"
+#include <iomanip>
 #include "block.h"
 #include "oblock.h"
 #include "iblock.h"
@@ -20,12 +24,18 @@
 
 using namespace std;
 
+<<<<<<< HEAD
+Board::Board(int Level,int maxdelete){
+    MaxDelete = maxdelete;
+    level = Level;
+=======
 
 Board *Board::instance = 0;
 
 Board::Board(int level){
     this->level = level;
     MaxDelete = INT_MAX;
+>>>>>>> FETCH_HEAD
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
     p = new Display(15,10);
@@ -35,7 +45,7 @@ Board::Board(int level){
         grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",-1);
+            grid[i][j].setLT("",-1,-1);
         }
     }
 }
@@ -124,8 +134,7 @@ Block * Board::setCurrentBlock(string &type){
         tmp = new JBlock(*this, level);
     } else if (type == "L"){
         tmp = new LBlock(*this, level);
-	}
-	else{
+	} else{
 		return 0;
 	}
 	return tmp;
@@ -179,15 +188,16 @@ void Board::deleteRow(int numOfRow){
         Cell * c3 = grid[numOfRow][i].getNeighbour(2);
         if ((c1 == NULL) && (c2 == NULL) && (c3 == NULL)){
             scoreBoard->updateScoreBoard(grid[numOfRow][i].getLevel());
-    //        scoreBoard->notifyDisplay(); Not sure
             grid[numOfRow][i].reset();
         }   else {
             grid[numOfRow][i].reset();
         }
     }
-	for (int j = numOfRow; j > 0;--j){
-        for (int k = 0; k < 10; ++k){
-            grid[j][k].Swap(&grid[j-1][k]);
+    if (numOfRow != 0){
+        for (int j = numOfRow-1; j > 0; --j){
+            for (int k = 0; k < 10; ++k){
+                grid[j][k].Swap(&grid[j+1][k]);
+            }
         }
     }
 }
@@ -235,11 +245,11 @@ Board::~Board(){
 
 
 void Board::displayall(){
-	cout << "Level:";
+    cout << "Level:";
     cout << setw(7) << level << endl;
 	cout << "Score:";
     cout <<	setw(7) << scoreBoard->getCur() << endl;
-
+    
 	cout << "Hi Score:";
     cout << setw(4) << scoreBoard->gethS() << endl;
     cout << "----------" <<endl;
@@ -268,14 +278,21 @@ void Board::restart(int d_level){
     for (int i = 0; i < 15; i++){
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",-1);
+            grid[i][j].setLT("",-1,-1);
         }
     }
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
+<<<<<<< HEAD
     currentBlock = 0;   //set currentBlock to null
+=======
+<<<<<<< HEAD
+    level = d_level;
+=======
+>>>>>>> 42f5ede06bd2be49c6144c471ad27a04a977950b
 	level = d_level;
+>>>>>>> FETCH_HEAD
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
     nextType = "";
@@ -297,6 +314,82 @@ void Board::levelDown(){
 		nextBlock = new NextBlock(level);
 	}
 }
+
+bool Board::isGameOver(){
+    for (int i=0; i<3; ++i) {
+        for (int j=0; j<10; ++j) {
+            if (grid[i][j].isOn()) {
+                return true;
+            }
+        }
+    }
+    if (nextType == "O") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][0].isOn()||grid[3][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "I") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[3][3].isOn()) {
+            return true;
+        }
+    } else if (nextType == "L") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "J") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][0].isOn()) {
+            return true;
+        }
+    } else if (nextType == "T") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[4][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "S") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][1].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "Z") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[4][1].isOn()||grid[4][2].isOn()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//extra feature
+void Board::setMaxdelete(int maxdelte){
+    MaxDelete = maxdelte;
+}
+
+void Board::updatecelltimes(){
+    for (int i = 0;i < 15;i++){
+        for (int j = 0; j < 10; j++){
+            if (grid[i][j].isOn()){
+                grid[i][j].updatetimes();
+            }
+        }
+    }
+}
+
+void Board::deleteextra(){
+    for (int i = 0;i < 15;i++){
+        for (int j = 0; j < 10; j++){
+            if ((grid[i][j].isOn())&&(grid[i][j].getExistime()>= MaxDelete)){
+                grid[i][j].reset();
+                if (i != 0){
+                    for (int k = i-1; k>0;k--){
+                        grid[k][j].Swap(&grid[k+1][j]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 
 
 bool Board::isGameOver(){

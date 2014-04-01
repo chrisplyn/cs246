@@ -29,10 +29,10 @@ SBlock::SBlock(Board &board, int level){
     cells[2] = &grid[3][1];
     cells[3] = &grid[3][2];
     
-    cells[0]->setLT("S", level);
-    cells[1]->setLT("S", level);
-    cells[2]->setLT("S", level);
-    cells[3]->setLT("S", level);
+    cells[0]->setLT("S", level,1);
+    cells[1]->setLT("S", level,1);
+    cells[2]->setLT("S", level,1);
+    cells[3]->setLT("S", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -52,7 +52,10 @@ SBlock::SBlock(Board &board, int level){
 }
 
 bool SBlock::canMoveLeft(Board *board){
+<<<<<<< HEAD
+=======
     //std::cout<<"here"<<std::endl;
+>>>>>>> FETCH_HEAD
     Cell **grid = board->getGrid();
     if (direction()==0) {
         //check0

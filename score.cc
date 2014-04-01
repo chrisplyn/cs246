@@ -14,7 +14,7 @@ void Score::updateScoreBoard(int level){
 }
 
 void Score::updateScoreBoard(int level, int rowsDeleted){
-    curScore = rowsDeleted * (level + 1) * (level + 1) + curScore;
+    curScore = (level + rowsDeleted) * (level + rowsDeleted) + curScore;
     if (curScore >= highScore){
         highScore = curScore;
     }

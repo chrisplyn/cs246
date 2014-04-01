@@ -29,6 +29,11 @@ class Board{
 
 
    public:
+<<<<<<< HEAD:Board.h
+    //Board();
+    Board(int Level,int maxdelte);
+=======
+>>>>>>> FETCH_HEAD:board.h
     Cell ** getGrid();
     void initialization(std::istream &);
     int getLevel();
@@ -48,9 +53,18 @@ class Board{
     void notifyDisplay();
     void displayall();
     void restart(int d_level);
+<<<<<<< HEAD:Board.h
+    bool isGameOver();
+    //void setLevel(int n_level);
+=======
+>>>>>>> FETCH_HEAD:board.h
 	void levelUp();
 	void levelDown();
     ~Board();
+    //extrafeature
+    void setMaxdelete(int maxdelte);
+    void updatecelltimes();
+    void deleteextra();
 };
 
 
