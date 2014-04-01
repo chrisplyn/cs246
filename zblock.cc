@@ -29,10 +29,10 @@ ZBlock::ZBlock(Board &board, int level){
     cells[2] = &grid[4][1];
     cells[3] = &grid[4][2];
     
-    cells[0]->setLT("Z", level);
-    cells[1]->setLT("Z", level);
-    cells[2]->setLT("Z", level);
-    cells[3]->setLT("Z", level);
+    cells[0]->setLT("Z", level,1);
+    cells[1]->setLT("Z", level,1);
+    cells[2]->setLT("Z", level,1);
+    cells[3]->setLT("Z", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -193,6 +193,8 @@ bool ZBlock::canRotateClockwise(Board *board){
         if (grid[originX+1][originY].isOn()) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
     } else {
+        std::cout << originY << std::endl;
+        if (originY==9) {return false;}
         if (grid[originX+2][originY].isOn()) return false;
         if (grid[originX+2][originY+1].isOn()) return false;
     }

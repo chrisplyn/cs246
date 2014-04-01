@@ -37,16 +37,16 @@ int TBlock::direction(){
 TBlock::TBlock(Board &board, int level):Block(){
     
     Cell ** grid = board.getGrid();
-
+    
     cells[0] = &grid[3][2];
     cells[1] = &grid[3][1];
     cells[2] = &grid[3][0];
     cells[3] = &grid[4][1];
     
-    cells[0]->setLT("T", level);
-    cells[1]->setLT("T", level);
-    cells[2]->setLT("T", level);
-    cells[3]->setLT("T", level);
+    cells[0]->setLT("T", level,1);
+    cells[1]->setLT("T", level,1);
+    cells[2]->setLT("T", level,1);
+    cells[3]->setLT("T", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -109,7 +109,7 @@ void TBlock::rotateClockwise(Board *board) {
         cells[1] = &grid[cells[1]->getX()+1][cells[1]->getY()];
         cells[2] = &grid[cells[2]->getX()+2][cells[2]->getY()+1];
         cells[3] = &grid[cells[3]->getX()][cells[3]->getY()+1];
-
+        
     }
 }
 
@@ -126,7 +126,7 @@ void TBlock::rotateAnticlockwise(Board *board) {
         cells[2] = &grid[cells[2]->getX()-2][cells[2]->getY()-1];
         cells[1] = &grid[cells[1]->getX()-1][cells[1]->getY()];
         cells[0] = &grid[cells[0]->getX()][cells[0]->getY()+1];
-
+        
     } else if (direction()==1) {
         cells[2]->Swap(&grid[cells[2]->getX()][cells[2]->getY()+2]);
         cells[1]->Swap(&grid[cells[1]->getX()+1][cells[1]->getY()+1]);
@@ -409,7 +409,7 @@ bool TBlock::canRotateAnticlockwise(Board *board) {
     Cell **grid = board->getGrid();
     int originX = cells[0]->getX();
     int originY = cells[1]->getY();
-
+    
     if (direction()==0) {
         if (grid[originX-1][originY].isOn()) return false;
         if (grid[originX-2][originY+1].isOn()) return false;
@@ -439,7 +439,11 @@ void TBlock::moveLeft(Board *board){
             cells[i] = &grid[coorX][coorY-1];
         }
     } else {
+<<<<<<< HEAD
+        for (int i = 3; i>=0; --i) {
+=======
             for (int i = 3; i>=0; --i) {
+>>>>>>> FETCH_HEAD
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY-1]);
@@ -458,7 +462,7 @@ void TBlock::moveRight(Board *board) {
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY+1]);
             cells[i] = &grid[coorX][coorY+1];
-
+            
         }
     } else {
         for (int i =3; i>=0; --i) {
@@ -496,4 +500,3 @@ void TBlock::drop(Board *board) {
         moveDown(board);
     }
 }
-

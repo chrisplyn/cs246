@@ -10,6 +10,7 @@ Cell::Cell(){
     }
     xCoordinate = -1;
     yCoordiante = -1;
+    existtime = -1;
 }
 
 Cell::Cell(string Type,int level){
@@ -20,6 +21,7 @@ Cell::Cell(string Type,int level){
     }
     xCoordinate = -1;
     yCoordiante = -1;
+    existtime = -1;
 }
 
 void Cell::addNeighbour(Cell * c){
@@ -27,6 +29,7 @@ void Cell::addNeighbour(Cell * c){
         for (int i = 0; i < 3; ++i){
             if (Neighbour[i] == NULL){
                 Neighbour[i] = c;
+                break;//change here ***************************
             }
         }
     }
@@ -38,10 +41,11 @@ void Cell::addToNeighbour(Cell * c){
 }
 
 void Cell::deleteNeighbour(Cell * c){
-    if ((c != NULL) && (this != NULL)){
+    if ((c != NULL) &&(this != NULL)){//change here (c != NULL) &&
         for (int i = 0; i < 3; ++i){
             if (Neighbour[i] == c){
                 Neighbour[i] = NULL;
+                break;//change here ****************************
             }
         }
     }
@@ -59,16 +63,20 @@ void Cell::Swap(Cell *c){
     
     string tempType = c->getType();
     int tempLevel = c->getLevel();
-    c->setLT(type,Level);
+    int temexist = c->getExistime();
+    c->setLT(type,Level,existtime);
     type = tempType;
     Level = tempLevel;
+    existtime = temexist;
     
     //swap neighbours
     
     Cell * neighbour;
     for (int i =0; i < 3; ++i){
         neighbour = this->getNeighbour(i);
-        c->addNeighbour(neighbour);
+        if (neighbour != NULL){//change here
+            c->addNeighbour(neighbour);
+        }
     }
     this->deleteFromNeighbour();
     for (int j = 0; j < 3; ++j){
@@ -82,10 +90,10 @@ void Cell::Swap(Cell *c){
 }
 
 void Cell::reset(){
-    for (int i = 0; i < 3; ++i){
+    this->deleteFromNeighbour();
+    for (int i = 0; i < 3;++i){
         Neighbour[i] = NULL;
     }
-    this->deleteFromNeighbour();
     type = "";
     Level = -1;
 }
@@ -95,9 +103,10 @@ Cell* Cell::getNeighbour(int index){
     return Neighbour[index];
 }
 
-void Cell::setLT(std::string Type,int level){
+void Cell::setLT(std::string Type,int level,int Existime){
     type = Type;
     Level = level;
+    existtime = Existime;
 }
 
 void Cell::toggle(string Type){
@@ -146,5 +155,15 @@ int Cell::getY(){
 
 
 Cell::~Cell(){}
+
+
+//add
+int Cell::getExistime(){
+    return existtime;
+}
+
+void Cell::updatetimes(){
+    existtime = existtime + 1;
+}
 
 
