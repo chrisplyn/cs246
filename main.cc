@@ -13,8 +13,11 @@ int repeat(string& command){
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
+       // cout<<"here"<<endl;
+        //cout<<command[0];
         numRepeat.push_back(command[0]);
-        command.substr(1);
+        command = command.substr(1);
+        //cout<<command<<endl;
     }
 	if (numRepeat == "") return 1;
     istringstream ss(numRepeat);
@@ -30,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "sequence.txt";
+	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -86,6 +89,7 @@ int main(int argc, const char * argv[])
 	if (startLevel == 0){
 		board.setInputStream(f);
 	}
+    
 	board.makeBlock();
 	board.notifyDisplay();
 	board.displayall();
@@ -97,7 +101,11 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
+<<<<<<< HEAD
 	            
+=======
+
+>>>>>>> dcc2bfeb732153aa4c47876409fc27f11aae2168
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
