@@ -421,8 +421,6 @@ void JBlock::moveDown(Board *board ) {
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);
             cells[i] = &grid[coorX+1][coorY];
-            cout<<cells[i]->getX()<<" "<<cells[i]->getY()<<endl;
-
         }
     }
 }
