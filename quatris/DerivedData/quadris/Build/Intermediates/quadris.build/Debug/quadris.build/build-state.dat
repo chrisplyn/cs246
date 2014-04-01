@@ -2,22 +2,22 @@ Tquadris
 v6
 r1
 cCheck dependencies
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/cell.o /Users/wangxiangkang/Desktop/cs246/cell.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/zblock.o /Users/wangxiangkang/Desktop/cs246/zblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/cell.o /Users/wangxiangkang/Desktop/cs246/cell.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/sblock.o /Users/wangxiangkang/Desktop/cs246/sblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/oblock.o /Users/wangxiangkang/Desktop/cs246/oblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/lblock.o /Users/wangxiangkang/Desktop/cs246/lblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/NextBlockImpl.o /Users/wangxiangkang/Desktop/cs246/NextBlockImpl.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/iblock.o /Users/wangxiangkang/Desktop/cs246/iblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/NextBlockImpl.o /Users/wangxiangkang/Desktop/cs246/NextBlockImpl.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/block.o /Users/wangxiangkang/Desktop/cs246/block.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/main.o /Users/wangxiangkang/Desktop/cs246/main.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/NextBlock.o /Users/wangxiangkang/Desktop/cs246/NextBlock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/score.o /Users/wangxiangkang/Desktop/cs246/score.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/block.o /Users/wangxiangkang/Desktop/cs246/block.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/display.o /Users/wangxiangkang/Desktop/cs246/display.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/trie.o /Users/wangxiangkang/Desktop/cs246/trie.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/main.o /Users/wangxiangkang/Desktop/cs246/main.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/board.o /Users/wangxiangkang/Desktop/cs246/board.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/tblock.o /Users/wangxiangkang/Desktop/cs246/tblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/display.o /Users/wangxiangkang/Desktop/cs246/display.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/trie.o /Users/wangxiangkang/Desktop/cs246/trie.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris normal x86_64
 
 N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
@@ -276,9 +276,9 @@ t1396294791
 s643
 
 N/Users/wangxiangkang/Desktop/cs246/jblock.cc
-c00000000533B23FB0000000000004A06
-t1396384763
-s18950
+c00000000533B2B4800000000000049C4
+t1396386632
+s18884
 
 N/Users/wangxiangkang/Desktop/cs246/jblock.h
 c000000005338E109000000000000025D
@@ -339,8 +339,8 @@ t1396386468
 s75324
 
 N/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o
-t1396386467
-s106396
+t1396386715
+s88964
 
 N/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/lblock.o
 t1396386468
@@ -380,8 +380,8 @@ t1396386467
 s78420
 
 N/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris
-t1396386332
-s224956
+t1396386715
+s224732
 
 N/Users/wangxiangkang/Desktop/cs246/sblock.cc
 c00000000533B29BF00000000000021DE
@@ -483,7 +483,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies1990912262ebb841^1077952262ebb841^---0#1#1#--18"Check dependencies36"59A1225F-F73F-44AB-B643-B8635AA2B648-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies749bb8a465ebb841^a373baa465ebb841^---0#1#1#--18"Check dependencies36"4AD6AEE0-8672-4CAE-8AA8-16FAD600E231-
 
 CCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/NextBlock.o /Users/wangxiangkang/Desktop/cs246/NextBlock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s418068602.671160
@@ -617,8 +617,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile
 b1C8F7A5C-03F6-4FDE-AB29-461509C307D5
 
 CCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s418079266.573639
-e418079267.932838
+s418079515.430137
+e418079515.964690
 r1
 xCompileC
 xDerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o
@@ -632,8 +632,8 @@ d/Users/wangxiangkang/Desktop/cs246/jblock.h
 d/Users/wangxiangkang/Desktop/cs246/block.h
 d/Users/wangxiangkang/Desktop/cs246/cell.h
 d/Users/wangxiangkang/Desktop/cs246/board.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile /Users/wangxiangkang/Desktop/cs246/jblock.cc220"CompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler4205932262ebb841^b3d0ee2362ebb841^---0#0#1#-19%DVTDocumentLocation2@51"file:///Users/wangxiangkang/Desktop/cs246/jblock.cc0000000000000000^3231"CompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/wangxiangkang/Desktop/cs246/quatris    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-generated-files.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-own-target-headers.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-all-target-headers.hmap -iquote /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-project-headers.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/DerivedSources/x86_64 -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/DerivedSources -F/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -MMD -MT dependencies -MF /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.d --serialize-diagnostics /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.dia -c /Users/wangxiangkang/Desktop/cs246/jblock.cc -o /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o36"FCC1F0D7-9E5A-479F-9ABE-A20679DB5D72-
-b1C8F7A5C-03F6-4FDE-AB29-461509C307D5
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile /Users/wangxiangkang/Desktop/cs246/jblock.cc220"CompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler753c6e1b63ebb841^9cf8f61b63ebb841^---0#0#1#-19%DVTDocumentLocation2@51"file:///Users/wangxiangkang/Desktop/cs246/jblock.cc0000000000000000^3231"CompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o /Users/wangxiangkang/Desktop/cs246/jblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/wangxiangkang/Desktop/cs246/quatris    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.9 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-generated-files.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-own-target-headers.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-all-target-headers.hmap -iquote /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/quadris-project-headers.hmap -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/DerivedSources/x86_64 -I/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/DerivedSources -F/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -MMD -MT dependencies -MF /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.d --serialize-diagnostics /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.dia -c /Users/wangxiangkang/Desktop/cs246/jblock.cc -o /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/jblock.o36"AFB6C861-1F18-4555-BB6B-DF9B799D68EB-
+bA4093DE3-EB4F-412A-BFD8-977540DCDA20
 
 CCompileC DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/lblock.o /Users/wangxiangkang/Desktop/cs246/lblock.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s418079267.916241
@@ -780,8 +780,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile
 b1C8F7A5C-03F6-4FDE-AB29-461509C307D5
 
 CLd /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris normal x86_64
-s418079271.049970
-e418079271.204290
+s418079515.966316
+e418079516.002721
 r1
 xLd
 x/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris
@@ -837,6 +837,6 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Link /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris65"Ld DerivedData/quadris/Build/Products/Debug/quadris normal x86_6496e80c2762ebb841^9d4c342762ebb841^---0#0#1#--1058"Ld DerivedData/quadris/Build/Products/Debug/quadris normal x86_64    cd /Users/wangxiangkang/Desktop/cs246/quatris    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -F/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -filelist /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/quadris.LinkFileList -mmacosx-version-min=10.9 -stdlib=libc++ -Xlinker -dependency_info -Xlinker /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/quadris_dependency_info.dat -o /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris36"1F9BD6D4-D7B9-4F1F-ADE6-149D0FFE9A83-
-b1C8F7A5C-03F6-4FDE-AB29-461509C307D5
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Link /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris65"Ld DerivedData/quadris/Build/Products/Debug/quadris normal x86_64836ef71b63ebb841^d5b3001c63ebb841^---0#0#1#--1058"Ld DerivedData/quadris/Build/Products/Debug/quadris normal x86_64    cd /Users/wangxiangkang/Desktop/cs246/quatris    export MACOSX_DEPLOYMENT_TARGET=10.9    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -F/Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug -filelist /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/quadris.LinkFileList -mmacosx-version-min=10.9 -stdlib=libc++ -Xlinker -dependency_info -Xlinker /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Intermediates/quadris.build/Debug/quadris.build/Objects-normal/x86_64/quadris_dependency_info.dat -o /Users/wangxiangkang/Desktop/cs246/quatris/DerivedData/quadris/Build/Products/Debug/quadris36"F1BD9BE3-071A-4238-8326-5FA52C687ABB-
+bA4093DE3-EB4F-412A-BFD8-977540DCDA20
 

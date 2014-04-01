@@ -54,6 +54,7 @@
 		89B4D0E018EA40330006435B /* trie.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trie.cc; path = ../trie.cc; sourceTree = "<group>"; };
 		89B4D0E118EA40330006435B /* trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trie.h; path = ../trie.h; sourceTree = "<group>"; };
 		89B4D10018EB53270006435B /* sequence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sequence.txt; path = ../sequence.txt; sourceTree = "<group>"; };
+		89B4D10118EB654C0006435B /* myfile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = myfile.txt; path = ../myfile.txt; sourceTree = "<group>"; };
 		89DE9EEF18E7B67D00650947 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = board.h; path = ../board.h; sourceTree = "<group>"; };
 		89DE9EF018E7B67D00650947 /* cell.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = ../cell.cc; sourceTree = "<group>"; };
 		89DE9EF118E7B67D00650947 /* cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cell.h; path = ../cell.h; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				89DE9F1018E9CB9B00650947 /* main.cc */,
+				89B4D10118EB654C0006435B /* myfile.txt */,
 				89DE9F0E18E9C45100650947 /* oblock.cc */,
 				89DE9F0D18E9C43C00650947 /* oblock.h */,
 				89DE9F0718E8BF7E00650947 /* sblock.cc */,
