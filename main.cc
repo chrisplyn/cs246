@@ -121,8 +121,6 @@ int main(int argc, const char * argv[])
 				}
 
 			} else if (command == "drop"){
-
-
 				board->dropCurBlock();
 				int rows = board->deleteRows();
 				board->notifyScore(rows);
