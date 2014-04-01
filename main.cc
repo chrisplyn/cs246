@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
+	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -81,15 +81,11 @@ int main(int argc, const char * argv[])
 	tn.insert("levelup", "levelup");
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
-    
-	string tmp;
+   
 	Board board(startLevel);
 	ifstream f(filename.c_str());
-    
-	if (startLevel == 0){
-		board.setInputStream(f);
-	}
-    
+	board.setInputStream(f);
+	
 	board.makeBlock();
 	board.notifyDisplay();
 	board.displayall();
@@ -125,6 +121,10 @@ int main(int argc, const char * argv[])
 				board.levelUp();
 			} else if (command == "leveldown"){
 				board.levelDown();
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}
+
 			} else if (command == "drop"){
 				board.dropCurBlock();
 				int rows = board.deleteRows();
@@ -132,6 +132,9 @@ int main(int argc, const char * argv[])
 				board.makeBlock();
 			} else if (command == "restart"){
 				board.restart(startLevel);
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}
 				board.makeBlock();
 			} 
 			board.notifyDisplay();

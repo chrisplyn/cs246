@@ -155,9 +155,9 @@ void Board::deleteRow(int numOfRow){
             grid[numOfRow][i].reset();
         }
     }
-    for (int j = numOfRow; j < 14; ++j){
+	for (int j = numOfRow; j > 0;--j){
         for (int k = 0; k < 10; ++k){
-            grid[j][k].Swap(&grid[j+1][k]);
+            grid[j][k].Swap(&grid[j-1][k]);
         }
     }
 }
