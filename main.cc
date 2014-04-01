@@ -4,20 +4,17 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <climits>
 #include "trie.h"
 
 using namespace std;
 
 int repeat(string& command){
-	//cout << command << endl;
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
-       // cout<<"here"<<endl;
-        //cout<<command[0];
         numRepeat.push_back(command[0]);
         command = command.substr(1);
-        //cout<<command<<endl;
     }
 	if (numRepeat == "") return 1;
     istringstream ss(numRepeat);
@@ -36,7 +33,7 @@ int main(int argc, const char * argv[])
 	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 2; //default startlevel 0
-	//int maxBlockAllowed = INT_MAX;
+	int maxBlockAllowed = INT_MAX;
 
 
 	for (int i = 1; i < argc; ++i) {
@@ -62,12 +59,12 @@ int main(int argc, const char * argv[])
 			++i;
 			filename = argv[i];
 		}
-//		else if (commandline == "maxBlock") {
-//			++i;
-//			commandline = argv[i];
-//			istringstream ss(commandline);
-//			ss >> maxBlockAllowed;
-//		}
+		else if (commandline == "maxBlock") {
+			++i;
+			commandline = argv[i];
+			istringstream ss(commandline);
+			ss >> maxBlockAllowed;
+		}
 	}
 
 	TrieNode tn;
@@ -82,13 +79,10 @@ int main(int argc, const char * argv[])
 	tn.insert("restart", "restart");
 
 	srand(seed);
-	Board board(startLevel);
 	ifstream f(filename.c_str());
-	board.setInputStream(f);
 
-	board.makeBlock();
-	board.notifyDisplay();
-	board.displayall();
+	Board *board = Board::getInstance(startLevel);
+	board->initialization(f);
 
 	int numRepeat = 1;
 	string command;
@@ -108,46 +102,51 @@ int main(int argc, const char * argv[])
 		for (int i = 0; i < numRepeat; ++i) {
 
 			if (command == "left"){
-				board.moveCurBlockLeft();
+				board->moveCurBlockLeft();
 			} else if (command == "right"){
 				cout << command << endl;
-				board.moveCurBlockRight();
+				board->moveCurBlockRight();
 			} else if (command == "down"){
-				board.moveCurBlockDown();
+				board->moveCurBlockDown();
 			} else if (command == "clockwise"){
-				board.rotateClockwise();
+				board->rotateClockwise();
 			} else if (command == "anticlockwise"){
-				board.rotateAntiClockwise();
+				board->rotateAntiClockwise();
 			} else if (command == "levelup"){
-				board.levelUp();
+				board->levelUp();
 			} else if (command == "leveldown"){
-				board.levelDown();
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->levelDown();
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}
 
 			} else if (command == "drop"){
 
 
-				board.dropCurBlock();
-				int rows = board.deleteRows();
-				board.notifyScore(rows);
+				board->dropCurBlock();
+				int rows = board->deleteRows();
+				board->notifyScore(rows);
 
+<<<<<<< HEAD
 				if(board.isGameOver()) {
 					cout << "GAME OVER!" << endl;
+=======
+				if(board->isGameOver()) {
+					cout << "GAME OVER " << endl;
+>>>>>>> 090608d24018331b66cf3074a4a24456809f4641
 					return 0;
 				}
-				board.makeBlock();
+				board->makeBlock();
 
 			} else if (command == "restart"){
-				board.restart(startLevel);
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->restart(startLevel);
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}
-				board.makeBlock();
+				board->makeBlock();
 			}
-			board.notifyDisplay();
-			board.displayall();	
+			board->notifyDisplay();
+			board->displayall();	
 		}
 	}
 }
