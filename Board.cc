@@ -17,24 +17,6 @@
 
 using namespace std;
 
-Board::Board(){
-    MaxDelete = INT_MAX;
-    level = 0;
-    currentBlock = NULL;
-	nextBlock = new NextBlock(0);
-
-    p = new Display(15,10);
-   // scoreBoard = new Score(p);//
-    grid = new Cell*[15];
-    for (int i = 0; i < 15; i++){
-        grid[i] = new Cell[10];
-        for (int j =0; j < 10;j++){
-            grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",-1);
-        }
-    }
-}
-
 
 Board::Board(int Level){
     MaxDelete = INT_MAX;
@@ -68,15 +50,13 @@ void Board::makeBlock(){
 			}
 			nextType = nextBlock->getNonRandomType();
 			if (nextType == ""){
-				cout << "txt exhausted 1" << endl;
 				return; //restart
 			}
 		}
 		else{
-			currentBlock = setCurrentBlock(nextType);
-			nextType = nextBlock->getNonRandomType();
+			currentBlock = setCurrentBlock(nextType);	
+			nextType = nextBlock->getNonRandomType();		
 			if (nextType == ""){
-				cout << "txt exhausted 2" << endl;
 				return; //restart
 			}
 		}
@@ -97,7 +77,7 @@ void Board::makeBlock(){
 
 
 Block * Board::setCurrentBlock(string &type){
-	Block *tmp=0;
+	Block *tmp;
 	if (type == "O"){
 		tmp = new OBlock(*this, level);
 	} else if (type == "I"){
@@ -112,7 +92,10 @@ Block * Board::setCurrentBlock(string &type){
         tmp = new JBlock(*this, level);
     } else if (type == "L"){
         tmp = new LBlock(*this, level);
-    }
+	}
+	else{
+		return 0;
+	}
 	return tmp;
 }
 

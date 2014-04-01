@@ -29,7 +29,7 @@ class Board{
     int getMaxDelete();
 
 	void setInputStream(std::istream &input);
-	void makeBlock();//change here
+	void makeBlock();
     //Board * getInstance();//not
 
 	void moveCurBlockRight();
