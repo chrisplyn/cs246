@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "sequence.txt";
+	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
