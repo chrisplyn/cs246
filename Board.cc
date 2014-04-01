@@ -23,8 +23,8 @@ using namespace std;
 
 Board *Board::instance = 0;
 
-Board::Board(){
-    level = 0;
+Board::Board(int level){
+    this->level = level;
     MaxDelete = INT_MAX;
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
@@ -45,16 +45,15 @@ void Board::setInputStream(istream &input){
 }
 
 
-Board *Board::getInstance(){
+Board *Board::getInstance(int level){
     if (!instance){
-        instance = new Board;
+        instance = new Board(level);
         atexit(cleanup);
     }
     return instance;
 }
 
-void Board::initialization(int level, std::istream &input){
-    this->level = level;
+void Board::initialization(std::istream &input){
     nextBlock->setInputStream(input);
     this->makeBlock();
     this->notifyDisplay();
@@ -67,14 +66,13 @@ void Board::cleanup(){
 }
 
 
-
 void Board::makeBlock(){
 	if (level == 0){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
 
-                if(currentBlock !=0 ) delete currentBlock;  
+                if(currentBlock !=0 ) delete currentBlock;  //delete previous block
 				currentBlock = setCurrentBlock(nextType);
 			}
 			else{return;}

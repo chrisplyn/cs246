@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <climits>
 #include "trie.h"
 
 using namespace std;
@@ -32,7 +33,7 @@ int main(int argc, const char * argv[])
 	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 2; //default startlevel 0
-	//int maxBlockAllowed = INT_MAX;
+	int maxBlockAllowed = INT_MAX;
 
 
 	for (int i = 1; i < argc; ++i) {
@@ -58,12 +59,12 @@ int main(int argc, const char * argv[])
 			++i;
 			filename = argv[i];
 		}
-//		else if (commandline == "maxBlock") {
-//			++i;
-//			commandline = argv[i];
-//			istringstream ss(commandline);
-//			ss >> maxBlockAllowed;
-//		}
+		else if (commandline == "maxBlock") {
+			++i;
+			commandline = argv[i];
+			istringstream ss(commandline);
+			ss >> maxBlockAllowed;
+		}
 	}
 
 	TrieNode tn;
@@ -80,8 +81,8 @@ int main(int argc, const char * argv[])
 	srand(seed);
 	ifstream f(filename.c_str());
 
-	Board *board = Board::getInstance();
-	board->initialization(startLevel, f);
+	Board *board = Board::getInstance(startLevel);
+	board->initialization(f);
 
 	int numRepeat = 1;
 	string command;

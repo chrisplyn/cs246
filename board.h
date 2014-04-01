@@ -23,20 +23,20 @@ class Board{
     void deleteRow(int numOfRow);
     bool isRowComplete(int numOfRow);
     int getMaxDelete();
-    Board();
+    Board(int);
     static Board * instance;
     static void cleanup();
 
 
    public:
     Cell ** getGrid();
-    void initialization(int, std::istream &);
+    void initialization(std::istream &);
     int getLevel();
     void notifyScore(int RowsDeleted);
     int deleteRows();
 	void setInputStream(std::istream &input);
 	void makeBlock();
-    static Board * getInstance();//not
+    static Board * getInstance(int); 
     bool isGameOver();  //return true if gameover, false otherwise
 	void moveCurBlockRight();
 	void moveCurBlockLeft();
