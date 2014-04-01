@@ -127,7 +127,7 @@ int main(int argc, const char * argv[])
 				int rows = board.deleteRows();
 				board.notifyScore(rows);
                 if (board.isGameOver()){
-                    cout  << "You lose!" << endl;
+					cout  << "You lose!" << endl;
                     return 0;
                 }
                 board.updatecelltimes();
@@ -141,6 +141,7 @@ int main(int argc, const char * argv[])
 				if (board.getLevel() == 0){
 					board.setInputStream(f);
 				}
+				board.makeBlock();
 			} 
 			board.notifyDisplay();
 			board.displayall();	

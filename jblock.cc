@@ -427,7 +427,6 @@ void JBlock::moveDown(Board *board ) {
     }
     }
 }
-
 void JBlock::drop(Board *board) {
     while (canMoveDown(board)) {
         moveDown(board);
