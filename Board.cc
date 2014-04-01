@@ -50,6 +50,7 @@ void Board::makeBlock(){
 				nextType = nextBlock->getNonRandomType();
 				currentBlock = setCurrentBlock(nextType);
 			}
+			else{return;}
 			nextType = nextBlock->getNonRandomType();
 			if (nextType == ""){
 				return; //restart
@@ -249,6 +250,7 @@ void Board::restart(int d_level){
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
+	level = d_level;
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
     nextType = "";
