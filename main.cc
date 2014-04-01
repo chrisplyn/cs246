@@ -73,7 +73,7 @@ int main(int argc, const char * argv[])
     tn.insert("leveldown", "leveldown");
     tn.insert("restart", "restart");
     
-<<<<<<< HEAD
+
 	Board b;
 	ifstream f("/Users/wangxiangkang/Desktop/cs246/sequence.txt");
     
@@ -98,7 +98,7 @@ int main(int argc, const char * argv[])
     }
     
     b.setInputStream(f);
-=======
+
     // insert code here...
 		
 	Board b(startLevel);
