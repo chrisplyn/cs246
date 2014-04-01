@@ -8,6 +8,21 @@
 
 using namespace std;
 
+int repeat(const string& command){
+    string numRepeat = "";
+    int num;
+    while ((char)command[0]>=48||(char)command[0]<=57) {
+        numRepeat.push_back(command[0]);
+        command.substr(1);
+    }
+    istringstream ss(numRepeat);
+    ss>>num;
+    return num;
+}
+
+
+
+
 
 int main(int argc, const char * argv[])
 {
@@ -47,18 +62,40 @@ int main(int argc, const char * argv[])
     }
     
     srand(seed);
+    TrieNode tn;
+    tn.insert("left", "left");
+    tn.insert("right", "right");
+    tn.insert("down", "down");
+    tn.insert("clockwise", "clockwise");
+    tn.insert("anticlockwise", "anticlockwise");
+    tn.insert("drop", "drop");
+    tn.insert("levelup", "levelup");
+    tn.insert("leveldown", "leveldown");
+    tn.insert("restart", "restart");
     
-    // insert code here...
-		
 	Board b;
 	ifstream f("/Users/wangxiangkang/Desktop/cs246/sequence.txt");
-    //string temp;
-    //while (!f.eof()) {
-    //    f>>temp;
-     //   cout<<temp<<endl;
-    //}
-
-   // cout<<f.is_open()<<endl;
+    
+    int numRepeat = 0;
+    string command;
+    string subCommand1;
+    string subCommand2;
+    
+    while (cin>>command) {
+        
+        numRepeat = repeat(command);
+        
+        if (command == "rename") {
+            cin>>subCommand1>>subCommand2;
+            tn.insert(subCommand2, subCommand1);
+            tn.remove(subCommand1);
+        } else {
+            command = tn.find(command);
+        }
+        
+        
+    }
+    
     b.setInputStream(f);
 	b.makeBlock();
 
