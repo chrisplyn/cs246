@@ -29,7 +29,7 @@ class Board{
     int getMaxDelete();
 
 	void setInputStream(std::istream &input);
-	void makeBlock();//change here
+	void makeBlock();
     //Board * getInstance();//not
 
 	void moveCurBlockRight();
@@ -39,15 +39,17 @@ class Board{
 	void dropCurBlock();
 	void moveCurBlockDown();
 	
-    void notifyScore(int curLevel,int RowsDeleted);
+    void notifyScore(int RowsDeleted);
     void deleteRow(int numOfRow);
     bool isRowComplete(int numOfRow);
     
     void notifyDisplay();
     int deleteRows();
-    void changeBlock();
 	friend std::ostream &operator<<(std::ostream &out, const Board &b);
-
+    //new added
+    void displayall();
+    void restart(int d_level);
+    void setLevel(int n_level);
     ~Board();//not
 };
 
