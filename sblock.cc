@@ -52,7 +52,7 @@ SBlock::SBlock(Board &board, int level){
 }
 
 bool SBlock::canMoveLeft(Board *board){
-    std::cout<<"here"<<std::endl;
+    //std::cout<<"here"<<std::endl;
     Cell **grid = board->getGrid();
     if (direction()==0) {
         //check0
@@ -205,7 +205,9 @@ bool SBlock::canRotateAnticlockwise(Board *board) {
 }
 
 void SBlock::moveLeft(Board *board) {
-    if (!canMoveLeft(board)) return;
+    
+    if (!canMoveLeft(board)) {return;}
+    
     Cell **grid = board->getGrid();
     for (int i =0; i<4; ++i) {
         int coorX = cells[i]->getX();

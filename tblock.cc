@@ -178,11 +178,14 @@ bool TBlock::canMoveLeft(Board *board){
                 return false; //the left cell is pre-occupied
             }
         }
+        return true;
         
     } else if (direction()==2) {
+        
         //check 2
         int xcoordinate = cells[2]->getX();
         int ycoordinate = cells[2]->getY();
+        //cout<<xcoordinate<<" "<<ycoordinate<<endl;
         if (ycoordinate==0) { //at the left edge
             return false;
         }
@@ -192,9 +195,14 @@ bool TBlock::canMoveLeft(Board *board){
         //check 3
         xcoordinate = cells[3]->getX();
         ycoordinate = cells[3]->getY();
+        //cout<<xcoordinate<<" "<<ycoordinate<<endl;
+        
         if (grid[xcoordinate][ycoordinate-1].isOn()) {
+            
             return false; //the left cell is pre-occupied
         }
+        cout<<"hello"<<endl;
+        return true;
     } else {
         //check 3
         int xcoordinate = cells[3]->getX();
@@ -217,6 +225,7 @@ bool TBlock::canMoveLeft(Board *board){
         if (grid[xcoordinate][ycoordinate-1].isOn()) {
             return false; //the left cell is pre-occupied
         }
+        return  true;
         
     }
     return true;
@@ -408,20 +417,23 @@ bool TBlock::canRotateAnticlockwise(Board *board) {
 }
 
 void TBlock::moveLeft(Board *board){
-    if (!canMoveLeft(board)) return;
+    
+    if (!canMoveLeft(board)) {return;}
+    
     Cell **grid = board->getGrid();
     
     if (direction()==0 || direction()==1) {
-        for (int i =0; i<4; ++i) {
+        for (int i = 0; i<4; ++i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY-1]);
             cells[i] = &grid[coorX][coorY-1];
         }
     } else {
-        for (int i =3; i>=0; --i) {
+            for (int i = 3; i>=0; --i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
+            cells[i]->Swap(&grid[coorX][coorY-1]);
             cells[i] = &grid[coorX][coorY-1];
         }
     }
