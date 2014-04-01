@@ -47,26 +47,26 @@ void Display::notify(int r, int c, string type){
 }
 
 
-void Display::updateLevel(int level){
-    cout.fill(' ');
-    cout.width(7);
-	cout << "Level:";
-    cout << right << level << endl;
-}
+//void Display::updateLevel(int level){
+//    cout.fill(' ');
+//    cout.width(7);
+//	cout << "Level:";
+//    cout << right << level << endl;
+//}
+//
+//void Display::updateScore(int score){
+//    cout.fill(' ');
+//    cout.width(7);
+//	cout << "Score:";
+//    cout <<	right << score << endl;
+//}
 
-void Display::updateScore(int score){
-    cout.fill(' ');
-    cout.width(7);
-	cout << "Score:";
-    cout <<	right << score << endl;
-}
-
-void Display::updateHiScore(int Hiscore){
-    cout.fill(' ');
-    cout.width(4);
-	cout << "Hi Score:";
-    cout << right << Hiscore << endl;
-}
+//void Display::updateHiScore(int Hiscore){
+//    cout.fill(' ');
+//    cout.width(4);
+//	cout << "Hi Score:";
+//    cout << right << Hiscore << endl;
+//}
 
 
 ostream &operator<<(ostream &out, const Display &td){
