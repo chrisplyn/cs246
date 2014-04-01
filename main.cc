@@ -9,15 +9,11 @@
 using namespace std;
 
 int repeat(string& command){
-	//cout << command << endl;
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
-       // cout<<"here"<<endl;
-        //cout<<command[0];
         numRepeat.push_back(command[0]);
         command = command.substr(1);
-        //cout<<command<<endl;
     }
 	if (numRepeat == "") return 1;
     istringstream ss(numRepeat);
@@ -82,13 +78,10 @@ int main(int argc, const char * argv[])
 	tn.insert("restart", "restart");
 
 	srand(seed);
-	Board board(startLevel);
 	ifstream f(filename.c_str());
-	board.setInputStream(f);
 
-	board.makeBlock();
-	board.notifyDisplay();
-	board.displayall();
+	Board *board = Board::getInstance();
+	board->initialization(startLevel, f);
 
 	int numRepeat = 1;
 	string command;
@@ -108,46 +101,46 @@ int main(int argc, const char * argv[])
 		for (int i = 0; i < numRepeat; ++i) {
 
 			if (command == "left"){
-				board.moveCurBlockLeft();
+				board->moveCurBlockLeft();
 			} else if (command == "right"){
 				cout << command << endl;
-				board.moveCurBlockRight();
+				board->moveCurBlockRight();
 			} else if (command == "down"){
-				board.moveCurBlockDown();
+				board->moveCurBlockDown();
 			} else if (command == "clockwise"){
-				board.rotateClockwise();
+				board->rotateClockwise();
 			} else if (command == "anticlockwise"){
-				board.rotateAntiClockwise();
+				board->rotateAntiClockwise();
 			} else if (command == "levelup"){
-				board.levelUp();
+				board->levelUp();
 			} else if (command == "leveldown"){
-				board.levelDown();
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->levelDown();
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}
 
 			} else if (command == "drop"){
 
 
-				board.dropCurBlock();
-				int rows = board.deleteRows();
-				board.notifyScore(rows);
+				board->dropCurBlock();
+				int rows = board->deleteRows();
+				board->notifyScore(rows);
 
-				if(board.isGameOver()) {
+				if(board->isGameOver()) {
 					cout << "GAME OVER " << endl;
 					return 0;
 				}
-				board.makeBlock();
+				board->makeBlock();
 
 			} else if (command == "restart"){
-				board.restart(startLevel);
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->restart(startLevel);
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}
-				board.makeBlock();
+				board->makeBlock();
 			}
-			board.notifyDisplay();
-			board.displayall();	
+			board->notifyDisplay();
+			board->displayall();	
 		}
 	}
 }

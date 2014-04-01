@@ -2,6 +2,7 @@
 #include <string>
 #include <climits>
 #include <iomanip>
+#include <cstdlib>
 #include <iostream>
 #include "score.h"
 #include "cell.h"
@@ -20,9 +21,11 @@
 using namespace std;
 
 
-Board::Board(int Level){
+Board *Board::instance = 0;
+
+Board::Board(){
+    level = 0;
     MaxDelete = INT_MAX;
-    level = Level;
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
     p = new Display(15,10);
@@ -42,8 +45,30 @@ void Board::setInputStream(istream &input){
 }
 
 
-void Board::makeBlock(){
+Board *Board::getInstance(){
+    if (!instance){
+        instance = new Board;
+        atexit(cleanup);
+    }
+    return instance;
+}
 
+void Board::initialization(int level, std::istream &input){
+    this->level = level;
+    nextBlock->setInputStream(input);
+    this->makeBlock();
+    this->notifyDisplay();
+    this->displayall();
+}
+
+
+void Board::cleanup(){
+    delete instance;
+}
+
+
+
+void Board::makeBlock(){
 	if (level == 0){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
