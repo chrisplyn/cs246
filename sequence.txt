@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-O O O O O O O O O O O O O O O O O O O
-=======
-I I I I I O O O O
->>>>>>> FETCH_HEAD
