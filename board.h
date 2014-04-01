@@ -20,14 +20,17 @@ class Board{
     int MaxDelete;
 	std::string nextType;
 	Block * setCurrentBlock(std::string &);
+    void deleteRow(int numOfRow);
+    bool isRowComplete(int numOfRow);
+    int getMaxDelete();
+
 
    public:
-    Board();
     Board(int Level);
     Cell ** getGrid();
     int getLevel();
-    int getMaxDelete();
-
+    void notifyScore(int RowsDeleted);
+    int deleteRows();
 	void setInputStream(std::istream &input);
 	void makeBlock();
     //Board * getInstance();//not
@@ -39,17 +42,10 @@ class Board{
 	void dropCurBlock();
 	void moveCurBlockDown();
 	
-    void notifyScore(int RowsDeleted);
-    void deleteRow(int numOfRow);
-    bool isRowComplete(int numOfRow);
     
     void notifyDisplay();
-    int deleteRows();
-	friend std::ostream &operator<<(std::ostream &out, const Board &b);
-    //new added
     void displayall();
     void restart(int d_level);
-    //void setLevel(int n_level);
 	void levelUp();
 	void levelDown();
     ~Board();

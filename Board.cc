@@ -48,15 +48,19 @@ void Board::makeBlock(){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
+
+                if(currentBlock !=0 ) delete currentBlock;  
 				currentBlock = setCurrentBlock(nextType);
 			}
 			else{return;}
+
 			nextType = nextBlock->getNonRandomType();
 			if (nextType == ""){
 				return; //restart
 			}
 		}
 		else{
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);	
 			nextType = nextBlock->getNonRandomType();		
 			if (nextType == ""){
@@ -67,10 +71,13 @@ void Board::makeBlock(){
 	else{
 		if (nextType == ""){
 			nextType = nextBlock->getRandomType();
+
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);
 			nextType = nextBlock->getRandomType();
 		}
 		else{
+            if(currentBlock !=0 ) delete currentBlock;
 			currentBlock = setCurrentBlock(nextType);
 			nextType = nextBlock->getRandomType();
 		}
@@ -205,11 +212,6 @@ Board::~Board(){
 }
 
 
-ostream &operator<<(std::ostream &out, const Board &b){
-	out << *b.p;
-	return out;
-}
-
 void Board::displayall(){
 	cout << "Level:";
     cout << setw(7) << level << endl;
@@ -256,11 +258,6 @@ void Board::restart(int d_level){
     nextType = "";
 }
 
-//void Board::setLevel(int n_level){
-//    level = n_level;
-//    delete nextBlock;
-//    nextBlock = new NextBlock(n_level);
-//}
 
 void Board::levelUp(){
 	if (level <= 2){
@@ -280,6 +277,9 @@ void Board::levelDown(){
 
 
 bool Board::isGameOver(){
+    
+    if(nextBlock->noRandomType()) return true;
+
     for (int i=0; i<3; ++i) {
         for (int j=0; j<10; ++j) {
             if (grid[i][j].isOn()) {

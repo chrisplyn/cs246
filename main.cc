@@ -33,14 +33,14 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
+	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
-	int maxBlockAllowed = INT_MAX;
-    
-    
+	//int maxBlockAllowed = INT_MAX;
+
+
 	for (int i = 1; i < argc; ++i) {
-        
+
 		commandline = argv[i];
 		if (commandline == "text")
 		{
@@ -62,15 +62,14 @@ int main(int argc, const char * argv[])
 			++i;
 			filename = argv[i];
 		}
-		else if (commandline == "maxBlock") {
-			++i;
-			commandline = argv[i];
-			istringstream ss(commandline);
-			ss >> maxBlockAllowed;
-		}
+//		else if (commandline == "maxBlock") {
+//			++i;
+//			commandline = argv[i];
+//			istringstream ss(commandline);
+//			ss >> maxBlockAllowed;
+//		}
 	}
-    
-	srand(seed);
+
 	TrieNode tn;
 	tn.insert("left", "left");
 	tn.insert("right", "right");
@@ -81,31 +80,33 @@ int main(int argc, const char * argv[])
 	tn.insert("levelup", "levelup");
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
-   
+
+	srand(seed);
 	Board board(startLevel);
 	ifstream f(filename.c_str());
 	board.setInputStream(f);
-	
+
 	board.makeBlock();
 	board.notifyDisplay();
 	board.displayall();
-    
+
 	int numRepeat = 1;
 	string command;
 	string subCommand1;
 	string subCommand2;
-    
+
 	while (cin >> command) {
+
 		numRepeat = repeat(command);
 
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
 			tn.remove(subCommand1);
-		}      
+		}
 		command = tn.find(command);
 		for (int i = 0; i < numRepeat; ++i) {
-            
+
 			if (command == "left"){
 				board.moveCurBlockLeft();
 			} else if (command == "right"){
@@ -128,20 +129,25 @@ int main(int argc, const char * argv[])
 			} else if (command == "drop"){
 
 
-
 				board.dropCurBlock();
 				int rows = board.deleteRows();
 				board.notifyScore(rows);
+
+				if(board.isGameOver()) {
+					cout << "GAME OVER " << endl;
+					return 0;
+				}
 				board.makeBlock();
+
 			} else if (command == "restart"){
 				board.restart(startLevel);
 				if (board.getLevel() == 0){
 					board.setInputStream(f);
 				}
 				board.makeBlock();
-			} 
+			}
 			board.notifyDisplay();
-			board.displayall();
+			board.displayall();	
 		}
 	}
 }
