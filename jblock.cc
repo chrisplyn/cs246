@@ -408,8 +408,6 @@ void JBlock::moveDown(Board *board ) {
     Cell **grid = board->getGrid();
 
     if (direction()==2 || direction()==3) {
-   
-        if (direction()==2 || direction()==3) {
 
         for (int i =0; i<4; ++i) {
             int coorX = cells[i]->getX();
@@ -425,8 +423,8 @@ void JBlock::moveDown(Board *board ) {
             cells[i] = &grid[coorX+1][coorY];
         }
     }
-    }
 }
+
 void JBlock::drop(Board *board) {
     while (canMoveDown(board)) {
         moveDown(board);
