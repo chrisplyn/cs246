@@ -31,7 +31,7 @@ class Board{
 	void setInputStream(std::istream &input);
 	void makeBlock();
     //Board * getInstance();//not
-    bool isGameOver();
+    bool isGameOver();  //return true if gameover, false otherwise
 	void moveCurBlockRight();
 	void moveCurBlockLeft();
 	void rotateClockwise();
