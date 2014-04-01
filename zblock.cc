@@ -190,8 +190,8 @@ bool ZBlock::canRotateClockwise(Board *board){
     int originX = cells[0]->getX();
     int originY = cells[0]->getY();
     if (direction()==0) {
-        if (grid[originX-1][originY+1].isOn()) return false;
         if (grid[originX+1][originY].isOn()) return false;
+        if (grid[originX-1][originY+1].isOn()) return false;
     } else {
         if (grid[originX+2][originY].isOn()) return false;
         if (grid[originX+2][originY+1].isOn()) return false;
@@ -265,6 +265,7 @@ void ZBlock::drop(Board *board) {
 }
 
 void ZBlock::rotateClockwise(Board *board) {
+    if (!canRotateClockwise(board)) return;
     Cell **grid = board->getGrid();
     if (direction()==0) {
         cells[0]->Swap(&grid[cells[0]->getX()-1][cells[0]->getY()+1]);

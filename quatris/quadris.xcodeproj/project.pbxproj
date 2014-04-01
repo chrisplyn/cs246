@@ -23,6 +23,7 @@
 		89DE9F0918E8BF7E00650947 /* sblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0718E8BF7E00650947 /* sblock.cc */; };
 		89DE9F0C18E8C1F300650947 /* score.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0A18E8C1F300650947 /* score.cc */; };
 		89DE9F0F18E9C45100650947 /* oblock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F0E18E9C45100650947 /* oblock.cc */; };
+		89DE9F1118E9CB9B00650947 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 89DE9F1018E9CB9B00650947 /* main.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		89A1893918E781340098EF58 /* NextBlockImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextBlockImpl.h; path = ../NextBlockImpl.h; sourceTree = "<group>"; };
 		89B4D0E018EA40330006435B /* trie.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trie.cc; path = ../trie.cc; sourceTree = "<group>"; };
 		89B4D0E118EA40330006435B /* trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trie.h; path = ../trie.h; sourceTree = "<group>"; };
+		89B4D10018EB53270006435B /* sequence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sequence.txt; path = ../sequence.txt; sourceTree = "<group>"; };
 		89DE9EEF18E7B67D00650947 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = board.h; path = ../board.h; sourceTree = "<group>"; };
 		89DE9EF018E7B67D00650947 /* cell.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cell.cc; path = ../cell.cc; sourceTree = "<group>"; };
 		89DE9EF118E7B67D00650947 /* cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cell.h; path = ../cell.h; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		89DE9F0B18E8C1F300650947 /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = score.h; path = ../score.h; sourceTree = "<group>"; };
 		89DE9F0D18E9C43C00650947 /* oblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oblock.h; path = ../oblock.h; sourceTree = "<group>"; };
 		89DE9F0E18E9C45100650947 /* oblock.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = oblock.cc; path = ../oblock.cc; sourceTree = "<group>"; };
+		89DE9F1018E9CB9B00650947 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cc; path = ../main.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 		89A1891F18E780F90098EF58 = {
 			isa = PBXGroup;
 			children = (
+				89DE9F1018E9CB9B00650947 /* main.cc */,
 				89DE9F0E18E9C45100650947 /* oblock.cc */,
 				89DE9F0D18E9C43C00650947 /* oblock.h */,
 				89DE9F0718E8BF7E00650947 /* sblock.cc */,
@@ -109,6 +113,7 @@
 				89B4D0E118EA40330006435B /* trie.h */,
 				89DE9EF618E8992E00650947 /* board.cc */,
 				89DE9EEF18E7B67D00650947 /* board.h */,
+				89B4D10018EB53270006435B /* sequence.txt */,
 				89A1893618E781340098EF58 /* NextBlock.cc */,
 				89A1893718E781340098EF58 /* NextBlock.h */,
 				89A1893818E781340098EF58 /* NextBlockImpl.cc */,
@@ -198,6 +203,7 @@
 				89DE9EF418E7B67D00650947 /* iblock.cc in Sources */,
 				89A1894018E781340098EF58 /* NextBlockImpl.cc in Sources */,
 				89A1893E18E781340098EF58 /* block.cc in Sources */,
+				89DE9F1118E9CB9B00650947 /* main.cc in Sources */,
 				89A1893F18E781340098EF58 /* NextBlock.cc in Sources */,
 				89DE9F0C18E8C1F300650947 /* score.cc in Sources */,
 				89DE9EF718E8992E00650947 /* board.cc in Sources */,

@@ -31,7 +31,7 @@ int main(int argc, const char * argv[])
 	string displayMode;
 	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
-	int startLevel = 0; //default startlevel 0
+	int startLevel = 2; //default startlevel 0
 	//int maxBlockAllowed = INT_MAX;
 
 

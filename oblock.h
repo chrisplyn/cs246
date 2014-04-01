@@ -1,5 +1,3 @@
-
-
 #ifndef __OBLOCK_H__
 #define __OBLOCK_H__
 
