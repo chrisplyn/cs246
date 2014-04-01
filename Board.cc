@@ -18,6 +18,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 Board::Board(){
     MaxDelete = INT_MAX;
     level = 0;
@@ -36,6 +37,8 @@ Board::Board(){
     }
 }
 
+=======
+>>>>>>> FETCH_HEAD
 
 Board::Board(int Level){
     MaxDelete = INT_MAX;
@@ -70,15 +73,13 @@ void Board::makeBlock(){
 			}
 			nextType = nextBlock->getNonRandomType();
 			if (nextType == ""){
-				cout << "txt exhausted 1" << endl;
 				return; //restart
 			}
 		}
 		else{
-			currentBlock = setCurrentBlock(nextType);
-			nextType = nextBlock->getNonRandomType();
+			currentBlock = setCurrentBlock(nextType);	
+			nextType = nextBlock->getNonRandomType();		
 			if (nextType == ""){
-				cout << "txt exhausted 2" << endl;
 				return; //restart
 			}
 		}
@@ -99,7 +100,7 @@ void Board::makeBlock(){
 
 
 Block * Board::setCurrentBlock(string &type){
-	Block *tmp=0;
+	Block *tmp;
 	if (type == "O"){
 		tmp = new OBlock(*this, level);
 	} else if (type == "I"){
@@ -114,7 +115,10 @@ Block * Board::setCurrentBlock(string &type){
         tmp = new JBlock(*this, level);
     } else if (type == "L"){
         tmp = new LBlock(*this, level);
-    }
+	}
+	else{
+		return 0;
+	}
 	return tmp;
 }
 
