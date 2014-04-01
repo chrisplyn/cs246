@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "cs246/sequence.txt";
+	string filename = "sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	//int maxBlockAllowed = INT_MAX;
@@ -70,7 +70,6 @@ int main(int argc, const char * argv[])
 //		}
 	}
 
-	srand(seed);
 	TrieNode tn;
 	tn.insert("left", "left");
 	tn.insert("right", "right");
@@ -82,6 +81,7 @@ int main(int argc, const char * argv[])
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
 
+	srand(seed);
 	Board board(startLevel);
 	ifstream f(filename.c_str());
 	board.setInputStream(f);
@@ -96,6 +96,7 @@ int main(int argc, const char * argv[])
 	string subCommand2;
 
 	while (cin >> command) {
+
 		numRepeat = repeat(command);
 
 		if (command == "rename") {
@@ -128,11 +129,16 @@ int main(int argc, const char * argv[])
 			} else if (command == "drop"){
 
 
-
 				board.dropCurBlock();
 				int rows = board.deleteRows();
 				board.notifyScore(rows);
+
+				if(board.isGameOver()) {
+					cout << "GAME OVER " << endl;
+					return 0;
+				}
 				board.makeBlock();
+
 			} else if (command == "restart"){
 				board.restart(startLevel);
 				if (board.getLevel() == 0){
@@ -141,7 +147,7 @@ int main(int argc, const char * argv[])
 				board.makeBlock();
 			}
 			board.notifyDisplay();
-			board.displayall();
+			board.displayall();	
 		}
 	}
 }
