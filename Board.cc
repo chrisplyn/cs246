@@ -279,3 +279,43 @@ void Board::levelDown(){
 }
 
 
+bool Board::isGameOver(){
+    for (int i=0; i<3; ++i) {
+        for (int j=0; j<10; ++j) {
+            if (grid[i][j].isOn()) {
+                return true;
+            }
+        }
+    }
+    if (nextType == "O") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][0].isOn()||grid[3][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "I") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[3][3].isOn()) {
+            return true;
+        }
+    } else if (nextType == "L") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "J") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[4][2].isOn()||grid[3][0].isOn()) {
+            return true;
+        }
+    } else if (nextType == "T") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[3][2].isOn()||grid[4][1].isOn()) {
+            return true;
+        }
+    } else if (nextType == "S") {
+        if (grid[4][0].isOn()||grid[4][1].isOn()||grid[3][1].isOn()||grid[3][2].isOn()) {
+            return true;
+        }
+    } else if (nextType == "Z") {
+        if (grid[3][0].isOn()||grid[3][1].isOn()||grid[4][1].isOn()||grid[4][2].isOn()) {
+            return true;
+        }
+    }
+    return false;
+}
+
