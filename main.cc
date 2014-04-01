@@ -61,17 +61,7 @@ int main(int argc, const char * argv[])
    // cout<<f.is_open()<<endl;
     b.setInputStream(f);
 	b.makeBlock();
-<<<<<<< HEAD
-	b.makeBlock();
-	//moveCurBlockRight();
-	//b.moveCurBlockDown();
-=======
-    
-	
-   
-	b.moveCurBlockRight();
-	b.moveCurBlockLeft();
->>>>>>> 7260f5514061bfb951a319b7128dd48ae6bfe800
+
 	//b.dropCurBlock();
 	b.rotateClockwise();
 	b.moveCurBlockRight();
