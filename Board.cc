@@ -18,27 +18,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-Board::Board(){
-    MaxDelete = INT_MAX;
-    level = 0;
-    currentBlock = NULL;
-	nextBlock = new NextBlock(0);
-    nextType = "";
-    p = new Display(15,10);
-    scoreBoard = new Score();
-    grid = new Cell*[15];
-    for (int i = 0; i < 15; i++){
-        grid[i] = new Cell[10];
-        for (int j =0; j < 10;j++){
-            grid[i][j].setCoordinates(i, j);
-            grid[i][j].setLT("",-1);
-        }
-    }
-}
-
-=======
->>>>>>> FETCH_HEAD
 
 Board::Board(int Level){
     MaxDelete = INT_MAX;
