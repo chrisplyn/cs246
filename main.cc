@@ -13,7 +13,7 @@ int repeat(string& command){
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
-       // cout<<"here"<<endl;
+        // cout<<"here"<<endl;
         //cout<<command[0];
         numRepeat.push_back(command[0]);
         command = command.substr(1);
@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 {
 	string commandline;
 	string displayMode;
-	string filename = "/Users/wangxiangkang/Desktop/cs246/sequence.txt";
+	string filename = "/Users/xyuan/Desktop/extra feature/sequence.txt";
 	int seed = 0; //default seed to 0
 	int startLevel = 0; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -82,13 +82,9 @@ int main(int argc, const char * argv[])
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
     
-	string tmp;
-	Board board(startLevel);
+	Board board(startLevel,maxBlockAllowed);
 	ifstream f(filename.c_str());
-    
-	if (startLevel == 0){
-		board.setInputStream(f);
-	}
+	board.setInputStream(f);
     
 	board.makeBlock();
 	board.notifyDisplay();
@@ -101,16 +97,12 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
-<<<<<<< HEAD
-	            
-=======
-
->>>>>>> dcc2bfeb732153aa4c47876409fc27f11aae2168
+        
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
 			tn.remove(subCommand1);
-		}      
+		}
 		command = tn.find(command);
 		for (int i = 0; i < numRepeat; ++i) {
             
@@ -129,13 +121,28 @@ int main(int argc, const char * argv[])
 				board.levelUp();
 			} else if (command == "leveldown"){
 				board.levelDown();
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}
+                
 			} else if (command == "drop"){
-				board.dropCurBlock();
+                board.dropCurBlock();
 				int rows = board.deleteRows();
+				board.notifyScore(rows);
+                if (board.isGameOver()){
+                    cout  << "You lose!" << endl;
+                    return 0;
+                }
+                board.updatecelltimes();
+                board.deleteextra();
+                rows = board.deleteRows();
 				board.notifyScore(rows);
 				board.makeBlock();
 			} else if (command == "restart"){
 				board.restart(startLevel);
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}
 				board.makeBlock();
 			} 
 			board.notifyDisplay();

@@ -18,10 +18,10 @@ OBlock::OBlock(Board& board, int level):Block(){
     cells[3] = &grid[3][1];
     
     //cells are set to corresponding type and level
-    cells[0]->setLT("O", level);
-    cells[1]->setLT("O", level);
-    cells[2]->setLT("O", level);
-    cells[3]->setLT("O", level);
+    cells[0]->setLT("O", level,1);
+    cells[1]->setLT("O", level,1);
+    cells[2]->setLT("O", level,1);
+    cells[3]->setLT("O", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -38,6 +38,7 @@ OBlock::OBlock(Board& board, int level):Block(){
     cells[3]->addToNeighbour(cells[0]);
     cells[3]->addToNeighbour(cells[1]);
     cells[3]->addToNeighbour(cells[2]);
+    
 }
 
 bool OBlock::canMoveLeft(Board *board){

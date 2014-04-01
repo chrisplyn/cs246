@@ -22,8 +22,8 @@ class Board{
 	Block * setCurrentBlock(std::string &);
 
    public:
-    Board();
-    Board(int Level);
+    //Board();
+    Board(int Level,int maxdelte);
     Cell ** getGrid();
     int getLevel();
     int getMaxDelete();
@@ -49,10 +49,15 @@ class Board{
     //new added
     void displayall();
     void restart(int d_level);
+    bool isGameOver();
     //void setLevel(int n_level);
 	void levelUp();
 	void levelDown();
     ~Board();
+    //extrafeature
+    void setMaxdelete(int maxdelte);
+    void updatecelltimes();
+    void deleteextra();
 };
 
 

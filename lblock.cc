@@ -1,4 +1,3 @@
-
 #include "lblock.h"
 
 //direction:
@@ -38,10 +37,10 @@ LBlock::LBlock(Board &board, int level):Block() {
     cells[2] = &grid[4][2];
     cells[3] = &grid[3][2];
     
-    cells[0]->setLT("L", level);
-    cells[1]->setLT("L", level);
-    cells[2]->setLT("L", level);
-    cells[3]->setLT("L", level);
+    cells[0]->setLT("L", level,1);
+    cells[1]->setLT("L", level,1);
+    cells[2]->setLT("L", level,1);
+    cells[3]->setLT("L", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -224,7 +223,7 @@ bool LBlock::canMoveRight(Board *board) {
         }
     }
     return true;
-
+    
 }
 
 bool LBlock::canMoveDown(Board *board) {
@@ -438,7 +437,7 @@ void LBlock::rotateClockwise(Board *board) {
         cells[1] = &grid[cells[1]->getX()-1][cells[1]->getY()-1];
         cells[2] = &grid[cells[2]->getX()][cells[2]->getY()-2];
         cells[3] = &grid[cells[3]->getX()+1][cells[3]->getY()-1];
-
+        
     } else if (direction()==1) {
         cells[0]->Swap(&grid[cells[0]->getX()+1][cells[0]->getY()+2]);
         cells[1]->Swap(&grid[cells[1]->getX()][cells[1]->getY()+1]);

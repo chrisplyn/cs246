@@ -16,10 +16,10 @@ IBlock::IBlock(Board& board, int level):Block(){
     cells[2] = &grid[3][2];
     cells[3] = &grid[3][3];
     
-    cells[0]->setLT("I", level);
-    cells[1]->setLT("I", level);
-    cells[2]->setLT("I", level);
-    cells[3]->setLT("I", level);
+    cells[0]->setLT("I", level,1);
+    cells[1]->setLT("I", level,1);
+    cells[2]->setLT("I", level,1);
+    cells[3]->setLT("I", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);

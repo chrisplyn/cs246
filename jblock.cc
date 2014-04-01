@@ -40,10 +40,10 @@ JBlock::JBlock(Board &board, int level):Block() {
     cells[2] = &grid[4][1];
     cells[3] = &grid[4][2];
     
-    cells[0]->setLT("J", level);
-    cells[1]->setLT("J", level);
-    cells[2]->setLT("J", level);
-    cells[3]->setLT("J", level);
+    cells[0]->setLT("J", level,1);
+    cells[1]->setLT("J", level,1);
+    cells[2]->setLT("J", level,1);
+    cells[3]->setLT("J", level,1);
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -403,11 +403,6 @@ void JBlock::moveRight(Board *board){
 void JBlock::moveDown(Board *board ) {
     if (!canMoveDown(board)) return;
     Cell **grid = board->getGrid();
-    
-        for (int i=0; i<4; ++i) {
-            cout<<cells[i]->getX()<<" "<<cells[i]->getY()<<endl;
-        }
-    
     if (direction()==2 || direction()==3) {
         for (int i =0; i<4; ++i) {
             int coorX = cells[i]->getX();
@@ -417,13 +412,10 @@ void JBlock::moveDown(Board *board ) {
         }
     } else {
         for (int i = 3; i>=0; --i) {
-            cout<<"here"<<endl;
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);
             cells[i] = &grid[coorX+1][coorY];
-            cout<<cells[i]->getX()<<" "<<cells[i]->getY()<<endl;
-
         }
     }
 }

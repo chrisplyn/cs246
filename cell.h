@@ -12,6 +12,7 @@ class Cell{
     Cell * Neighbour[NeighbourMax];
     int xCoordinate;
     int yCoordiante;
+    int existtime;
 public:
     Cell();
     Cell(std::string Type,int level);
@@ -23,7 +24,7 @@ public:
     void Swap(Cell *c);
     void reset();   
     Cell * getNeighbour(int index);
-    void setLT(std::string Type,int level);
+    void setLT(std::string Type,int level,int Existime);//change here
     void toggle(std::string Type);
     bool isOn();
     std::string getType();
@@ -34,6 +35,9 @@ public:
     int getX();
     int getY();
     ~Cell();
+    //add new
+    int getExistime();
+    void updatetimes();
 };
 
 

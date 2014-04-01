@@ -43,10 +43,11 @@ void Display::notify(int r, int c, string type){
 	}
 	else if (type == "J"){
 		theDisplay[r][c] = 'J';
-	}
-	else {
-		theDisplay[r][c] = ' ';
-	}
+	}   else if (type == ""){
+        theDisplay[r][c] = ' ';
+    }   else {
+        theDisplay[r][c] = 'X';
+    }
 }
 
 
