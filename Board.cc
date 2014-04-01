@@ -71,7 +71,6 @@ void Board::makeBlock(){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
-
                 if(currentBlock !=0 ) delete currentBlock;  //delete previous block
 				currentBlock = setCurrentBlock(nextType);
 			}
@@ -275,6 +274,7 @@ void Board::restart(int d_level){
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
+    currentBlock = 0;   //set currentBlock to null
 	level = d_level;
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
