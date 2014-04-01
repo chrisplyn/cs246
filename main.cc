@@ -4,7 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
-
+#include "trie.h"
 
 using namespace std;
 
@@ -63,6 +63,7 @@ int main(int argc, const char * argv[])
 		b.setInputStream(f);
 	}
 	b.makeBlock();
+<<<<<<< HEAD
 	b.dropCurBlock();
 	b.makeBlock();
 	b.dropCurBlock();
@@ -152,6 +153,82 @@ int main(int argc, const char * argv[])
  //   b.moveCurBlockRight();
  //   b.dropCurBlock();
  //   b.notifyDisplay();
+=======
+
+	//b.dropCurBlock();
+	b.rotateClockwise();
+	b.moveCurBlockRight();
+	b.moveCurBlockDown();
+    b.dropCurBlock();
+    //b.moveCurBlockLeft();
+	b.notifyDisplay();
+	//b.makeBlock();
+	//b.makeBlock();
+    
+    b.makeBlock();
+    b.moveCurBlockRight();
+    b.rotateAntiClockwise();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();b.moveCurBlockRight();b.moveCurBlockRight();
+    b.moveCurBlockRight();b.moveCurBlockRight();b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockLeft();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.moveCurBlockDown();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+    
+    b.makeBlock();
+    b.moveCurBlockRight();
+    b.moveCurBlockLeft();
+    b.moveCurBlockDown();
+    b.rotateClockwise();
+    b.rotateClockwise();
+    b.rotateClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.rotateAntiClockwise();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.moveCurBlockRight();
+    b.dropCurBlock();
+    b.notifyDisplay();
+>>>>>>> e4c5f8966d83b3c1dbe8109b2396cd2f0163512e
 
  //   b.makeBlock();
  //   b.moveCurBlockRight();
