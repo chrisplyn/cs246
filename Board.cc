@@ -25,7 +25,6 @@ Board::Board(int Level){
     level = Level;
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
-    nextType = "";
     p = new Display(15,10);
     scoreBoard = new Score;
     grid = new Cell*[15];
@@ -242,7 +241,6 @@ void Board::displayall(){
 
 void Board::restart(int d_level){
     for (int i = 0; i < 15; i++){
-        grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
             grid[i][j].setLT("",-1);
@@ -250,18 +248,32 @@ void Board::restart(int d_level){
     }
     this->notifyDisplay();
     delete nextBlock;
+	delete currentBlock;
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
     nextType = "";
 }
 
-void Board::setLevel(int n_level){
-    level = n_level;
-    delete nextBlock;
-    nextBlock = new NextBlock(n_level);
+//void Board::setLevel(int n_level){
+//    level = n_level;
+//    delete nextBlock;
+//    nextBlock = new NextBlock(n_level);
+//}
+
+void Board::levelUp(){
+	if (level <= 2){
+		level++;
+		delete nextBlock;
+		nextBlock = new NextBlock(level);
+	}
 }
 
-
-
+void Board::levelDown(){
+	if (level >= 1){
+		level--;
+		delete nextBlock;
+		nextBlock = new NextBlock(level);
+	}
+}
 
 

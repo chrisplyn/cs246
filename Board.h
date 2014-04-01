@@ -49,8 +49,10 @@ class Board{
     //new added
     void displayall();
     void restart(int d_level);
-    void setLevel(int n_level);
-    ~Board();//not
+    //void setLevel(int n_level);
+	void levelUp();
+	void levelDown();
+    ~Board();
 };
 
 
