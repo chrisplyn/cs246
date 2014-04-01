@@ -97,8 +97,7 @@ int main(int argc, const char * argv[])
     
 	while (cin >> command) {
 		numRepeat = repeat(command);
-	
-                 
+	            
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
