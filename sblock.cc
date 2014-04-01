@@ -52,10 +52,7 @@ SBlock::SBlock(Board &board, int level){
 }
 
 bool SBlock::canMoveLeft(Board *board){
-<<<<<<< HEAD
-=======
-    //std::cout<<"here"<<std::endl;
->>>>>>> FETCH_HEAD
+
     Cell **grid = board->getGrid();
     if (direction()==0) {
         //check0

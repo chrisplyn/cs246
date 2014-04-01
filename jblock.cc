@@ -406,12 +406,8 @@ void JBlock::moveRight(Board *board){
 void JBlock::moveDown(Board *board ) {
     if (!canMoveDown(board)) return;
     Cell **grid = board->getGrid();
-<<<<<<< HEAD
     if (direction()==2 || direction()==3) {
-=======
-    
-        if (direction()==2 || direction()==3) {
->>>>>>> FETCH_HEAD
+
         for (int i =0; i<4; ++i) {
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
@@ -420,10 +416,6 @@ void JBlock::moveDown(Board *board ) {
         }
     } else {
         for (int i = 3; i>=0; --i) {
-<<<<<<< HEAD
-=======
-           
->>>>>>> FETCH_HEAD
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX+1][coorY]);

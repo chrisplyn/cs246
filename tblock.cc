@@ -439,11 +439,9 @@ void TBlock::moveLeft(Board *board){
             cells[i] = &grid[coorX][coorY-1];
         }
     } else {
-<<<<<<< HEAD
+
         for (int i = 3; i>=0; --i) {
-=======
-            for (int i = 3; i>=0; --i) {
->>>>>>> FETCH_HEAD
+
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY-1]);
