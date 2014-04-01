@@ -3,14 +3,8 @@
 Score::Score(){
     curScore = 0;
     highScore = 0;
-    dp = NULL;
 }
 
-Score::Score(Display * display){
-    curScore = 0;
-    highScore = 0;
-    dp = display;
-}
 
 void Score::updateScoreBoard(int level){
     curScore = (level + 1) * (level + 1) + curScore;
@@ -26,9 +20,16 @@ void Score::updateScoreBoard(int level, int rowsDeleted){
     }
 }
 
-void Score::notifyDisplay(){
-    dp->updateLevel(curScore);
-    dp->updateHiScore(highScore);
+int Score::getCur(){
+    return curScore;
+}
+
+int Score::gethS(){
+    return highScore;
+}
+
+void Score::setback(){
+    curScore = 0;
 }
 
 Score::~Score(){}
