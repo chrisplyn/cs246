@@ -127,13 +127,10 @@ int main(int argc, const char * argv[])
 				int rows = board->deleteRows();
 				board->notifyScore(rows);
 
-<<<<<<< HEAD
-				if(board.isGameOver()) {
-					cout << "GAME OVER!" << endl;
-=======
+
 				if(board->isGameOver()) {
-					cout << "GAME OVER " << endl;
->>>>>>> 090608d24018331b66cf3074a4a24456809f4641
+					cout << "GAME OVER!" << endl;
+
 					return 0;
 				}
 				board->makeBlock();
