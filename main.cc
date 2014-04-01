@@ -4,7 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
-
+#include "trie.h"
 
 using namespace std;
 
