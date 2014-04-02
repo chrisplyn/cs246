@@ -19,6 +19,6 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    SBlock(Board& board, int level);
+    SBlock(Board& board, int level, int);
 };
 #endif

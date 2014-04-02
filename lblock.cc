@@ -29,7 +29,7 @@ int LBlock::direction() {
     }
 }
 
-LBlock::LBlock(Board &board, int level):Block() {
+LBlock::LBlock(Board &board, int level, int lucky):Block() {
     Cell **grid = board.getGrid();
     
     cells[0] = &grid[4][0];
@@ -37,10 +37,17 @@ LBlock::LBlock(Board &board, int level):Block() {
     cells[2] = &grid[4][2];
     cells[3] = &grid[3][2];
     
-    cells[0]->setLT("L", level,1);
-    cells[1]->setLT("L", level,1);
-    cells[2]->setLT("L", level,1);
-    cells[3]->setLT("L", level,1);
+     if(lucky == 1){
+        cells[0]->setLT("L", level,1);
+        cells[1]->setLT("L", level,1);
+        cells[2]->setLT("L", level,1);
+        cells[3]->setLT("L", level,1); 
+    }else{
+        cells[0]->setLT("L", level,INT_MIN);
+        cells[1]->setLT("L", level,INT_MIN);
+        cells[2]->setLT("L", level,INT_MIN);
+        cells[3]->setLT("L", level,INT_MIN);
+    }
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -318,6 +325,7 @@ bool LBlock::canRotateClockwise(Board *board) {
         if (grid[originX-2][originY].isOn()) return false;
         if (grid[originX-1][originY].isOn()) return false;
     } else if (direction()==1) {
+        if (originY==8) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
         if (grid[originX-1][originY+2].isOn()) return false;
     } else if (direction()==2) {
@@ -325,6 +333,7 @@ bool LBlock::canRotateClockwise(Board *board) {
         if (grid[originX-1][originY-1].isOn()) return false;
         if (grid[originX+1][originY-1].isOn()) return false;
     } else {
+        if (originY==9) return false;
         if (grid[originX][originY-1].isOn()) return false;
         if (grid[originX][originY+1].isOn()) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
@@ -342,12 +351,14 @@ bool LBlock::canRotateAnticlockwise(Board *board) {
         if (grid[originX-2][originY+1].isOn()) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
     } else if (direction()==1) {
+        if (originY==8) return false;
         if (grid[originX+2][originY+2].isOn()) return false;
         if (grid[originX+1][originY+2].isOn()) return false;
     } else if (direction()==2) {
         if (grid[originX-1][originY-2].isOn()) return false;
         if (grid[originX+1][originY-2].isOn()) return false;
     } else {
+        if (originY == 9) return false;
         if (grid[originX-1][originY+1].isOn()) return false;
         if (grid[originX-1][originY-1].isOn()) return false;
         if (grid[originX][originY-1].isOn()) return false;

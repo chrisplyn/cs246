@@ -11,6 +11,11 @@ Cell::Cell(){
     xCoordinate = -1;
     yCoordiante = -1;
     existtime = -1;
+    xGraphic = 0;
+    yGraphic = 0;
+    width = 0;
+    height = 0;
+    w = 0;
 }
 
 Cell::Cell(string Type,int level){
@@ -134,12 +139,46 @@ void Cell::setCoordinates(int x, int y){
     yCoordiante = y;
 }
 
+void Cell::setCoordinates(int x, int y, int xGraphic, int yGraphic, int width, int height, Xwindow *w) {
+    xCoordinate = x;
+    yCoordiante = y;
+    this->xGraphic = xGraphic;
+    this->yGraphic = yGraphic;
+    this->width = width;
+    this->height = height;
+    this->w = w;
+}
+
+void Cell::draw(){
+    if (type == "O"){
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Red);
+    } else if (type == "I") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Green);
+    } else if (type == "L") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Blue);
+    } else if (type == "J") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Cyan);
+    } else if (type == "S") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Yellow);
+    } else if (type == "Z") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Magenta);
+    } else if (type == "T") {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::Orange);
+    } else {
+        w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::White);
+    }
+}
+
+void Cell::undraw() {
+    w->fillRectangle(xGraphic, yGraphic, width, height, Xwindow::White);
+}
+
 void Cell::notifyScore(Score *score){
     //score->updateScoreBoard(Level);
 }
 
 
-void Cell::notifyDisplay(Display *dp){
+void Cell::notifyDisplay(textDisplay *dp){
     dp->notify(xCoordinate,yCoordiante,type);
     //dp->notify(xCoordinate,yCoordiante,Level);
 }

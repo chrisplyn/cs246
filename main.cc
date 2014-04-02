@@ -6,6 +6,7 @@
 #include <iostream>
 #include <climits>
 #include "trie.h"
+#include "window.h"
 
 using namespace std;
 
@@ -27,11 +28,11 @@ int repeat(string& command){
 
 int main(int argc, const char * argv[])
 {
+
 	string commandline;
 	string displayMode;
 
 	string filename = "sequence.txt";
-
 	int seed = 0; //default seed to 0
 	int startLevel = 2; //default startlevel 0
 	int maxBlockAllowed = INT_MAX;
@@ -79,14 +80,20 @@ int main(int argc, const char * argv[])
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
 
-    
-	Board board(startLevel,maxBlockAllowed);
+	srand(seed);
+	Xwindow *pXw=0;
+
+	if (displayMode != "text"){
+		pXw = new Xwindow(570, 580);
+		pXw->fillRectangle(20,10,300,4,Xwindow::Black);
+		pXw->fillRectangle(20,560,300,4,Xwindow::Black);
+		pXw->fillRectangle(16,10,4,554,Xwindow::Black);
+		pXw->fillRectangle(320,10,4,554,Xwindow::Black);
+	}
+
+	Board *board = Board::getInstance(startLevel,maxBlockAllowed,pXw);	
 	ifstream f(filename.c_str());
-	board.setInputStream(f);
-    
-	board.makeBlock();
-	board.notifyDisplay();
-	board.displayall();
+	board->initialization(f);	//initialize board
 
 	int numRepeat = 1;
 	string command;
@@ -96,7 +103,6 @@ int main(int argc, const char * argv[])
 	while (cin >> command) {
 
 		numRepeat = repeat(command);
-
 		if (command == "rename") {
 			cin >> subCommand1 >> subCommand2;
 			tn.insert(subCommand2, subCommand1);
@@ -104,47 +110,59 @@ int main(int argc, const char * argv[])
 		}
 		command = tn.find(command);
 		for (int i = 0; i < numRepeat; ++i) {
-
+			
+			if(f.eof()) {
+				cout<<"The input file has reached the end."<<endl;
+				cout<<"Please submit another file to restart the game."<<endl;
+				if (pXw!=0) delete pXw;
+				return 0;
+			}
 			if (command == "left"){
-				board.moveCurBlockLeft();
+				board->moveCurBlockLeft();
 			} else if (command == "right"){
-				board.moveCurBlockRight();
+				board->moveCurBlockRight();
 			} else if (command == "down"){
-				board.moveCurBlockDown();
+				board->moveCurBlockDown();
 			} else if (command == "clockwise"){
-				board.rotateClockwise();
+				board->rotateClockwise();
 			} else if (command == "anticlockwise"){
-				board.rotateAntiClockwise();
+				board->rotateAntiClockwise();
 			} else if (command == "levelup"){
-				board.levelUp();
+				board->levelUp();
 			} else if (command == "leveldown"){
-				board.levelDown();
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->levelDown();
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}          
 			} else if (command == "drop"){
-                board.dropCurBlock();
-				int rows = board.deleteRows();
-				board.notifyScore(rows);
-                if (board.isGameOver()){
+                board->dropCurBlock();
+				int rows = board->deleteRows();
+				board->notifyScore(rows);
+                if (board->isGameOver()){
 					cout  << "You lose!" << endl;
+					if (pXw != 0) delete pXw;
                     return 0;
                 }
-                board.updatecelltimes();
-                board.deleteextra();
-				rows = board.deleteRows();
-                board.notifyScore(rows);
-				board.makeBlock();
+                board->updatecelltimes();
+                board->deleteextra();
+				rows = board->deleteRows();
+                board->notifyScore(rows);
+				board->makeBlock();
 			} 
 			else if(command == "restart"){
-				board.restart(startLevel);
-				if (board.getLevel() == 0){
-					board.setInputStream(f);
+				board->restart(startLevel);
+				if (board->getLevel() == 0){
+					board->setInputStream(f);
 				}
-				board.makeBlock();
+				board->makeBlock();
+				board->notifyDisplay();
+				board->displayall();	
+				break;
 			} 
-			board.notifyDisplay();
-			board.displayall();	
+			board->notifyDisplay();
+			board->displayall();	
 		}
 	}
+
+	delete pXw;
 }

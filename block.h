@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <climits>
 #include "cell.h"
 #include "board.h"
 

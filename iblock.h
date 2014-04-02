@@ -20,7 +20,7 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    IBlock(Board& board, int level);
+    IBlock(Board& board, int level,int lucky);
     //~IBlock();
 
 };

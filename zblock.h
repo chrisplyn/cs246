@@ -19,7 +19,7 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    ZBlock(Board& board, int level);
+    ZBlock(Board& board, int level, int);
     
 };
 #endif

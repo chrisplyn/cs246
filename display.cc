@@ -3,7 +3,7 @@
 using namespace std;
 
 //ctor
-Display::Display(int row, int col):row(row), col(col){
+textDisplay::textDisplay(int row, int col):row(row), col(col){
 	theDisplay = new char*[row];
 
 	for(int i=0; i<row; ++i){
@@ -15,14 +15,14 @@ Display::Display(int row, int col):row(row), col(col){
 }
 
 //dtor
-Display::~Display(){
+textDisplay::~textDisplay(){
 	for(int i=0; i<row; ++i){
 		delete [] theDisplay[i];
 	}
 	delete [] theDisplay;
 }
 
-void Display::notify(int r, int c, string type){
+void textDisplay::notify(int r, int c, string type){
 	if (type == "O"){
 		theDisplay[r][c] = 'O';
 	}
@@ -51,29 +51,7 @@ void Display::notify(int r, int c, string type){
 }
 
 
-//void Display::updateLevel(int level){
-//    cout.fill(' ');
-//    cout.width(7);
-//	cout << "Level:";
-//    cout << right << level << endl;
-//}
-//
-//void Display::updateScore(int score){
-//    cout.fill(' ');
-//    cout.width(7);
-//	cout << "Score:";
-//    cout <<	right << score << endl;
-//}
-
-//void Display::updateHiScore(int Hiscore){
-//    cout.fill(' ');
-//    cout.width(4);
-//	cout << "Hi Score:";
-//    cout << right << Hiscore << endl;
-//}
-
-
-ostream &operator<<(ostream &out, const Display &td){
+ostream &operator<<(ostream &out, const textDisplay &td){
 	for(int i=0; i<td.row; ++i){
 		for(int j=0; j<td.col; ++j){
 			out << td.theDisplay[i][j];

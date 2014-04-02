@@ -21,7 +21,7 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    TBlock(Board& board, int level);
+    TBlock(Board& board, int level, int);
     //~TBlock();
     
 };

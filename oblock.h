@@ -21,7 +21,7 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    OBlock(Board& board, int level);
+    OBlock(Board& board, int level, int);
     
 };
 

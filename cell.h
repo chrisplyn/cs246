@@ -2,10 +2,11 @@
 #define __CELL_H__
 
 #include <string>
+#include "window.h"
 #define NeighbourMax 3
 
 class Score;
-class Display;
+class textDisplay;
 class Cell{
     int Level;
     std::string type;
@@ -13,6 +14,14 @@ class Cell{
     int xCoordinate;
     int yCoordiante;
     int existtime;
+
+    //for graphic presentation
+    Xwindow *w;
+    int xGraphic; //xcoordinate
+    int yGraphic; //ycoordinate
+    int width;
+    int height;
+
 public:
     Cell();
     Cell(std::string Type,int level);
@@ -29,9 +38,14 @@ public:
     bool isOn();
     std::string getType();
     int getLevel();
+
     void setCoordinates(int x, int y);
+    void setCoordinates(int x, int y, int xGraphic, int yGraphic, int width, int height, Xwindow *w);
+    void draw();
+    void undraw();
+
     void notifyScore(Score * score);
-    void notifyDisplay(Display * dp);
+    void notifyDisplay(textDisplay * dp);
     int getX();
     int getY();
     ~Cell();

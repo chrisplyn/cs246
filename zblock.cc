@@ -21,7 +21,7 @@ int ZBlock::direction(){
     }
 }
 
-ZBlock::ZBlock(Board &board, int level){
+ZBlock::ZBlock(Board &board, int level, int lucky){
     Cell **grid = board.getGrid();
     
     cells[0] = &grid[3][0];
@@ -29,10 +29,17 @@ ZBlock::ZBlock(Board &board, int level){
     cells[2] = &grid[4][1];
     cells[3] = &grid[4][2];
     
-    cells[0]->setLT("Z", level,1);
-    cells[1]->setLT("Z", level,1);
-    cells[2]->setLT("Z", level,1);
-    cells[3]->setLT("Z", level,1);
+     if(lucky == 1){
+        cells[0]->setLT("Z", level,1);
+        cells[1]->setLT("Z", level,1);
+        cells[2]->setLT("Z", level,1);
+        cells[3]->setLT("Z", level,1); 
+    }else{
+        cells[0]->setLT("Z", level,INT_MIN);
+        cells[1]->setLT("Z", level,INT_MIN);
+        cells[2]->setLT("Z", level,INT_MIN);
+        cells[3]->setLT("Z", level,INT_MIN);
+    }
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);

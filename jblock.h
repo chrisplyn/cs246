@@ -19,6 +19,6 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    JBlock(Board& board, int level);
+    JBlock(Board& board, int level, int);
 };
 #endif

@@ -36,7 +36,7 @@ void NextBlockImpl::setBlockDistribution(){
 			distribution[i] = (double)1 / 7;
 		}
 	}
-	else if (level == 3){
+	else if (level >= 3){
 		for (int i = 0; i < 7; ++i){
 			distribution[i] = (double)1 / 9;
 		}

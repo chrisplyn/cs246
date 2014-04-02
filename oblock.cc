@@ -2,7 +2,7 @@
 #include "cell.h"
 using namespace std;
 
-OBlock::OBlock(Board& board, int level):Block(){
+OBlock::OBlock(Board& board, int level, int lucky):Block(){
     
     Cell **grid = board.getGrid();
     
@@ -18,10 +18,17 @@ OBlock::OBlock(Board& board, int level):Block(){
     cells[3] = &grid[3][1];
     
     //cells are set to corresponding type and level
-    cells[0]->setLT("O", level,1);
-    cells[1]->setLT("O", level,1);
-    cells[2]->setLT("O", level,1);
-    cells[3]->setLT("O", level,1);
+     if(lucky == 1){
+        cells[0]->setLT("O", level,1);
+        cells[1]->setLT("O", level,1);
+        cells[2]->setLT("O", level,1);
+        cells[3]->setLT("O", level,1); 
+    }else{
+        cells[0]->setLT("O", level,INT_MIN);
+        cells[1]->setLT("O", level,INT_MIN);
+        cells[2]->setLT("O", level,INT_MIN);
+        cells[3]->setLT("O", level,INT_MIN);
+    }
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);

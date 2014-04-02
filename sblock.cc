@@ -21,7 +21,7 @@ int SBlock::direction(){
     }
 }
 
-SBlock::SBlock(Board &board, int level){
+SBlock::SBlock(Board &board, int level, int lucky){
     Cell **grid = board.getGrid();
     
     cells[0] = &grid[4][0];
@@ -29,10 +29,17 @@ SBlock::SBlock(Board &board, int level){
     cells[2] = &grid[3][1];
     cells[3] = &grid[3][2];
     
-    cells[0]->setLT("S", level,1);
-    cells[1]->setLT("S", level,1);
-    cells[2]->setLT("S", level,1);
-    cells[3]->setLT("S", level,1);
+     if(lucky == 1){
+        cells[0]->setLT("S", level,1);
+        cells[1]->setLT("S", level,1);
+        cells[2]->setLT("S", level,1);
+        cells[3]->setLT("S", level,1); 
+    }else{
+        cells[0]->setLT("S", level,INT_MIN);
+        cells[1]->setLT("S", level,INT_MIN);
+        cells[2]->setLT("S", level,INT_MIN);
+        cells[3]->setLT("S", level,INT_MIN);
+    }
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);

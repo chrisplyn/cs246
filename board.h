@@ -4,14 +4,17 @@
 
 
 #include <iostream>
+#include "window.h"
+
 class Cell;
 class Block;
-class Display;
+class textDisplay;
 class NextBlock;
 class Score;
 
 class Board{
-    Display *p;
+    Xwindow *w;
+    textDisplay *p;
     Cell ** grid;
     Block * currentBlock;
     Score * scoreBoard ;
@@ -19,25 +22,26 @@ class Board{
     NextBlock * nextBlock;
     int MaxDelete;
 	std::string nextType;
-	Block * setCurrentBlock(std::string &);
+	Block * setCurrentBlock(std::string &, int);
     void deleteRow(int numOfRow);
     bool isRowComplete(int numOfRow);
     int getMaxDelete();
-    //Board(int);
+    int isSpecial();
+
+    Board(int ,int , Xwindow *w);
     static Board * instance;
     static void cleanup();
 
 
    public:
-    Board(int Level,int maxdelte);
     Cell ** getGrid();
-    //void initialization(std::istream &);
+    void initialization(std::istream &);
     int getLevel();
     void notifyScore(int RowsDeleted);
     int deleteRows();
 	void setInputStream(std::istream &input);
 	void makeBlock();
-    static Board * getInstance(int); 
+    static Board * getInstance(int, int, Xwindow *); 
     bool isGameOver();  //return true if gameover, false otherwise
 	void moveCurBlockRight();
 	void moveCurBlockLeft();

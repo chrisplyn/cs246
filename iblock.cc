@@ -1,9 +1,8 @@
-
 #include "iblock.h"
 #include "cell.h"
 using namespace std;
 
-IBlock::IBlock(Board& board, int level):Block(){
+IBlock::IBlock(Board& board, int level,int lucky):Block(){
     
     Cell ** grid = board.getGrid();
     
@@ -16,11 +15,17 @@ IBlock::IBlock(Board& board, int level):Block(){
     cells[2] = &grid[3][2];
     cells[3] = &grid[3][3];
     
-    cells[0]->setLT("I", level,1);
-    cells[1]->setLT("I", level,1);
-    cells[2]->setLT("I", level,1);
-    cells[3]->setLT("I", level,1);
-    
+    if (lucky == 1){
+    	cells[0]->setLT("I", level,1);
+    	cells[1]->setLT("I", level,1);
+    	cells[2]->setLT("I", level,1);
+    	cells[3]->setLT("I", level,1);
+    }	else {
+		cells[0]->setLT("I", level,INT_MIN);
+    	cells[1]->setLT("I", level,INT_MIN);
+    	cells[2]->setLT("I", level,INT_MIN);
+    	cells[3]->setLT("I", level,INT_MIN);
+	}
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
     cells[0]->addToNeighbour(cells[3]);

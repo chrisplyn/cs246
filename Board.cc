@@ -18,23 +18,31 @@
 #include "lblock.h"
 #include "sblock.h"
 #include "jblock.h"
+#include <sstream>
 
 using namespace std;
 
+Board *Board::instance = 0;
 
-Board::Board(int level,int maxdelete){
+Board::Board(int level,int maxdelete, Xwindow *w){
+    this->w = w;
     MaxDelete = maxdelete;
     this->level = level;
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
-    p = new Display(18,10);
+    p = new textDisplay(18,10);
     scoreBoard = new Score;
     grid = new Cell*[18];
     for (int i = 0; i < 18; i++){
         grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
-            grid[i][j].setCoordinates(i, j);
+            
             grid[i][j].setLT("",-1,-1);
+            if (w==0) {
+                grid[i][j].setCoordinates(i, j);
+            } else {
+                grid[i][j].setCoordinates(i, j, j*30+20, i*30+20, 30, 30, w);
+            }
         }
     }
 }
@@ -44,34 +52,49 @@ void Board::setInputStream(istream &input){
 }
 
 
-// Board *Board::getInstance(int level){
-//     if (!instance){
-//         instance = new Board(level);
-//         atexit(cleanup);
-//     }
-//     return instance;
-// }
+Board *Board::getInstance(int level, int maxdelete, Xwindow *w){
+    if (!instance){
+        instance = new Board(level, maxdelete, w);
+        atexit(cleanup);
+    }
+    return instance;
+}
 
-// void Board::initialization(std::istream &input){
-//     nextBlock->setInputStream(input);
-//     this->makeBlock();
-//     this->notifyDisplay();
-//     this->displayall();
-// }
+void Board::initialization(std::istream &input){
+    nextBlock->setInputStream(input);
+    this->makeBlock();
+    this->notifyDisplay();
+    this->displayall();
+}
 
 
-// void Board::cleanup(){
-//     delete instance;
-// }
+void Board::cleanup(){
+    delete instance;
+}
+
+int Board::isSpecial(){
+    if(level == 4){
+        double index = rand() / double(RAND_MAX);
+        if(index > 0.8) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+}
+
 
 
 void Board::makeBlock(){
-	if (level == 0){
+    int lucky = isSpecial();
+    if (level == 0){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
                 if(currentBlock !=0 ) delete currentBlock;  //delete previous block
-				currentBlock = setCurrentBlock(nextType);
+				currentBlock = setCurrentBlock(nextType,lucky);
 			}
 			else{return;}
 
@@ -82,7 +105,7 @@ void Board::makeBlock(){
 		}
 		else{
             if(currentBlock !=0 ) delete currentBlock;
-			currentBlock = setCurrentBlock(nextType);	
+			currentBlock = setCurrentBlock(nextType,lucky);	
 			nextType = nextBlock->getNonRandomType();		
 			if (nextType == ""){
 				return; //restart
@@ -94,12 +117,12 @@ void Board::makeBlock(){
 			nextType = nextBlock->getRandomType();
 
             if(currentBlock !=0 ) delete currentBlock;
-			currentBlock = setCurrentBlock(nextType);
+			currentBlock = setCurrentBlock(nextType,lucky);
 			nextType = nextBlock->getRandomType();
 		}
 		else{
             if(currentBlock !=0 ) delete currentBlock;
-			currentBlock = setCurrentBlock(nextType);
+			currentBlock = setCurrentBlock(nextType,lucky);
 			nextType = nextBlock->getRandomType();
 		}
 	}
@@ -107,22 +130,22 @@ void Board::makeBlock(){
 }
 
 
-Block * Board::setCurrentBlock(string &type){
+Block * Board::setCurrentBlock(string &type,int special){
 	Block *tmp;
 	if (type == "O"){
-		tmp = new OBlock(*this, level);
+		tmp = new OBlock(*this, level,special);
 	} else if (type == "I"){
-		tmp = new IBlock(*this, level);
+		tmp = new IBlock(*this, level,special);
 	} else if (type == "T"){
-		tmp = new TBlock(*this, level);
+		tmp = new TBlock(*this, level,special);
 	} else if (type == "S"){
-		tmp = new SBlock(*this, level);
+		tmp = new SBlock(*this, level,special);
 	} else if (type == "Z"){
-		tmp = new ZBlock(*this, level);
+		tmp = new ZBlock(*this, level,special);
 	} else if (type == "J"){
-        tmp = new JBlock(*this, level);
+        tmp = new JBlock(*this, level,special);
     } else if (type == "L"){
-        tmp = new LBlock(*this, level);
+        tmp = new LBlock(*this, level,special);
 	} else{
 		return 0;
 	}
@@ -208,6 +231,9 @@ void Board::notifyDisplay(){
     for (int i = 0; i < 18; ++i){
         for (int j = 0; j < 10;++j){
             p->notify(i, j, grid[i][j].getType());
+            if (w!=0) {
+                grid[i][j].draw();
+            }
         }
     }
 }
@@ -263,6 +289,47 @@ void Board::displayall(){
     } else if (nextType == "T") {
         cout << "TTT" << endl << " T " << endl;
     }
+    if (w!=0) {
+
+
+        stringstream s1;
+        stringstream s2;
+        stringstream s3;
+        w->fillRectangle(340, 40, 120, 100, Xwindow::White);
+        w->drawString(340, 50, "Level:", Xwindow::Black);
+        s1<<level;
+        w->drawString(450, 50, s1.str(), Xwindow::Black);
+        w->drawString(340, 70, "Score", Xwindow::Black);
+        s2<<scoreBoard->getCur();
+        w->drawString(450, 70, s2.str(), Xwindow::Black);
+        w->drawString(340, 90, "Hi Score", Xwindow::Black);
+        s3<<scoreBoard->gethS();
+        w->drawString(450, 90, s3.str(), Xwindow::Black);
+        w->drawString(340,190,"Next:", Xwindow::Black);
+
+        w->fillRectangle(340,200,120,100, Xwindow::White);
+
+    if (nextType == "O"){
+        w->fillRectangle(340,200,60,60, Xwindow::Red);
+    } else if (nextType == "I") {
+        w->fillRectangle(340,200,120,30, Xwindow::Green);
+    } else if (nextType == "L") {
+        w->fillRectangle(400,200,30,30, Xwindow::Blue);
+        w->fillRectangle(340,230,90,30, Xwindow::Blue);
+    } else if (nextType == "J") {
+        w->fillRectangle(340,200,30,30, Xwindow::Cyan);
+        w->fillRectangle(340,230,90,30, Xwindow::Cyan);
+    } else if (nextType == "S") {
+        w->fillRectangle(370,200,60,30, Xwindow::Yellow);
+        w->fillRectangle(340,230,60,30, Xwindow::Yellow);
+    } else if (nextType == "Z") {
+        w->fillRectangle(340,200,60,30, Xwindow::Magenta);
+        w->fillRectangle(370,230,60,30, Xwindow::Magenta);
+    } else if (nextType == "T") {
+        w->fillRectangle(340,200,90,30, Xwindow::Orange);
+        w->fillRectangle(370,230,30,30, Xwindow::Orange);
+    } 
+    }
 }
 
 void Board::restart(int d_level){
@@ -284,7 +351,7 @@ void Board::restart(int d_level){
 
 
 void Board::levelUp(){
-	if (level <= 2){
+	if (level <= 3){
 		level++;
 		delete nextBlock;
 		nextBlock = new NextBlock(level);
@@ -332,11 +399,8 @@ void Board::deleteextra(){
 
 
 
-
 bool Board::isGameOver(){
     
-    if(nextBlock->noRandomType()) return true;
-
     for (int i=0; i<3; ++i) {
         for (int j=0; j<10; ++j) {
             if (grid[i][j].isOn()) {

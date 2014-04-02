@@ -34,7 +34,7 @@ int TBlock::direction(){
     }
 }
 
-TBlock::TBlock(Board &board, int level):Block(){
+TBlock::TBlock(Board &board, int level, int lucky):Block(){
     
     Cell ** grid = board.getGrid();
     
@@ -43,10 +43,17 @@ TBlock::TBlock(Board &board, int level):Block(){
     cells[2] = &grid[3][0];
     cells[3] = &grid[4][1];
     
-    cells[0]->setLT("T", level,1);
-    cells[1]->setLT("T", level,1);
-    cells[2]->setLT("T", level,1);
-    cells[3]->setLT("T", level,1);
+     if(lucky == 1){
+        cells[0]->setLT("T", level,1);
+        cells[1]->setLT("T", level,1);
+        cells[2]->setLT("T", level,1);
+        cells[3]->setLT("T", level,1); 
+    }else{
+        cells[0]->setLT("T", level,INT_MIN);
+        cells[1]->setLT("T", level,INT_MIN);
+        cells[2]->setLT("T", level,INT_MIN);
+        cells[3]->setLT("T", level,INT_MIN);
+    }
     
     cells[0]->addToNeighbour(cells[1]);
     cells[0]->addToNeighbour(cells[2]);
@@ -210,7 +217,7 @@ bool TBlock::canMoveLeft(Board *board){
             
             return false; //the left cell is pre-occupied
         }
-        cout<<"hello"<<endl;
+        //cout<<"hello"<<endl;
         return true;
     } else {
         //check 3
@@ -388,15 +395,20 @@ bool TBlock::canMoveDown(Board *board) {
 bool TBlock::canRotateClockwise(Board *board) {
     Cell **grid = board->getGrid();
     int originX = cells[0]->getX();
-    int originY = cells[1]->getY();
+    int originY = cells[0]->getY();
     
     if (direction()==0) {
+        std::cout<<grid[originX-1][originY].getType()<<std::endl;
+
         if (grid[originX-1][originY].isOn()) return false;
+        std::cout<<"here1"<<std::endl;
         if (grid[originX-2][originY].isOn()) return false;
+        std::cout<<"here2"<<std::endl;
     } else if (direction()==1) {
         if (grid[originX+1][originY+2].isOn()) return false;
         if (grid[originX+2][originY+1].isOn()) return false;
     } else if (direction()==2) {
+
         if (grid[originX-1][originY-1].isOn()) return false;
     } else {
         if (grid[originX][originY+1].isOn()) return false;
@@ -408,7 +420,7 @@ bool TBlock::canRotateClockwise(Board *board) {
 bool TBlock::canRotateAnticlockwise(Board *board) {
     Cell **grid = board->getGrid();
     int originX = cells[0]->getX();
-    int originY = cells[1]->getY();
+    int originY = cells[0]->getY();
     
     if (direction()==0) {
         if (grid[originX-1][originY].isOn()) return false;

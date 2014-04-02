@@ -20,6 +20,6 @@ public:
     void moveDown(Board *board);
     void drop(Board *board);
     
-    LBlock(Board& board, int level);
+    LBlock(Board& board, int level, int );
 };
 #endif
