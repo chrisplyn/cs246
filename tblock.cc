@@ -440,14 +440,18 @@ void TBlock::moveLeft(Board *board){
         }
     } else {
 
+<<<<<<< HEAD
         for (int i = 3; i>=0; --i) {
 
+=======
+            for (int i = 3; i>=0; --i) {
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
             int coorX = cells[i]->getX();
             int coorY = cells[i]->getY();
             cells[i]->Swap(&grid[coorX][coorY-1]);
             cells[i] = &grid[coorX][coorY-1];
         }
-    }
+    }   
 }
 
 void TBlock::moveRight(Board *board) {

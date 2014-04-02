@@ -1,10 +1,15 @@
 #include "board.h"
 #include <string>
 #include <climits>
+<<<<<<< HEAD
 
 #include <iomanip>
 #include <cstdlib>
 
+=======
+#include <iomanip>
+#include <cstdlib>
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 #include <iostream>
 #include "score.h"
 #include "cell.h"
@@ -23,6 +28,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 
 
 Board *Board::instance = 0;
@@ -30,6 +36,13 @@ Board *Board::instance = 0;
 Board::Board(int Level,int maxdelete){
     MaxDelete = maxdelete;
     level = Level;
+=======
+
+Board::Board(int level,int maxdelete){
+    MaxDelete = maxdelete;
+    this->level = level;
+
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
     p = new Display(15,10);
@@ -49,6 +62,7 @@ void Board::setInputStream(istream &input){
 }
 
 
+<<<<<<< HEAD
 Board *Board::getInstance(int level, int maxBlock){
     if (!instance){
         instance = new Board(level, maxBlock);
@@ -56,18 +70,27 @@ Board *Board::getInstance(int level, int maxBlock){
     }
     return instance;
 }
+=======
+// Board *Board::getInstance(int level){
+//     if (!instance){
+//         instance = new Board(level);
+//         atexit(cleanup);
+//     }
+//     return instance;
+// }
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 
-void Board::initialization(std::istream &input){
-    nextBlock->setInputStream(input);
-    this->makeBlock();
-    this->notifyDisplay();
-    this->displayall();
-}
+// void Board::initialization(std::istream &input){
+//     nextBlock->setInputStream(input);
+//     this->makeBlock();
+//     this->notifyDisplay();
+//     this->displayall();
+// }
 
 
-void Board::cleanup(){
-    delete instance;
-}
+// void Board::cleanup(){
+//     delete instance;
+// }
 
 
 void Board::makeBlock(){
@@ -75,7 +98,6 @@ void Board::makeBlock(){
 		if (nextType == ""){
 			if (!nextBlock->noRandomType()){
 				nextType = nextBlock->getNonRandomType();
-
                 if(currentBlock !=0 ) delete currentBlock;  //delete previous block
 				currentBlock = setCurrentBlock(nextType);
 			}
@@ -279,6 +301,10 @@ void Board::restart(int d_level){
     this->notifyDisplay();
     delete nextBlock;
 	delete currentBlock;
+<<<<<<< HEAD
+=======
+    currentBlock = 0;   //set currentBlock to null
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
     level = d_level;
     nextBlock = new NextBlock(d_level);
     scoreBoard->setback();
@@ -302,7 +328,48 @@ void Board::levelDown(){
 	}
 }
 
+
+//extra feature
+void Board::setMaxdelete(int maxdelte){
+    MaxDelete = maxdelte;
+}
+
+void Board::updatecelltimes(){
+    for (int i = 0;i < 15;i++){
+        for (int j = 0; j < 10; j++){
+            if (grid[i][j].isOn()){
+                grid[i][j].updatetimes();
+            }
+        }
+    }
+}
+
+void Board::deleteextra(){
+    for (int i = 0;i < 15;i++){
+        for (int j = 0; j < 10; j++){
+            if ((grid[i][j].isOn())&&(grid[i][j].getExistime()>= MaxDelete)){
+                grid[i][j].reset();
+                if (i != 0){
+                    for (int k = i-1; k>0;k--){
+                        grid[k][j].Swap(&grid[k+1][j]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+<<<<<<< HEAD
+
+
+=======
 bool Board::isGameOver(){
+    
+    if(nextBlock->noRandomType()) return true;
+
     for (int i=0; i<3; ++i) {
         for (int j=0; j<10; ++j) {
             if (grid[i][j].isOn()) {
@@ -341,40 +408,5 @@ bool Board::isGameOver(){
     }
     return false;
 }
-
-//extra feature
-void Board::setMaxdelete(int maxdelte){
-    MaxDelete = maxdelte;
-}
-
-void Board::updatecelltimes(){
-    for (int i = 0;i < 15;i++){
-        for (int j = 0; j < 10; j++){
-            if (grid[i][j].isOn()){
-                grid[i][j].updatetimes();
-            }
-        }
-    }
-}
-
-void Board::deleteextra(){
-    for (int i = 0;i < 15;i++){
-        for (int j = 0; j < 10; j++){
-            if ((grid[i][j].isOn())&&(grid[i][j].getExistime()>= MaxDelete)){
-                grid[i][j].reset();
-                if (i != 0){
-                    for (int k = i-1; k>0;k--){
-                        grid[k][j].Swap(&grid[k+1][j]);
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-
-
-
-
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 

@@ -23,16 +23,19 @@ class Board{
     void deleteRow(int numOfRow);
     bool isRowComplete(int numOfRow);
     int getMaxDelete();
-    Board(int);
+    //Board(int);
     static Board * instance;
     static void cleanup();
 
 
    public:
+<<<<<<< HEAD
     //Board();
+=======
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
     Board(int Level,int maxdelte);
     Cell ** getGrid();
-    void initialization(std::istream &);
+    //void initialization(std::istream &);
     int getLevel();
     void notifyScore(int RowsDeleted);
     int deleteRows();
@@ -50,8 +53,12 @@ class Board{
     void notifyDisplay();
     void displayall();
     void restart(int d_level);
+<<<<<<< HEAD
     //void setLevel(int n_level);
     void levelUp();
+=======
+	void levelUp();
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 	void levelDown();
     ~Board();
     //extrafeature

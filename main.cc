@@ -13,7 +13,10 @@ int repeat(string& command){
     string numRepeat = "";
     int num;
     while ((char)command[0]>=48&&(char)command[0]<=57) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
         numRepeat.push_back(command[0]);
         command = command.substr(1);
     }
@@ -22,7 +25,6 @@ int repeat(string& command){
     ss>>num;
     return num;
 }
-
 
 
 
@@ -80,6 +82,7 @@ int main(int argc, const char * argv[])
 	tn.insert("levelup", "levelup");
 	tn.insert("leveldown", "leveldown");
 	tn.insert("restart", "restart");
+<<<<<<< HEAD
 
 	srand(seed);
 	ifstream f(filename.c_str());
@@ -87,6 +90,18 @@ int main(int argc, const char * argv[])
 	Board *board = Board::getInstance(startLevel,maxBlockAllowed);
 	board->initialization(f);
 
+=======
+
+    
+	Board board(startLevel,maxBlockAllowed);
+	ifstream f(filename.c_str());
+	board.setInputStream(f);
+    
+	board.makeBlock();
+	board.notifyDisplay();
+	board.displayall();
+
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 	int numRepeat = 1;
 	string command;
 	string subCommand1;
@@ -105,19 +120,19 @@ int main(int argc, const char * argv[])
 		for (int i = 0; i < numRepeat; ++i) {
 
 			if (command == "left"){
-				board->moveCurBlockLeft();
+				board.moveCurBlockLeft();
 			} else if (command == "right"){
-				cout << command << endl;
-				board->moveCurBlockRight();
+				board.moveCurBlockRight();
 			} else if (command == "down"){
-				board->moveCurBlockDown();
+				board.moveCurBlockDown();
 			} else if (command == "clockwise"){
-				board->rotateClockwise();
+				board.rotateClockwise();
 			} else if (command == "anticlockwise"){
-				board->rotateAntiClockwise();
+				board.rotateAntiClockwise();
 			} else if (command == "levelup"){
-				board->levelUp();
+				board.levelUp();
 			} else if (command == "leveldown"){
+<<<<<<< HEAD
 
 				board->levelDown();
 				if (board->getLevel() == 0){
@@ -147,6 +162,35 @@ int main(int argc, const char * argv[])
 			board->notifyDisplay();
 			board->displayall();	
 
+=======
+				board.levelDown();
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}          
+			} else if (command == "drop"){
+                board.dropCurBlock();
+				int rows = board.deleteRows();
+				board.notifyScore(rows);
+                if (board.isGameOver()){
+					cout  << "You lose!" << endl;
+                    return 0;
+                }
+                board.updatecelltimes();
+                board.deleteextra();
+                rows = board.deleteRows();
+				board.notifyScore(rows);
+				board.makeBlock();
+			} 
+			else if(command == "restart"){
+				board.restart(startLevel);
+				if (board.getLevel() == 0){
+					board.setInputStream(f);
+				}
+				board.makeBlock();
+			} 
+			board.notifyDisplay();
+			board.displayall();	
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
 		}
 	}
 }

@@ -406,6 +406,10 @@ void JBlock::moveRight(Board *board){
 void JBlock::moveDown(Board *board ) {
     if (!canMoveDown(board)) return;
     Cell **grid = board->getGrid();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 28c8c1e1484378662ee6bd2acc0ba89b3f7db55f
     if (direction()==2 || direction()==3) {
 
         for (int i =0; i<4; ++i) {
