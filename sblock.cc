@@ -148,7 +148,7 @@ bool SBlock::canMoveDown(Board *board) {
         //check 0
         int xcoordinate = cells[0]->getX();
         int ycoordinate = cells[0]->getY();
-        if (xcoordinate==14) {
+        if (xcoordinate==17) {
             return false; // bottom edge
         }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {
@@ -170,7 +170,7 @@ bool SBlock::canMoveDown(Board *board) {
         //check 3
         int xcoordinate = cells[3]->getX();
         int ycoordinate = cells[3]->getY();
-        if (xcoordinate==14) {
+        if (xcoordinate==17) {
             return false; // bottom edge
         }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {

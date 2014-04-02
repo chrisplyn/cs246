@@ -147,7 +147,7 @@ bool ZBlock::canMoveDown(Board *board) {
         //check 2
         int xcoordinate = cells[2]->getX();
         int ycoordinate = cells[2]->getY();
-        if (xcoordinate==14) {
+        if (xcoordinate==17) {
             return false; // bottom edge
         }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {
@@ -169,7 +169,7 @@ bool ZBlock::canMoveDown(Board *board) {
         //check 3
         int xcoordinate = cells[3]->getX();
         int ycoordinate = cells[3]->getY();
-        if (xcoordinate==14) {
+        if (xcoordinate==17) {
             return false; // bottom edge
         }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {

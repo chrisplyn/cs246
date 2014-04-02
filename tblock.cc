@@ -319,7 +319,7 @@ bool TBlock::canMoveDown(Board *board) {
         //check 0
         int xcoordinate = cells[0]->getX();
         int ycoordinate = cells[0]->getY();
-        if (xcoordinate==14) { //at the lower edge
+        if (xcoordinate==17) { //at the lower edge
             return false;
         }
         if (grid[xcoordinate+1][ycoordinate].isOn()) {
@@ -335,7 +335,7 @@ bool TBlock::canMoveDown(Board *board) {
         for (int i=0; i<3; ++i) {
             int xcoordinate = cells[0]->getX();
             int ycoordinate = cells[0]->getY();
-            if (xcoordinate==14) { //at the lower edge
+            if (xcoordinate==17) { //at the lower edge
                 return false;
             }
             if (grid[xcoordinate+1][ycoordinate].isOn()) {
