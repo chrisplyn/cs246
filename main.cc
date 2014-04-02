@@ -132,8 +132,8 @@ int main(int argc, const char * argv[])
                 }
                 board.updatecelltimes();
                 board.deleteextra();
-                rows = board.deleteRows();
-				board.notifyScore(rows);
+				rows = board.deleteRows();
+                board.notifyScore(rows);
 				board.makeBlock();
 			} 
 			else if(command == "restart"){

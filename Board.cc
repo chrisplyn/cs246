@@ -25,13 +25,12 @@ using namespace std;
 Board::Board(int level,int maxdelete){
     MaxDelete = maxdelete;
     this->level = level;
-
     currentBlock = NULL;
     nextBlock = new NextBlock(level);
-    p = new Display(15,10);
+    p = new Display(18,10);
     scoreBoard = new Score;
-    grid = new Cell*[15];
-    for (int i = 0; i < 15; i++){
+    grid = new Cell*[18];
+    for (int i = 0; i < 18; i++){
         grid[i] = new Cell[10];
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
@@ -168,7 +167,9 @@ int Board::getMaxDelete(){
 }
 
 void Board::notifyScore( int RowsDeleted){
-    scoreBoard->updateScoreBoard(level,RowsDeleted);
+    if (RowsDeleted != 0){
+        scoreBoard->updateScoreBoard(level,RowsDeleted);
+    }
 }
 
 void Board::deleteRow(int numOfRow){
@@ -204,7 +205,7 @@ bool Board::isRowComplete(int numOfRow){
 
 
 void Board::notifyDisplay(){
-    for (int i = 0; i < 15; ++i){
+    for (int i = 0; i < 18; ++i){
         for (int j = 0; j < 10;++j){
             p->notify(i, j, grid[i][j].getType());
         }
@@ -213,7 +214,7 @@ void Board::notifyDisplay(){
 
 int Board::deleteRows(){
     int answer = 0;
-    for (int i = 0;i < 15;++i){
+    for (int i = 0;i < 18;++i){
         if (isRowComplete(i) == true){
             deleteRow(i);
             answer = answer + 1;
@@ -225,7 +226,7 @@ int Board::deleteRows(){
 Board::~Board(){
     delete scoreBoard;
     delete p;
-    for (int i = 0;i<15;++i){
+    for (int i = 0;i<18;++i){
         delete [] grid[i];
     }
     delete [] grid;	
@@ -265,7 +266,7 @@ void Board::displayall(){
 }
 
 void Board::restart(int d_level){
-    for (int i = 0; i < 15; i++){
+    for (int i = 0; i < 18; i++){
         for (int j =0; j < 10;j++){
             grid[i][j].setCoordinates(i, j);
             grid[i][j].setLT("",-1,-1);
@@ -305,7 +306,7 @@ void Board::setMaxdelete(int maxdelte){
 }
 
 void Board::updatecelltimes(){
-    for (int i = 0;i < 15;i++){
+    for (int i = 0;i < 18;i++){
         for (int j = 0; j < 10; j++){
             if (grid[i][j].isOn()){
                 grid[i][j].updatetimes();
@@ -315,7 +316,7 @@ void Board::updatecelltimes(){
 }
 
 void Board::deleteextra(){
-    for (int i = 0;i < 15;i++){
+    for (int i = 0;i < 18;i++){
         for (int j = 0; j < 10; j++){
             if ((grid[i][j].isOn())&&(grid[i][j].getExistime()>= MaxDelete)){
                 grid[i][j].reset();
